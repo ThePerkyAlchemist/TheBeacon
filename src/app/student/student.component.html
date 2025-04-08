@@ -1,0 +1,32 @@
+<p>student works!</p>
+@if (student != null){
+    @if (mode ==0){
+    <div>
+        <b>id:</b><span>{{student.id}}</span>
+        </div>
+        <div>
+        <b>First name:</b><span>{{student.firstName}}</span>
+        </div>
+        <div>
+        <b>Last name:</b><span>{{student.lastName}}</span>
+    </div>
+    } @else {
+    <table>
+        <tr>
+        <td>Id</td>
+        <td>{{student.id}}</td>
+        </tr>
+        <tr>
+        <td>First name</td>
+        <td>{{student.firstName}}</td>
+        </tr>
+        <tr>
+        <td>Last name</td>
+        <td>{{student.lastName}}</td>
+        </tr>
+    
+        </table>
+}
+
+
+}
