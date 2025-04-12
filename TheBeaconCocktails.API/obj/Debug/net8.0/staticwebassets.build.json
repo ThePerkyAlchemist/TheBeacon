@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "fo8rHVKocLGJ4o+43gr/tGsYg3CoMhR9jwn+v3Wf43w=",
+  "Source": "TheBeaconCocktails.API",
+  "BasePath": "_content/TheBeaconCocktails.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

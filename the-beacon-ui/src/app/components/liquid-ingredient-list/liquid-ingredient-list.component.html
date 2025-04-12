@@ -1,0 +1,82 @@
+<img src="assets/theBeaconLogo4K.png" alt="The Beacon Logo" style="height: 60px;" />
+
+<h2>Liquid Ingredients</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Subcategory</th>
+      <th>Volume</th>
+      <th>Units</th>
+      <th>Status</th>
+      <th>Barcode</th>
+      <th>Expiry</th>
+      <th>Actions</th> <!-- Added actions column for buttons -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ingredient of ingredients">
+      <td>{{ ingredient.name }}</td>
+      <td>{{ ingredient.category }}</td>
+      <td>{{ ingredient.subcategory }}</td>
+      <td>{{ ingredient.volumePerUnit }}</td>
+      <td>{{ ingredient.numberOfUnits }}</td>
+      <td>{{ ingredient.status }}</td>
+      <td>{{ ingredient.barcodeString }}</td>
+      <td>{{ ingredient.dateOfExpiry | date }}</td>
+      <td>
+        <!-- Action buttons -->
+        <button (click)="editIngredient(ingredient)">Edit</button>
+        <button *ngIf="ingredient.id !== undefined" (click)="deleteIngredient(ingredient.id!)">Delete</button>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="editingIngredient" style="margin-top: 1rem; padding: 1rem; border: 1px solid #ccc;">
+    <h3>Edit Ingredient</h3>
+  
+    <label>Name:
+      <input [(ngModel)]="editingIngredient.name" />
+    </label><br />
+  
+    <label>Category:
+      <input [(ngModel)]="editingIngredient.category" />
+    </label><br />
+  
+    <label>Subcategory:
+      <input [(ngModel)]="editingIngredient.subcategory" />
+    </label><br />
+  
+    <label>Volume Per Unit:
+      <input type="number" [(ngModel)]="editingIngredient.volumePerUnit" />
+    </label><br />
+  
+    <label>Number Of Units:
+      <input type="number" [(ngModel)]="editingIngredient.numberOfUnits" />
+    </label><br />
+  
+    <label>Status:
+      <input [(ngModel)]="editingIngredient.status" />
+    </label><br />
+  
+    <label>Barcode:
+      <input [(ngModel)]="editingIngredient.barcodeString" />
+    </label><br />
+  
+    <label>Expiry Date:
+      <input type="date" [(ngModel)]="editingIngredient.dateOfExpiry" />
+    </label><br /><br />
+  
+    <button (click)="saveEdit()">Save Changes</button>
+    <button (click)="cancelEdit()">Cancel</button>
+  </div>
+
+
+
+
+
+<!-- Button to Add a new ingredient -->
+<button (click)="addIngredient()">Add New Ingredient</button>
