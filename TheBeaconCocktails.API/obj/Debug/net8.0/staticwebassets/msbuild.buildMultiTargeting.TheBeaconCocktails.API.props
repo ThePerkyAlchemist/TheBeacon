@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\TheBeaconCocktails.API.props" />
+</Project>
