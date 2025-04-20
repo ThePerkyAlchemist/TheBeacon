@@ -1,1 +1,8 @@
-<router-outlet></router-outlet>
+<div style="margin-bottom: 16px;">
+    <button (click)="activeTab = 'recipes'">Recipes</button>
+    <button (click)="activeTab = 'ingredients'">Liquid Ingredients</button>
+  </div>
+  
+  <app-display-recipe *ngIf="activeTab === 'recipes'"></app-display-recipe>
+  <app-liquid-ingredient-list *ngIf="activeTab === 'ingredients'"></app-liquid-ingredient-list>
+  

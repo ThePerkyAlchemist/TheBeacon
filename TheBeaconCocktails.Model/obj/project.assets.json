@@ -330,11 +330,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mikke\\OneDrive\\Dokumenter\\CBS\\2. semester\\Applied Programming\\Projects\\TheBeaconCocktails\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj",
+      "projectUniqueName": "C:\\Users\\mikke\\OneDrive\\Dokumenter\\CBS\\2. semester\\Applied Programming\\Projects\\TheBeacon\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj",
       "projectName": "TheBeaconCocktails.Model",
-      "projectPath": "C:\\Users\\mikke\\OneDrive\\Dokumenter\\CBS\\2. semester\\Applied Programming\\Projects\\TheBeaconCocktails\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj",
+      "projectPath": "C:\\Users\\mikke\\OneDrive\\Dokumenter\\CBS\\2. semester\\Applied Programming\\Projects\\TheBeacon\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj",
       "packagesPath": "C:\\Users\\mikke\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mikke\\OneDrive\\Dokumenter\\CBS\\2. semester\\Applied Programming\\Projects\\TheBeaconCocktails\\TheBeaconCocktails.Model\\obj\\",
+      "outputPath": "C:\\Users\\mikke\\OneDrive\\Dokumenter\\CBS\\2. semester\\Applied Programming\\Projects\\TheBeacon\\TheBeaconCocktails.Model\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mikke\\AppData\\Roaming\\NuGet\\NuGet.Config"

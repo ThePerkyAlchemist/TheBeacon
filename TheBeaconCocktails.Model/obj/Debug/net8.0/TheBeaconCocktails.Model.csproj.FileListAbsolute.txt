@@ -10,3 +10,16 @@ C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\
 C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.Model\obj\Debug\net8.0\refint\TheBeaconCocktails.Model.dll
 C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.Model\obj\Debug\net8.0\TheBeaconCocktails.Model.pdb
 C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.Model\obj\Debug\net8.0\ref\TheBeaconCocktails.Model.dll
+C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.Model\bin\Debug\net8.0\TheBeaconCocktails.Model.deps.json
+C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.Model\bin\Debug\net8.0\TheBeaconCocktails.Model.dll
+C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.Model\bin\Debug\net8.0\TheBeaconCocktails.Model.pdb
+C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\TheBeaconCocktails.Model.csproj.AssemblyReference.cache
+C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\TheBeaconCocktails.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\TheBeaconCocktails.Model.AssemblyInfoInputs.cache
+C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\TheBeaconCocktails.Model.AssemblyInfo.cs
+C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\TheBeaconCocktails.Model.csproj.CoreCompileInputs.cache
+C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\TheBeaconCocktails.Model.sourcelink.json
+C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\TheBeaconCocktails.Model.dll
+C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\refint\TheBeaconCocktails.Model.dll
+C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\TheBeaconCocktails.Model.pdb
+C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\ref\TheBeaconCocktails.Model.dll
