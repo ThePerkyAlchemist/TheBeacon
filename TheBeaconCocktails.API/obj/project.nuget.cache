@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8DLeu/HmqhI=",
+  "dgSpecHash": "//B2dS+XbBs=",
   "success": true,
-  "projectFilePath": "C:\\Users\\mikke\\OneDrive\\Dokumenter\\CBS\\2. semester\\Applied Programming\\Projects\\TheBeaconCocktails\\TheBeaconCocktails.API\\TheBeaconCocktails.API.csproj",
+  "projectFilePath": "C:\\Users\\mikke\\OneDrive\\Dokumenter\\CBS\\2. semester\\Applied Programming\\Projects\\TheBeacon\\TheBeaconCocktails.API\\TheBeaconCocktails.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mikke\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\mikke\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.4\\microsoft.extensions.configuration.9.0.4.nupkg.sha512",

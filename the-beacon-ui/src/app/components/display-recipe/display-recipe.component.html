@@ -1,0 +1,24 @@
+<h2>Recipes</h2>
+
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Recipe</th>
+      <th>Ingredient</th>
+      <th>Volume (ml)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let recipe of groupedRecipes">
+      <tr>
+        <td [attr.rowspan]="recipe.ingredients.length">{{ recipe.name }}</td>
+        <td>{{ recipe.ingredients[0].liquidName }}</td>
+        <td>{{ recipe.ingredients[0].liquidIngredientVolumeMl }}</td>
+      </tr>
+      <tr *ngFor="let ingredient of recipe.ingredients.slice(1)">
+        <td>{{ ingredient.liquidName }}</td>
+        <td>{{ ingredient.liquidIngredientVolumeMl }}</td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

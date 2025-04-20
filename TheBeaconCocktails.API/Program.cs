@@ -18,6 +18,7 @@ builder.Services.AddCors(options =>
 
 // <--- Registrér LiquidIngredientRepository i DI-containeren
 builder.Services.AddScoped<LiquidIngredientRepository>();
+builder.Services.AddScoped<RecipeRepository>();
 
 var app = builder.Build();
 
@@ -30,7 +31,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// This line should be corrected:
 app.UseHttpsRedirection(); // <-- This is the correct line!
 
 app.UseAuthorization();

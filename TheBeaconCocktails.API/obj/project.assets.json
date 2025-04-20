@@ -762,11 +762,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mikke\\OneDrive\\Dokumenter\\CBS\\2. semester\\Applied Programming\\Projects\\TheBeaconCocktails\\TheBeaconCocktails.API\\TheBeaconCocktails.API.csproj",
+      "projectUniqueName": "C:\\Users\\mikke\\OneDrive\\Dokumenter\\CBS\\2. semester\\Applied Programming\\Projects\\TheBeacon\\TheBeaconCocktails.API\\TheBeaconCocktails.API.csproj",
       "projectName": "TheBeaconCocktails.API",
-      "projectPath": "C:\\Users\\mikke\\OneDrive\\Dokumenter\\CBS\\2. semester\\Applied Programming\\Projects\\TheBeaconCocktails\\TheBeaconCocktails.API\\TheBeaconCocktails.API.csproj",
+      "projectPath": "C:\\Users\\mikke\\OneDrive\\Dokumenter\\CBS\\2. semester\\Applied Programming\\Projects\\TheBeacon\\TheBeaconCocktails.API\\TheBeaconCocktails.API.csproj",
       "packagesPath": "C:\\Users\\mikke\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mikke\\OneDrive\\Dokumenter\\CBS\\2. semester\\Applied Programming\\Projects\\TheBeaconCocktails\\TheBeaconCocktails.API\\obj\\",
+      "outputPath": "C:\\Users\\mikke\\OneDrive\\Dokumenter\\CBS\\2. semester\\Applied Programming\\Projects\\TheBeacon\\TheBeaconCocktails.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mikke\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -781,8 +781,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\mikke\\OneDrive\\Dokumenter\\CBS\\2. semester\\Applied Programming\\Projects\\TheBeaconCocktails\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj": {
-              "projectPath": "C:\\Users\\mikke\\OneDrive\\Dokumenter\\CBS\\2. semester\\Applied Programming\\Projects\\TheBeaconCocktails\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj"
+            "C:\\Users\\mikke\\OneDrive\\Dokumenter\\CBS\\2. semester\\Applied Programming\\Projects\\TheBeacon\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj": {
+              "projectPath": "C:\\Users\\mikke\\OneDrive\\Dokumenter\\CBS\\2. semester\\Applied Programming\\Projects\\TheBeacon\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj"
             }
           }
         }

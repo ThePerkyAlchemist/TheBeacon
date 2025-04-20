@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { DisplayRecipeComponent } from './components/display-recipe/display-recipe.component';
+import { LiquidIngredientListComponent } from './components/liquid-ingredient-list/liquid-ingredient-list.component';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [CommonModule, DisplayRecipeComponent, LiquidIngredientListComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'the-beacon-ui';
+  activeTab: 'recipes' | 'ingredients' = 'recipes'; // 👈 aktiv fane
 }
