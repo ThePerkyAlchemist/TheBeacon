@@ -12,5 +12,5 @@ import { LiquidIngredientListComponent } from './components/liquid-ingredient-li
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  activeTab: 'recipes' | 'ingredients' = 'recipes'; // 👈 aktiv fane
+  activeTab: 'recipes' | 'ingredients' = 'recipes'; // this is the aktiv fane
 }

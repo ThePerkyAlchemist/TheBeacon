@@ -6,52 +6,51 @@ namespace TheBeaconCocktails.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class LiquidIngredientController : ControllerBase
+public class DrinkProfileController : ControllerBase
 {
-    private readonly LiquidIngredientRepository _repository;
+    private readonly DrinkProfileRepository _repository;
 
-    public LiquidIngredientController(LiquidIngredientRepository repository)
+    public DrinkProfileController(DrinkProfileRepository repository)
     {
         _repository = repository;
     }
 
-    //  Display all
+    // Display all
     [HttpGet]
-    public ActionResult<List<LiquidIngredient>> GetAll()
+    public ActionResult<List<DrinkProfile>> GetAll()
     {
         return Ok(_repository.GetAll());
     }
 
-    //  Display by id
+    // Display by id
     [HttpGet("{id}")]
-    public ActionResult<LiquidIngredient> GetById(int id)
+    public ActionResult<DrinkProfile> GetById(int id)
     {
         var item = _repository.GetById(id);
         if (item == null) return NotFound();
         return Ok(item);
     }
 
-    //  Add new
+    // Add new
     [HttpPost]
-    public ActionResult Add([FromBody] LiquidIngredient ingredient)
+    public ActionResult Add([FromBody] DrinkProfile profile)
     {
-        if (ingredient == null) return BadRequest();
-        var success = _repository.Insert(ingredient);
+        if (profile == null) return BadRequest();
+        var success = _repository.Insert(profile);
         if (success) return Ok();
         return BadRequest("Insert failed");
     }
 
-    //  Edit existing
+    // Edit existing
     [HttpPut("{id}")]
-
-    public ActionResult Update(int id, [FromBody] LiquidIngredient ingredient)
+    public ActionResult Update(int id, [FromBody] DrinkProfile profile)
     {
-        if (ingredient == null) return BadRequest();
+        if (profile == null) return BadRequest();
 
-        var existing = _repository.GetById(ingredient.Id);
-        if (existing == null) return NotFound($"Ingredient with ID {ingredient.Id} not found");
+        var existing = _repository.GetById(profile.Id);
+        if (existing == null) return NotFound($"DrinkProfile with ID {profile.Id} not found");
 
-        var success = _repository.Update(ingredient);
+        var success = _repository.Update(profile);
         if (success) return Ok();
         return BadRequest("Update failed");
     }
