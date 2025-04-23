@@ -19,6 +19,7 @@ builder.Services.AddCors(options =>
 // <--- Registrér LiquidIngredientRepository i DI-containeren
 builder.Services.AddScoped<LiquidIngredientRepository>();
 builder.Services.AddScoped<RecipeRepository>();
+builder.Services.AddScoped<DrinkProfileRepository>();
 
 var app = builder.Build();
 

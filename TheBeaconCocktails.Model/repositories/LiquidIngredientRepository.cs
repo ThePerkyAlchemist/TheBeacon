@@ -91,6 +91,9 @@ VALUES (@category, @subcategory, @name, @dateofexpiry, @volumeperunit, @numberof
 }
 
         // SLET
+        //I just noticed that this most likely deletes all the bottles regardless of how many of them are in stock 2025.04.23
+        //TODO only deduct as many as the user indicates on the UI. 
+        //probably a for loop on numbers until i  or stock = 0. if stock = 0, throw error
         public bool Delete(int id)
         {
             using var conn = new NpgsqlConnection(ConnectionString);

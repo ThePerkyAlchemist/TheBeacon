@@ -18,7 +18,7 @@ export interface LiquidIngredient {
   providedIn: 'root'
 })
 export class LiquidIngredientService {
-  apiUrl = 'http://localhost:5146/api/liquidingredient';
+  apiUrl = 'http://localhost:5146/api/liquidingredient'; //This is an absolute safety violation in the long run. 
 
   constructor(private http: HttpClient) {}
 
