@@ -67,6 +67,13 @@ namespace TheBeaconCocktails.Model.Repositories
             return null;
         }
 
+        //Get all drinkProfiles by RecipeID
+        //TODO
+
+
+
+        
+
         // Insert a new DrinkProfile
         public bool Insert(DrinkProfile dp)
         {

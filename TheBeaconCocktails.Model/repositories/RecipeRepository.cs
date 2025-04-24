@@ -4,6 +4,7 @@ using TheBeaconCocktails.Model.entities;
 
 namespace TheBeaconCocktails.Model.Repositories
 {
+
     public class RecipeRepository : BaseRepository
     {
         public RecipeRepository(IConfiguration configuration) : base(configuration)
@@ -152,6 +153,8 @@ namespace TheBeaconCocktails.Model.Repositories
         }
 
         // Delete a recipe by ID
+        //This deletes a single ingredient of a recipe, not a full recipe
+        //If we for some reason need to delete a full recipe, rework it so it deletes by @recipeid not @id
         public bool DeleteRecipe(int id)
         {
             using var dbConn = new NpgsqlConnection(ConnectionString);
