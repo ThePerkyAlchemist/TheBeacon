@@ -50,9 +50,9 @@ export class DisplayRecipeComponent implements OnInit {
         }
 
         this.groupedRecipes = Array.from(map.values());
-        console.log('✅ Grouped recipes:', this.groupedRecipes);
+        console.log(' Grouped recipes:', this.groupedRecipes);
       },
-      error: (error) => console.error('❌ Error loading recipes:', error)
+      error: (error) => console.error(' Error loading recipes:', error)
     });
   }
 }
