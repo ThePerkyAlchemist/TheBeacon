@@ -3,6 +3,7 @@
 <table border="1" cellpadding="8" cellspacing="0">
   <thead>
     <tr>
+      <th>Recipe ID</th>
       <th>Recipe</th>
       <th>Ingredient</th>
       <th>Volume (ml)</th>
@@ -11,7 +12,15 @@
   <tbody>
     <ng-container *ngFor="let recipe of groupedRecipes">
       <tr>
-        <td [attr.rowspan]="recipe.ingredients.length">{{ recipe.name }}</td>
+        <td [attr.rowspan]="recipe.ingredients.length">
+          {{ recipe.id }}
+        </td>
+        <td [attr.rowspan]="recipe.ingredients.length">
+          {{ recipe.name }}
+          <div>
+            <button (click)="deleteRecipe(recipe.id)">Delete</button>
+          </div>
+        </td>
         <td>{{ recipe.ingredients[0].liquidName }}</td>
         <td>{{ recipe.ingredients[0].liquidIngredientVolumeMl }}</td>
       </tr>
@@ -22,3 +31,47 @@
     </ng-container>
   </tbody>
 </table>
+
+<!--
+<h2>Recipes</h2>
+
+<div style="margin-bottom: 20px;">
+  <h3>Add Recipe</h3>
+  <input [(ngModel)]="newRecipe.name" placeholder="Recipe name" />
+  <div *ngFor="let ingredient of newRecipe.ingredients; let i = index">
+    <input [(ngModel)]="ingredient.liquidName" placeholder="Ingredient name" />
+    <input [(ngModel)]="ingredient.liquidIngredientVolumeMl" placeholder="Volume (ml)" type="number" />
+    <button (click)="removeIngredient(i)">Remove</button>
+  </div>
+  <button (click)="addIngredient()">Add Ingredient</button>
+  <button (click)="addRecipe()">Save Recipe</button>
+</div>
+
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Recipe</th>
+      <th>Ingredient</th>
+      <th>Volume (ml)</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let recipe of groupedRecipes; let i = index">
+      <tr>
+        <td [attr.rowspan]="recipe.ingredients.length">{{ recipe.name }}</td>
+        <td>{{ recipe.ingredients[0].liquidName }}</td>
+        <td>{{ recipe.ingredients[0].liquidIngredientVolumeMl }}</td>
+        <td [attr.rowspan]="recipe.ingredients.length">
+          <button (click)="editRecipe(i)">Edit</button>
+          <button (click)="deleteRecipe(recipe)">Delete</button>
+        </td>
+      </tr>
+      <tr *ngFor="let ingredient of recipe.ingredients.slice(1)">
+        <td>{{ ingredient.liquidName }}</td>
+        <td>{{ ingredient.liquidIngredientVolumeMl }}</td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
+-->

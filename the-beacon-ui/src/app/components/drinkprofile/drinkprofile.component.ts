@@ -15,7 +15,6 @@ export class DrinkprofileComponent {
   sweetnessOrFrutitiness : 1 ,
   richness :1,
   booziness:1,
-  sweetnessOrFrutitinessfreshness:1,
   lightness:1,
   timestamp: new Date
 }

@@ -5,7 +5,6 @@ export interface Drinkprofile {
     sweetnessOrFrutitiness : number ;
     richness :number;
     booziness:number;
-    sweetnessOrFrutitinessfreshness:number;
     lightness:number;
     timestamp: Date;
 }
