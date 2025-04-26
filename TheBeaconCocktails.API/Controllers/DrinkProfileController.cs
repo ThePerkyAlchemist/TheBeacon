@@ -2,68 +2,73 @@ using Microsoft.AspNetCore.Mvc;
 using TheBeaconCocktails.Model.entities;
 using TheBeaconCocktails.Model.Repositories;
 
-namespace TheBeaconCocktails.API.Controllers;
-
-[Route("api/[controller]")]
-[ApiController]
-public class DrinkProfileController : ControllerBase
+namespace TheBeaconCocktails.API.Controllers
 {
-    private readonly DrinkProfileRepository _repository;
-
-    public DrinkProfileController(DrinkProfileRepository repository)
+    [Route("api/[controller]")]
+    [ApiController]
+    public class DrinkProfileController : ControllerBase
     {
-        _repository = repository;
-    }
+        private readonly DrinkProfileRepository _repository;
 
-    // Display all
-    [HttpGet]
-    public ActionResult<List<DrinkProfile>> GetAll()
-    {
-        return Ok(_repository.GetAll());
-    }
+        public DrinkProfileController(DrinkProfileRepository repository)
+        {
+            _repository = repository;
+        }
 
-    // Display by id
-    [HttpGet("{id}")]
-    public ActionResult<DrinkProfile> GetById(int id)
-    {
-        var item = _repository.GetById(id);
-        if (item == null) return NotFound();
-        return Ok(item);
-    }
+        // Display all
+        [HttpGet]
+        public ActionResult<List<DrinkProfile>> GetAll()
+        {
+            return Ok(_repository.GetAll());
+        }
 
-    // Add new
-    [HttpPost]
-    public ActionResult Add([FromBody] DrinkProfile profile)
-    {
-        if (profile == null) return BadRequest();
-        var success = _repository.Insert(profile);
-        if (success) return Ok();
-        return BadRequest("Insert failed");
-    }
+        // Display by ID
+        [HttpGet("{id}")]
+        public ActionResult<DrinkProfile> GetById(int id)
+        {
+            var item = _repository.GetById(id);
+            if (item == null) return NotFound();
+            return Ok(item);
+        }
 
-    // Edit existing
-    [HttpPut("{id}")]
-    public ActionResult Update(int id, [FromBody] DrinkProfile profile)
-    {
-        if (profile == null) return BadRequest();
+        // Add new
+        [HttpPost]
+        public ActionResult Add([FromBody] DrinkProfile profile)
+        {
+            if (profile == null) return BadRequest("Profile data missing.");
 
-        var existing = _repository.GetById(profile.Id);
-        if (existing == null) return NotFound($"DrinkProfile with ID {profile.Id} not found");
+            var success = _repository.InsertDrinkProfile(profile);
+            if (success) return Ok();
+            return BadRequest("Insert failed");
+        }
 
-        var success = _repository.Update(profile);
-        if (success) return Ok();
-        return BadRequest("Update failed");
-    }
+        // Edit existing
+        [HttpPut("{id}")]
+        public ActionResult Update(int id, [FromBody] DrinkProfile profile)
+        {
+            if (profile == null) return BadRequest("Profile data missing.");
 
-    // Remove by id
-    [HttpDelete("{id}")]
-    public ActionResult Delete(int id)
-    {
-        var existing = _repository.GetById(id);
-        if (existing == null) return NotFound();
+            if (profile.Id != id)
+                return BadRequest("Profile ID mismatch.");
 
-        var success = _repository.Delete(id);
-        if (success) return NoContent();
-        return BadRequest("Delete failed");
+            var existing = _repository.GetById(id);
+            if (existing == null) return NotFound($"DrinkProfile with ID {id} not found");
+
+            var success = _repository.UpdateDrinkProfile(profile);
+            if (success) return Ok();
+            return BadRequest("Update failed");
+        }
+
+        // Remove by ID
+        [HttpDelete("{id}")]
+        public ActionResult Delete(int id)
+        {
+            var existing = _repository.GetById(id);
+            if (existing == null) return NotFound();
+
+            var success = _repository.DeleteDrinkProfile(id);
+            if (success) return NoContent();
+            return BadRequest("Delete failed");
+        }
     }
 }

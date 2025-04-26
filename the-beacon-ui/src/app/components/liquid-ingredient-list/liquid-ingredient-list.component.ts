@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LiquidIngredientService, LiquidIngredient } from '../../services/liquid-ingredient.service';
+import { LiquidIngredientService } from '../../services/liquid-ingredient.service';
+import { LiquidIngredient } from '../../model/liquidingredient';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 

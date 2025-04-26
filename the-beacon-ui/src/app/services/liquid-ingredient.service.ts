@@ -1,18 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { LiquidIngredient } from  '../model/liquidingredient';
 
-export interface LiquidIngredient {
-  id?: number;
-  category: string;
-  subcategory: string;
-  name: string;
-  dateOfExpiry: Date;
-  volumePerUnit: number;
-  numberOfUnits: number;
-  status: string;
-  barcodeString: string;
-}
+
 
 @Injectable({
   providedIn: 'root'
@@ -37,3 +28,5 @@ export class LiquidIngredientService {
     return this.http.post(this.apiUrl, ingredient); // <-- Tilføjet
   }
 }
+
+

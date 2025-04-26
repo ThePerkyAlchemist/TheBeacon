@@ -9,7 +9,7 @@ namespace TheBeaconCocktails.Model.entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public int Recipeid { get; set; }
+        public int RecipeId { get; set; }
         public string Description { get; set; }
         public decimal SweetnessOrFruitiness { get; set; }
         public  decimal Richness { get; set; }
