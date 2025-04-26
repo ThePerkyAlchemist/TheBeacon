@@ -1,34 +1,34 @@
 using Microsoft.Extensions.Configuration;
 using Npgsql;
 using TheBeaconCocktails.Model.entities;
+using System.Data; // Needed for ConnectionState checking if necessary
 
 namespace TheBeaconCocktails.Model.Repositories
 {
-
     public class RecipeRepository : BaseRepository
     {
         public RecipeRepository(IConfiguration configuration) : base(configuration)
         {
         }
 
-//Get all Recipes
+        // Get all Recipes
         public List<Recipe> GetAll()
         {
             var result = new List<Recipe>();
 
             using var conn = new NpgsqlConnection(ConnectionString);
             var cmd = conn.CreateCommand();
-         cmd.CommandText = @"
-            SELECT 
-                r.id, 
-                r.recipeid, 
-                r.name AS recipename,  -- <== RETTET!
-                r.liquidid, 
-                r.liquidingredientvolumeml,
-                l.name AS liquidname
-            FROM recipe r
-            JOIN liquidingredient l ON r.liquidid = l.id
-        ";
+            cmd.CommandText = @"
+                SELECT 
+                    r.id, 
+                    r.recipeid, 
+                    r.name AS recipename,
+                    r.liquidid, 
+                    r.liquidingredientvolumeml,
+                    l.name AS liquidname
+                FROM recipe r
+                JOIN liquidingredient l ON r.liquidid = l.id
+            ";
 
             var reader = GetData(conn, cmd);
 
@@ -50,7 +50,7 @@ namespace TheBeaconCocktails.Model.Repositories
             return result;
         }
 
- // Get a single recipe by ID
+        // Get a single recipe by ID
         public Recipe GetById(int id)
         {
             using var conn = new NpgsqlConnection(ConnectionString);
@@ -87,21 +87,39 @@ namespace TheBeaconCocktails.Model.Repositories
             return null;
         }
 
-//Add new recipe
-        public bool InsertRecipe(Recipe r) //I do not know if this syntax is correct
+        // Add a new Recipe
+        public bool InsertRecipe(Recipe r)
         {
-            //NpgsqlConnection dbConn = null;
-            using var dbConn = new NpgsqlConnection(ConnectionString); 
-            try{
-                dbConn.Open();
-                //conn = new NpgsqlConnection(ConnectionString);
-                var cmd = dbConn.CreateCommand();
-                cmd.CommandText = @"
-            INSERT INTO recipe
-            (id, recipeid, name, liquidid, liquidingredientvolumeml)
-            VALUES
-            (@id, @recipeid, @name, @liquidid, @liquidingredientvolumeml)
-        ";
+            using var conn = new NpgsqlConnection(ConnectionString);
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = @"
+                INSERT INTO recipe
+                (recipeid, name, liquidid, liquidingredientvolumeml)
+                VALUES
+                (@recipeid, @name, @liquidid, @liquidingredientvolumeml)
+            ";
+
+            cmd.Parameters.AddWithValue("@recipeid", r.RecipeId);
+            cmd.Parameters.AddWithValue("@name", r.Name ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@liquidid", r.LiquidId);
+            cmd.Parameters.AddWithValue("@liquidingredientvolumeml", r.LiquidIngredientVolumeMl);
+
+            return InsertData(conn, cmd);
+        }
+
+        // Update an existing Recipe
+        public bool UpdateRecipe(Recipe r)
+        {
+            using var conn = new NpgsqlConnection(ConnectionString);
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = @"
+                UPDATE recipe SET
+                    recipeid = @recipeid,
+                    name = @name,
+                    liquidid = @liquidid,
+                    liquidingredientvolumeml = @liquidingredientvolumeml
+                WHERE id = @id
+            ";
 
             cmd.Parameters.AddWithValue("@id", r.Id);
             cmd.Parameters.AddWithValue("@recipeid", r.RecipeId);
@@ -109,75 +127,21 @@ namespace TheBeaconCocktails.Model.Repositories
             cmd.Parameters.AddWithValue("@liquidid", r.LiquidId);
             cmd.Parameters.AddWithValue("@liquidingredientvolumeml", r.LiquidIngredientVolumeMl);
 
-
-                //will return true if all goes well
-                bool result = InsertData(dbConn, cmd);
-
-                return result;
-            }
-            finally
-            {
-                dbConn?.Close();
-            }
-        }
-  // Update an existing recipe
-        public bool UpdateRecipe(Recipe r)
-        {
-            using var dbConn = new NpgsqlConnection(ConnectionString);
-            try
-            {
-                dbConn.Open();
-
-                var cmd = dbConn.CreateCommand();
-                cmd.CommandText = @"
-                    UPDATE recipe SET
-                        recipeid = @recipeid,
-                        name = @name,
-                        liquidid = @liquidid,
-                        liquidingredientvolumeml = @liquidingredientvolumeml
-                    WHERE id = @id
-                ";
-
-                cmd.Parameters.AddWithValue("@id", r.Id);
-                cmd.Parameters.AddWithValue("@recipeid", r.RecipeId);
-                cmd.Parameters.AddWithValue("@name", r.Name ?? (object)DBNull.Value);
-                cmd.Parameters.AddWithValue("@liquidid", r.LiquidId);
-                cmd.Parameters.AddWithValue("@liquidingredientvolumeml", r.LiquidIngredientVolumeMl);
-
-                return InsertData(dbConn, cmd); // Same helper used for non-query commands
-            }
-            finally
-            {
-                dbConn?.Close();
-            }
+            return InsertData(conn, cmd);
         }
 
-        // Delete a recipe by ID
-        //This deletes a single ingredient of a recipe, not a full recipe
-        //If we for some reason need to delete a full recipe, rework it so it deletes by @recipeid not @id
+        // Delete a Recipe by ID
         public bool DeleteRecipe(int id)
         {
-            using var dbConn = new NpgsqlConnection(ConnectionString);
-            try
-            {
-                dbConn.Open();
+            using var conn = new NpgsqlConnection(ConnectionString);
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = @"
+                DELETE FROM recipe WHERE id = @id
+            ";
 
-                var cmd = dbConn.CreateCommand();
-                cmd.CommandText = @"
-                    DELETE FROM recipe WHERE id = @id
-                ";
-                cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@id", id);
 
-                return InsertData(dbConn, cmd); // Works for DELETE too
-            }
-            finally
-            {
-                dbConn?.Close();
-            }
-        }  
-                            
-                            
-            
-        
+            return InsertData(conn, cmd);
+        }
     }
 }

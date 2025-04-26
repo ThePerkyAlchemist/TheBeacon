@@ -7,19 +7,23 @@ import { Recipe } from  '../model/recipe';
   providedIn: 'root'
 })
 export class RecipeService {
-  baseUrl: string = "http://localhost:5057/api";
+  baseUrl: string = "http://localhost:5146/api";
   constructor(private http: HttpClient) { }
 
   getRecipes():Observable<Recipe[]>{
-    return this.http.get<Recipe[]>('${this.baseUrl}/recipe');
+    return this.http.get<Recipe[]>(`${this.baseUrl}/recipe`);
   }
 
   getRecipeByID(id: number): Observable<Recipe> {
     return this.http.get<Recipe>(`${this.baseUrl}/recipe/${id}`);
   }
 
-  createRecipe(student: Recipe): Observable<any> {
-    return this.http.post(`${this.baseUrl}/recipe`, student);
+  createRecipe(recipe: Recipe): Observable<any> {
+    return this.http.post(`${this.baseUrl}/recipe`, recipe);
+  }
+
+  updateRecipe(id: number, recipe: Recipe): Observable<any> {
+    return this.http.put(`${this.baseUrl}/recipe/${id}`, recipe);
   }
 
   deleteRecipe(id: number): Observable<any> {

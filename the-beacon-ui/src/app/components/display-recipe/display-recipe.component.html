@@ -1,3 +1,63 @@
+
+
+<h2>Recipes</h2>
+
+
+<!-- Create New Recipe -->
+<div *ngIf="!editingRecipe">
+  <h3>Add New Recipe</h3>
+  <form (ngSubmit)="createRecipe()">
+    <input [(ngModel)]="newRecipe.recipeId" name="recipeId" placeholder="Recipe Group ID" required>
+    <input [(ngModel)]="newRecipe.name" name="name" placeholder="Name" required>
+    <input [(ngModel)]="newRecipe.liquidId" name="liquidId" placeholder="Liquid Ingredient ID" required>
+    <input [(ngModel)]="newRecipe.liquidIngredientVolumeMl" name="volume" placeholder="Volume (ml)" required>
+    <button type="submit">Create Recipe Entry</button>
+  </form>
+</div>
+
+<!-- Edit Existing Recipe -->
+<div *ngIf="editingRecipe">
+  <h3>Edit Recipe</h3>
+  <form (ngSubmit)="saveRecipe()">
+    <input [(ngModel)]="editingRecipe.recipeId" name="editRecipeId" placeholder="Recipe Group ID" required>
+    <input [(ngModel)]="editingRecipe.name" name="editName" placeholder="Name" required>
+    <input [(ngModel)]="editingRecipe.liquidId" name="editLiquidId" placeholder="Liquid Ingredient ID" required>
+    <input [(ngModel)]="editingRecipe.liquidIngredientVolumeMl" name="editVolume" placeholder="Volume (ml)" required>
+    <button type="submit">Save Changes</button>
+    <button type="button" (click)="cancelEdit()">Cancel</button>
+  </form>
+</div>
+
+<!-- List Recipes -->
+<div>
+  <h3>Recipe List</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Recipe Group ID</th>
+        <th>Name</th>
+        <th>Liquid Ingredient ID</th>
+        <th>Volume (ml)</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let recipe of recipes">
+        <td>{{ recipe.recipeId }}</td>
+        <td>{{ recipe.name }}</td>
+        <td>{{ recipe.liquidId }}</td>
+        <td>{{ recipe.liquidIngredientVolumeMl }}</td>
+        <td>
+          <button (click)="startEditing(recipe)">Edit</button>
+          <button (click)="deleteRecipe(recipe.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!--
 <h2>Recipes</h2>
 
 <table border="1" cellpadding="8" cellspacing="0">
@@ -23,49 +83,6 @@
         </td>
         <td>{{ recipe.ingredients[0].liquidName }}</td>
         <td>{{ recipe.ingredients[0].liquidIngredientVolumeMl }}</td>
-      </tr>
-      <tr *ngFor="let ingredient of recipe.ingredients.slice(1)">
-        <td>{{ ingredient.liquidName }}</td>
-        <td>{{ ingredient.liquidIngredientVolumeMl }}</td>
-      </tr>
-    </ng-container>
-  </tbody>
-</table>
-
-<!--
-<h2>Recipes</h2>
-
-<div style="margin-bottom: 20px;">
-  <h3>Add Recipe</h3>
-  <input [(ngModel)]="newRecipe.name" placeholder="Recipe name" />
-  <div *ngFor="let ingredient of newRecipe.ingredients; let i = index">
-    <input [(ngModel)]="ingredient.liquidName" placeholder="Ingredient name" />
-    <input [(ngModel)]="ingredient.liquidIngredientVolumeMl" placeholder="Volume (ml)" type="number" />
-    <button (click)="removeIngredient(i)">Remove</button>
-  </div>
-  <button (click)="addIngredient()">Add Ingredient</button>
-  <button (click)="addRecipe()">Save Recipe</button>
-</div>
-
-<table border="1" cellpadding="8" cellspacing="0">
-  <thead>
-    <tr>
-      <th>Recipe</th>
-      <th>Ingredient</th>
-      <th>Volume (ml)</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <ng-container *ngFor="let recipe of groupedRecipes; let i = index">
-      <tr>
-        <td [attr.rowspan]="recipe.ingredients.length">{{ recipe.name }}</td>
-        <td>{{ recipe.ingredients[0].liquidName }}</td>
-        <td>{{ recipe.ingredients[0].liquidIngredientVolumeMl }}</td>
-        <td [attr.rowspan]="recipe.ingredients.length">
-          <button (click)="editRecipe(i)">Edit</button>
-          <button (click)="deleteRecipe(recipe)">Delete</button>
-        </td>
       </tr>
       <tr *ngFor="let ingredient of recipe.ingredients.slice(1)">
         <td>{{ ingredient.liquidName }}</td>

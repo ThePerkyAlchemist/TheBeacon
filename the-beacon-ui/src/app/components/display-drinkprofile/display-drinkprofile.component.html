@@ -1,0 +1,70 @@
+<h2>Drink Profiles</h2>
+
+<!-- Create New Profile -->
+<div *ngIf="!editingProfile">
+  <h3>Add New Drink Profile</h3>
+  <form (ngSubmit)="createProfile()">
+    <input [(ngModel)]="newProfile.recipeId" name="recipeId" placeholder="Recipe ID" required>
+    <input [(ngModel)]="newProfile.description" name="description" placeholder="Description" required>
+    <input [(ngModel)]="newProfile.sweetnessOrFruitiness" name="sweetness" placeholder="Sweetness" required>
+    <input [(ngModel)]="newProfile.richness" name="richness" placeholder="Richness" required>
+    <input [(ngModel)]="newProfile.booziness" name="booziness" placeholder="Booziness" required>
+    <input [(ngModel)]="newProfile.sourness" name="sourness" placeholder="Sourness" required>
+    <input [(ngModel)]="newProfile.freshness" name="freshness" placeholder="Freshness" required>
+    <input [(ngModel)]="newProfile.lightness" name="lightness" placeholder="Lightness" required>
+    <button type="submit">Create Drink Profile</button>
+  </form>
+</div>
+
+<!-- Edit Existing Profile -->
+<div *ngIf="editingProfile">
+  <h3>Edit Drink Profile</h3>
+  <form (ngSubmit)="saveProfile()">
+    <input [(ngModel)]="editingProfile.recipeId" name="editRecipeId" placeholder="Recipe ID" required>
+    <input [(ngModel)]="editingProfile.description" name="editDescription" placeholder="Description" required>
+    <input [(ngModel)]="editingProfile.sweetnessOrFruitiness" name="editSweetness" placeholder="Sweetness" required>
+    <input [(ngModel)]="editingProfile.richness" name="editRichness" placeholder="Richness" required>
+    <input [(ngModel)]="editingProfile.booziness" name="editBooziness" placeholder="Booziness" required>
+    <input [(ngModel)]="editingProfile.sourness" name="editSourness" placeholder="Sourness" required>
+    <input [(ngModel)]="editingProfile.freshness" name="editFreshness" placeholder="Freshness" required>
+    <input [(ngModel)]="editingProfile.lightness" name="editLightness" placeholder="Lightness" required>
+    <button type="submit">Save Changes</button>
+    <button type="button" (click)="cancelEdit()">Cancel</button>
+  </form>
+</div>
+
+<!-- List Profiles -->
+<div>
+  <h3>Drink Profile List</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Recipe ID</th>
+        <th>Description</th>
+        <th>Sweetness</th>
+        <th>Richness</th>
+        <th>Booziness</th>
+        <th>Sourness</th>
+        <th>Freshness</th>
+        <th>Lightness</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let profile of profiles">
+        <td>{{ profile.recipeId }}</td>
+        <td>{{ profile.description }}</td>
+        <td>{{ profile.sweetnessOrFruitiness }}</td>
+        <td>{{ profile.richness }}</td>
+        <td>{{ profile.booziness }}</td>
+        <td>{{ profile.sourness }}</td>
+        <td>{{ profile.freshness }}</td>
+        <td>{{ profile.lightness }}</td>
+        <td>
+          <button (click)="startEditing(profile)">Edit</button>
+          <button (click)="deleteProfile(profile.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

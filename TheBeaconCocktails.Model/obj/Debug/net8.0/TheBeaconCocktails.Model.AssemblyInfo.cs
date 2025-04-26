@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TheBeaconCocktails.Model")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+108b9018c54bf8090dd3baeec2300fa4920b523d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+499332a7fad3bc92f2b6c39b96ed15ee1edb99b3")]
 [assembly: System.Reflection.AssemblyProductAttribute("TheBeaconCocktails.Model")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TheBeaconCocktails.Model")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
