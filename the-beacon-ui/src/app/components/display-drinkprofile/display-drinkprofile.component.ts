@@ -2,19 +2,37 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-
 import { DrinkProfile } from '../../model/drinkprofile';
 import { DrinkProfileService } from '../../services/drinkprofile.service';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+
 
 @Component({
   selector: 'app-display-drinkprofile',
   templateUrl: './display-drinkprofile.component.html',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule]
+  imports: [CommonModule, FormsModule, HttpClientModule, MatFormFieldModule, MatInputModule, MatButtonModule,MatTableModule]
 })
 export class DisplayDrinkProfileComponent implements OnInit {
   profiles: DrinkProfile[] = [];
   editingProfile: DrinkProfile | null = null;
+  showCreateForm: boolean = false;
+
+  
+  displayedColumns: string[] = [
+    'recipeId',
+    'sweetness',
+    'richness',
+    'booziness',
+    'sourness',
+    'freshness',
+    'lightness',
+    'description',
+    'actions'
+  ];
   newProfile: DrinkProfile = {
     id: 0,
     recipeId: 0,
@@ -43,8 +61,30 @@ export class DisplayDrinkProfileComponent implements OnInit {
     });
   }
 
+  startCreating(): void {
+    this.showCreateForm = true;
+    this.editingProfile = null; // Prevent edit mode while creating
+  }
+
+  cancelCreate(): void {
+    this.showCreateForm = false;
+    this.newProfile = {
+      id: 0,
+      recipeId: 0,
+      description: '',
+      sweetnessOrFruitiness: 0,
+      richness: 0,
+      booziness: 0,
+      sourness: 0,
+      freshness: 0,
+      lightness: 0,
+      timestamp: ''
+    };
+  }
+
   startEditing(profile: DrinkProfile): void {
     this.editingProfile = { ...profile };
+    this.showCreateForm = false; // Prevent create mode while editing
   }
 
   cancelEdit(): void {
@@ -74,22 +114,11 @@ export class DisplayDrinkProfileComponent implements OnInit {
       freshness: this.newProfile.freshness,
       lightness: this.newProfile.lightness
     };
-  
+
     this.drinkProfileService.createDrinkProfile(profileToSend).subscribe({
       next: () => {
         this.loadProfiles();
-        this.newProfile = {
-          id: 0,
-          recipeId: 0,
-          description: '',
-          sweetnessOrFruitiness: 0,
-          richness: 0,
-          booziness: 0,
-          sourness: 0,
-          freshness: 0,
-          lightness: 0,
-          timestamp: '' // this will not be sent
-        };
+        this.cancelCreate(); // Reset form and hide it
       },
       error: (err) => console.error('Error creating profile', err)
     });

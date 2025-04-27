@@ -1,0 +1,24 @@
+.full-width {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  .mat-column-recipeId,
+.mat-column-sweetness,
+.mat-column-richness,
+.mat-column-booziness,
+.mat-column-sourness,
+.mat-column-freshness,
+.mat-column-lightness {
+  text-align: center;
+  width: 80px;
+}
+
+.mat-column-description {
+  text-align: left;
+  min-width: 250px;
+}
+
+.mat-column-actions {
+  text-align: center;
+  width: 150px;
+}
