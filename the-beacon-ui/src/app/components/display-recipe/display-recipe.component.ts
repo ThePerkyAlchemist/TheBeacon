@@ -1,24 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Recipe } from  '../../model/recipe';
-import { GroupedRecipe} from  '../../model/groupedrecipe';
+import { Recipe } from '../../model/recipe';
+import { GroupedRecipe } from '../../model/groupedrecipe';
 import { RecipeService } from '../../services/recipe.service';
+import { MatTableModule, MatTableDataSource } from '@angular/material/table'; 
+import { MatSortModule, MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-display-recipe',
   templateUrl: './display-recipe.component.html',
-  standalone: true, 
-  imports: [CommonModule, FormsModule, HttpClientModule] 
+  standalone: true,
+  imports: [CommonModule, FormsModule, HttpClientModule, MatTableModule, MatSortModule] 
 })
 export class DisplayRecipeComponent implements OnInit {
   recipes: Recipe[] = [];
+  dataSource = new MatTableDataSource<Recipe>(); 
+  displayedColumns: string[] = ['recipeId', 'name', 'liquidId', 'volume', 'actions']; 
+
   editingRecipe: Recipe | null = null;
   newRecipe: Recipe = {
     id: 0, recipeId: 0, name: '', liquidId: 0, liquidIngredientVolumeMl: 0, liquidName: ''
   };
+
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private recipeService: RecipeService) {}
 
@@ -30,6 +37,8 @@ export class DisplayRecipeComponent implements OnInit {
     this.recipeService.getRecipes().subscribe({
       next: (data) => {
         this.recipes = data;
+        this.dataSource.data = data;  // bind to datasource
+        this.dataSource.sort = this.sort; // enable sorting
       },
       error: (err) => {
         console.error('Error loading recipes', err);

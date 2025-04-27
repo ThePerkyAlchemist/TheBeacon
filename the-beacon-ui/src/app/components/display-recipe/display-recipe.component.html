@@ -31,28 +31,42 @@
 <!-- List Recipes -->
 <div>
   <h3>Recipe List</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Recipe Group ID</th>
-        <th>Name</th>
-        <th>Liquid Ingredient ID</th>
-        <th>Volume (ml)</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let recipe of recipes">
-        <td>{{ recipe.recipeId }}</td>
-        <td>{{ recipe.name }}</td>
-        <td>{{ recipe.liquidId }}</td>
-        <td>{{ recipe.liquidIngredientVolumeMl }}</td>
-        <td>
-          <button (click)="startEditing(recipe)">Edit</button>
-          <button (click)="deleteRecipe(recipe.id)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
+
+    <!-- Table -->
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="recipeId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Recipe Group ID </th>
+      <td mat-cell *matCellDef="let recipe"> {{recipe.recipeId}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let recipe"> {{recipe.name}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="liquidId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Liquid Ingredient ID </th>
+      <td mat-cell *matCellDef="let recipe"> {{recipe.liquidId}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="volume">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Volume (ml) </th>
+      <td mat-cell *matCellDef="let recipe"> {{recipe.liquidIngredientVolumeMl}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let recipe">
+        <button mat-raised-button color="primary" (click)="startEditing(recipe)">Edit</button>
+        <button mat-raised-button color="warn" (click)="deleteRecipe(recipe.id)">Delete</button>
+      </td>
+    </ng-container>
+  
+    <!-- Header and Row Declarations -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
   </table>
 </div>
 
