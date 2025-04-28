@@ -40,6 +40,7 @@ export class LiquidIngredientListComponent implements OnInit {
     this.getAllIngredients();
   }
 
+  // Talks to backend API
   getAllIngredients(): void {
     this.service.getAll().subscribe((data: LiquidIngredient[]) => {
       console.log('Fetched ingredients:', data);  // 👈 ADD THIS
@@ -91,4 +92,9 @@ export class LiquidIngredientListComponent implements OnInit {
     this.editingIngredient = null;
   }
 
+  // The search box
+  applyFilter(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }

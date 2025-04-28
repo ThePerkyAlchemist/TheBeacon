@@ -8,6 +8,7 @@ import { GroupedRecipe } from '../../model/groupedrecipe';
 import { RecipeService } from '../../services/recipe.service';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table'; 
 import { MatSortModule, MatSort } from '@angular/material/sort';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-display-recipe',
@@ -18,6 +19,8 @@ import { MatSortModule, MatSort } from '@angular/material/sort';
 export class DisplayRecipeComponent implements OnInit {
   recipes: Recipe[] = [];
   dataSource = new MatTableDataSource<Recipe>(); 
+  successMessage: string = '';
+  hideSuccess: boolean = false;
   displayedColumns: string[] = ['recipeId', 'name', 'liquidId', 'volume', 'actions']; 
 
   editingRecipe: Recipe | null = null;
@@ -26,6 +29,7 @@ export class DisplayRecipeComponent implements OnInit {
   };
 
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild('createForm') createForm!: NgForm;
 
   constructor(private recipeService: RecipeService) {}
 
@@ -69,15 +73,48 @@ export class DisplayRecipeComponent implements OnInit {
   }
 
   createRecipe(): void {
-    this.recipeService.createRecipe(this.newRecipe).subscribe({
-      next: () => {
-        this.loadRecipes();
-        this.newRecipe = { id: 0, recipeId: 0, name: '', liquidId: 0, liquidIngredientVolumeMl: 0, liquidName: '' };
-      },
-      error: (err) => {
-        console.error('Error creating recipe', err);
-      }
-    });
+    if (this.createForm.valid) {
+      this.recipeService.createRecipe(this.newRecipe).subscribe({
+        next: () => {
+          this.loadRecipes();
+          this.successMessage = 'Recipe created successfully!';
+          this.hideSuccess = false;
+          
+          // 1. Reset the model FIRST
+        this.newRecipe = {
+          id: 0,
+          recipeId: 0,
+          name: '',
+          liquidId: 0,
+          liquidIngredientVolumeMl: 0,
+          liquidName: ''
+        };
+
+        // THEN reset the form AFTER a short delay
+        setTimeout(() => {
+          this.createForm.resetForm({
+            recipeId: '',
+            name: '',
+            liquidId: '',
+            liquidIngredientVolumeMl: '',
+            liquidName: ''
+          });
+        });
+
+
+          // Fade away success message
+          setTimeout(() => {
+            this.hideSuccess = true;
+            setTimeout(() => {
+              this.successMessage = '';
+            }, 1000);
+          }, 3000);
+        },
+        error: (err) => {
+          console.error('Error creating recipe', err);
+        }
+      });
+    }
   }
 
   deleteRecipe(id: number): void {
@@ -89,5 +126,11 @@ export class DisplayRecipeComponent implements OnInit {
         console.error('Error deleting recipe', err);
       }
     });
-  }
+  }  
+
+  applyFilter(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    }
+  
 }

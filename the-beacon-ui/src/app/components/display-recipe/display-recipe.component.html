@@ -2,28 +2,83 @@
 
 <h2>Recipes</h2>
 
+<!-- Success message display, when recipe added -->
+<div *ngIf="successMessage" [class.hide]="hideSuccess" class="success-message" style="background-color: #d4edda; color: #155724; padding: 10px; margin-bottom: 1rem; border-radius: 5px;">
+  {{ successMessage }}
+</div>
 
-<!-- Create New Recipe -->
+<!-- Search box, with styling -->
+<div style="display: flex; justify-content: flex-start; margin-bottom: 1rem;">
+  <input 
+    placeholder="Search recipes..." 
+    (input)="applyFilter($event)"
+    style="padding: 8px; font-size: 16px; width: 250px;"
+  />
+</div>
+
+<!-- Create New Recipe Form -->
 <div *ngIf="!editingRecipe">
   <h3>Add New Recipe</h3>
-  <form (ngSubmit)="createRecipe()">
-    <input [(ngModel)]="newRecipe.recipeId" name="recipeId" placeholder="Recipe Group ID" required>
-    <input [(ngModel)]="newRecipe.name" name="name" placeholder="Name" required>
-    <input [(ngModel)]="newRecipe.liquidId" name="liquidId" placeholder="Liquid Ingredient ID" required>
-    <input [(ngModel)]="newRecipe.liquidIngredientVolumeMl" name="volume" placeholder="Volume (ml)" required>
-    <button type="submit">Create Recipe Entry</button>
+  <form (ngSubmit)="createRecipe()" #createForm="ngForm">
+
+    <label>Recipe Group ID:
+      <input [(ngModel)]="newRecipe.recipeId" name="recipeId" required type="number" min="1" #recipeIdInput="ngModel">
+    </label>
+    <div *ngIf="recipeIdInput.invalid && recipeIdInput.touched" style="color: red;">Recipe Group ID is required and must be a positive number.</div>
+    <br>
+
+    <label>Name:
+      <input [(ngModel)]="newRecipe.name" name="name" required #nameInput="ngModel">
+    </label>
+    <div *ngIf="nameInput.invalid && nameInput.touched" style="color: red;">Name is required.</div>
+    <br>
+
+    <label>Liquid Ingredient ID:
+      <input [(ngModel)]="newRecipe.liquidId" name="liquidId" required type="number" min="1" #liquidIdInput="ngModel">
+    </label>
+    <div *ngIf="liquidIdInput.invalid && liquidIdInput.touched" style="color: red;">Liquid Ingredient ID is required and must be a positive number.</div>
+    <br>
+
+    <label>Volume (ml):
+      <input [(ngModel)]="newRecipe.liquidIngredientVolumeMl" name="volume" required type="number" min="1" #volumeInput="ngModel">
+    </label>
+    <div *ngIf="volumeInput.invalid && volumeInput.touched" style="color: red;">Volume is required and must be at least 1 ml.</div>
+    <br>
+
+    <button type="submit" [disabled]="!createForm.form.valid">Create Recipe Entry</button>
   </form>
 </div>
 
-<!-- Edit Existing Recipe -->
+<!-- Edit Existing Recipe Form -->
 <div *ngIf="editingRecipe">
   <h3>Edit Recipe</h3>
-  <form (ngSubmit)="saveRecipe()">
-    <input [(ngModel)]="editingRecipe.recipeId" name="editRecipeId" placeholder="Recipe Group ID" required>
-    <input [(ngModel)]="editingRecipe.name" name="editName" placeholder="Name" required>
-    <input [(ngModel)]="editingRecipe.liquidId" name="editLiquidId" placeholder="Liquid Ingredient ID" required>
-    <input [(ngModel)]="editingRecipe.liquidIngredientVolumeMl" name="editVolume" placeholder="Volume (ml)" required>
-    <button type="submit">Save Changes</button>
+  <form (ngSubmit)="saveRecipe()" #editForm="ngForm">
+
+    <label>Recipe Group ID:
+      <input [(ngModel)]="editingRecipe.recipeId" name="editRecipeId" required type="number" min="1" #editRecipeIdInput="ngModel">
+    </label>
+    <div *ngIf="editRecipeIdInput.invalid && editRecipeIdInput.touched" style="color: red;">Recipe Group ID is required and must be positive.</div>
+    <br>
+
+    <label>Name:
+      <input [(ngModel)]="editingRecipe.name" name="editName" required #editNameInput="ngModel">
+    </label>
+    <div *ngIf="editNameInput.invalid && editNameInput.touched" style="color: red;">Name is required.</div>
+    <br>
+
+    <label>Liquid Ingredient ID:
+      <input [(ngModel)]="editingRecipe.liquidId" name="editLiquidId" required type="number" min="1" #editLiquidIdInput="ngModel">
+    </label>
+    <div *ngIf="editLiquidIdInput.invalid && editLiquidIdInput.touched" style="color: red;">Liquid Ingredient ID is required and must be positive.</div>
+    <br>
+
+    <label>Volume (ml):
+      <input [(ngModel)]="editingRecipe.liquidIngredientVolumeMl" name="editVolume" required type="number" min="1" #editVolumeInput="ngModel">
+    </label>
+    <div *ngIf="editVolumeInput.invalid && editVolumeInput.touched" style="color: red;">Volume is required and must be at least 1 ml.</div>
+    <br>
+
+    <button type="submit" [disabled]="!editForm.form.valid">Save Changes</button>
     <button type="button" (click)="cancelEdit()">Cancel</button>
   </form>
 </div>

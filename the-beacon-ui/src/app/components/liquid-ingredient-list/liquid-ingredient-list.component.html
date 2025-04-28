@@ -1,4 +1,16 @@
-<img src="assets/theBeaconLogo4K.png" alt="The Beacon Logo" style="height: 60px;" />
+<!-- Container that wraps both the image and search input -->
+<div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+  
+  <!-- Logo -->
+  <img src="assets/theBeaconLogo4K.png" alt="The Beacon Logo" style="height: 60px;" />
+
+  <!-- Search box -->
+  <input 
+    placeholder="Search liquid ingredients..." 
+    (input)="applyFilter($event)"
+    style="padding: 8px; font-size: 16px; width: 250px;"
+  />
+</div>
 
 <!-- Display of success message -->
 <div *ngIf="successMessage" style="color: green; margin-bottom: 1rem;">
