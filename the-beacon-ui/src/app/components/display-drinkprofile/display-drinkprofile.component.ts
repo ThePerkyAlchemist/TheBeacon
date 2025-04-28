@@ -2,19 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { DrinkProfile } from '../../model/drinkprofile';
 import { DrinkProfileService } from '../../services/drinkprofile.service';
+import { PageEvent } from '@angular/material/paginator'; //importing the "event" that happens when the user interacts with the paginator
 
 @Component({
   selector: 'app-display-drinkprofile',
   templateUrl: './display-drinkprofile.component.html',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule]
+  imports: [CommonModule, FormsModule, HttpClientModule, MatPaginatorModule]
 })
 export class DisplayDrinkProfileComponent implements OnInit {
   profiles: DrinkProfile[] = [];
   editingProfile: DrinkProfile | null = null;
+  drinkProfiles: DrinkProfile[] = []; //an array holding all drink profiles starting empty
+  currentPage = 0; //Keeping track of what page the user are at
+  pageSize = 5; //how many ingredients show on each page
   newProfile: DrinkProfile = {
     id: 0,
     recipeId: 0,
@@ -103,4 +107,21 @@ export class DisplayDrinkProfileComponent implements OnInit {
       error: (err) => console.error('Error deleting profile', err)
     });
   }
+
+
+   /*adding a "getter" for the sliced list*/
+    get paginatedDrinkProfiles(): DrinkProfile[] {
+      const start = this.currentPage * this.pageSize; 
+      const end = start + this.pageSize;
+      return this.drinkProfiles.slice(start,end);
+    }
+   
+  //calling the method when the user interacts with the paginator and updating the pagenr and size
+    onPageChange(event: PageEvent): void{
+    
+      this.currentPage = event.pageIndex;
+      this.pageSize = event.pageSize;
+      
+    }
+
 }

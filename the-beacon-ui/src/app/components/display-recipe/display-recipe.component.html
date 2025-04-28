@@ -42,7 +42,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let recipe of recipes">
+     <!-- <tr *ngFor="let recipe of recipes">-->
+        <tr *ngFor="let recipe of paginatedRecipe">
         <td>{{ recipe.recipeId }}</td>
         <td>{{ recipe.name }}</td>
         <td>{{ recipe.liquidId }}</td>
@@ -92,3 +93,11 @@
   </tbody>
 </table>
 -->
+
+  <!--This is our paginator:-->
+  <mat-paginator [length]="recipes.length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    (page) = "onPageChange($event)"
+    aria-label="Select page">
+  </mat-paginator>

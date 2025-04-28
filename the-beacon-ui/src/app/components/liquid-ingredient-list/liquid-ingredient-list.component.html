@@ -16,7 +16,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let ingredient of ingredients">
+    <!--<tr *ngFor="let ingredient of ingredients">-->
+      <tr *ngFor="let ingredient of paginatedIngredients"> <!--New line with paginator-->
       <td>{{ ingredient.name }}</td>
       <td>{{ ingredient.category }}</td>
       <td>{{ ingredient.subcategory }}</td>
@@ -80,3 +81,13 @@
 
 <!-- Button to Add a new ingredient -->
 <button (click)="addIngredient()">Add New Ingredient</button>
+
+
+  <!--This is our paginator:-->
+  <mat-paginator 
+    [length]="ingredients.length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    (page) = "onPageChange($event)"
+    aria-label="Select page">
+  </mat-paginator>
