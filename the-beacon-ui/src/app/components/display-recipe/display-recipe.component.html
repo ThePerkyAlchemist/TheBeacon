@@ -1,14 +1,10 @@
+<!-- Logo and Search Bar -->
+<div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+  
+  <!-- Logo -->
+  <img src="assets/theBeaconLogo4K.png" alt="The Beacon Logo" style="height: 60px;" />
 
-
-<h2>Recipes</h2>
-
-<!-- Success message display, when recipe added -->
-<div *ngIf="successMessage" [class.hide]="hideSuccess" class="success-message" style="background-color: #d4edda; color: #155724; padding: 10px; margin-bottom: 1rem; border-radius: 5px;">
-  {{ successMessage }}
-</div>
-
-<!-- Search box, with styling -->
-<div style="display: flex; justify-content: flex-start; margin-bottom: 1rem;">
+  <!-- Search Box -->
   <input 
     placeholder="Search recipes..." 
     (input)="applyFilter($event)"
@@ -16,114 +12,120 @@
   />
 </div>
 
-<!-- Create New Recipe Form -->
-<div *ngIf="!editingRecipe">
-  <h3>Add New Recipe</h3>
-  <form (ngSubmit)="createRecipe()" #createForm="ngForm">
-
-    <label>Recipe Group ID:
-      <input [(ngModel)]="newRecipe.recipeId" name="recipeId" required type="number" min="1" #recipeIdInput="ngModel">
-    </label>
-    <div *ngIf="recipeIdInput.invalid && recipeIdInput.touched" style="color: red;">Recipe Group ID is required and must be a positive number.</div>
-    <br>
-
-    <label>Name:
-      <input [(ngModel)]="newRecipe.name" name="name" required #nameInput="ngModel">
-    </label>
-    <div *ngIf="nameInput.invalid && nameInput.touched" style="color: red;">Name is required.</div>
-    <br>
-
-    <label>Liquid Ingredient ID:
-      <input [(ngModel)]="newRecipe.liquidId" name="liquidId" required type="number" min="1" #liquidIdInput="ngModel">
-    </label>
-    <div *ngIf="liquidIdInput.invalid && liquidIdInput.touched" style="color: red;">Liquid Ingredient ID is required and must be a positive number.</div>
-    <br>
-
-    <label>Volume (ml):
-      <input [(ngModel)]="newRecipe.liquidIngredientVolumeMl" name="volume" required type="number" min="1" #volumeInput="ngModel">
-    </label>
-    <div *ngIf="volumeInput.invalid && volumeInput.touched" style="color: red;">Volume is required and must be at least 1 ml.</div>
-    <br>
-
-    <button type="submit" [disabled]="!createForm.form.valid">Create Recipe Entry</button>
-  </form>
+<!-- Success Message -->
+<div *ngIf="successMessage" [class.hide]="hideSuccess" class="success-message" 
+     style="background-color: #d4edda; color: #155724; padding: 10px; margin-bottom: 1rem; border-radius: 5px;">
+  {{ successMessage }}
 </div>
 
-<!-- Edit Existing Recipe Form -->
-<div *ngIf="editingRecipe">
-  <h3>Edit Recipe</h3>
-  <form (ngSubmit)="saveRecipe()" #editForm="ngForm">
+<!-- Recipe Form (Create / Edit) -->
+<div style="margin-bottom: 2rem;">
+  
+  <!-- Create New Recipe -->
+  <div *ngIf="!editingRecipe">
+    <h3>Add New Recipe</h3>
+    <form (ngSubmit)="createRecipe()" #createForm="ngForm">
+      
+      <label>Recipe Group ID:
+        <input [(ngModel)]="newRecipe.recipeId" name="recipeId" required type="number" min="1" #recipeIdInput="ngModel">
+      </label>
+      <div *ngIf="recipeIdInput.invalid && recipeIdInput.touched" style="color: red;">Recipe Group ID is required and must be positive.</div>
+      <br>
 
-    <label>Recipe Group ID:
-      <input [(ngModel)]="editingRecipe.recipeId" name="editRecipeId" required type="number" min="1" #editRecipeIdInput="ngModel">
-    </label>
-    <div *ngIf="editRecipeIdInput.invalid && editRecipeIdInput.touched" style="color: red;">Recipe Group ID is required and must be positive.</div>
-    <br>
+      <label>Name:
+        <input [(ngModel)]="newRecipe.name" name="name" required #nameInput="ngModel">
+      </label>
+      <div *ngIf="nameInput.invalid && nameInput.touched" style="color: red;">Name is required.</div>
+      <br>
 
-    <label>Name:
-      <input [(ngModel)]="editingRecipe.name" name="editName" required #editNameInput="ngModel">
-    </label>
-    <div *ngIf="editNameInput.invalid && editNameInput.touched" style="color: red;">Name is required.</div>
-    <br>
+      <label>Liquid Ingredient ID:
+        <input [(ngModel)]="newRecipe.liquidId" name="liquidId" required type="number" min="1" #liquidIdInput="ngModel">
+      </label>
+      <div *ngIf="liquidIdInput.invalid && liquidIdInput.touched" style="color: red;">Liquid Ingredient ID is required and must be positive.</div>
+      <br>
 
-    <label>Liquid Ingredient ID:
-      <input [(ngModel)]="editingRecipe.liquidId" name="editLiquidId" required type="number" min="1" #editLiquidIdInput="ngModel">
-    </label>
-    <div *ngIf="editLiquidIdInput.invalid && editLiquidIdInput.touched" style="color: red;">Liquid Ingredient ID is required and must be positive.</div>
-    <br>
+      <label>Volume (ml):
+        <input [(ngModel)]="newRecipe.liquidIngredientVolumeMl" name="volume" required type="number" min="1" #volumeInput="ngModel">
+      </label>
+      <div *ngIf="volumeInput.invalid && volumeInput.touched" style="color: red;">Volume is required and must be at least 1 ml.</div>
+      <br><br>
 
-    <label>Volume (ml):
-      <input [(ngModel)]="editingRecipe.liquidIngredientVolumeMl" name="editVolume" required type="number" min="1" #editVolumeInput="ngModel">
-    </label>
-    <div *ngIf="editVolumeInput.invalid && editVolumeInput.touched" style="color: red;">Volume is required and must be at least 1 ml.</div>
-    <br>
+      <button type="submit" [disabled]="!createForm.form.valid">Create Recipe Entry</button>
+    </form>
+  </div>
 
-    <button type="submit" [disabled]="!editForm.form.valid">Save Changes</button>
-    <button type="button" (click)="cancelEdit()">Cancel</button>
-  </form>
+  <!-- Edit Existing Recipe -->
+  <div *ngIf="editingRecipe" style="margin-top: 1rem; padding: 1rem; border: 1px solid #ccc;">
+    <h3>Edit Recipe</h3>
+    <form (ngSubmit)="saveRecipe()" #editForm="ngForm">
+      <label>Recipe Group ID:
+        <input [(ngModel)]="editingRecipe.recipeId" name="editRecipeId" required type="number" min="1" #editRecipeIdInput="ngModel">
+      </label>
+      <div *ngIf="editRecipeIdInput.invalid && editRecipeIdInput.touched" style="color: red;">Recipe Group ID is required and must be positive.</div>
+      <br>
+
+      <label>Name:
+        <input [(ngModel)]="editingRecipe.name" name="editName" required #editNameInput="ngModel">
+      </label>
+      <div *ngIf="editNameInput.invalid && editNameInput.touched" style="color: red;">Name is required.</div>
+      <br>
+
+      <label>Liquid Ingredient ID:
+        <input [(ngModel)]="editingRecipe.liquidId" name="editLiquidId" required type="number" min="1" #editLiquidIdInput="ngModel">
+      </label>
+      <div *ngIf="editLiquidIdInput.invalid && editLiquidIdInput.touched" style="color: red;">Liquid Ingredient ID is required and must be positive.</div>
+      <br>
+
+      <label>Volume (ml):
+        <input [(ngModel)]="editingRecipe.liquidIngredientVolumeMl" name="editVolume" required type="number" min="1" #editVolumeInput="ngModel">
+      </label>
+      <div *ngIf="editVolumeInput.invalid && editVolumeInput.touched" style="color: red;">Volume is required and must be at least 1 ml.</div>
+      <br><br>
+
+      <button type="submit" [disabled]="!editForm.form.valid">Save Changes</button>
+      <button type="button" (click)="cancelEdit()">Cancel</button>
+    </form>
+  </div>
 </div>
 
-<!-- List Recipes -->
-<div>
-  <h3>Recipe List</h3>
+<!-- Recipe Table List -->
+<h3>Recipe List</h3>
 
-    <!-- Table -->
-  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
-    <ng-container matColumnDef="recipeId">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Recipe Group ID </th>
-      <td mat-cell *matCellDef="let recipe"> {{recipe.recipeId}} </td>
-    </ng-container>
+  <ng-container matColumnDef="recipeId">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Recipe Group ID </th>
+    <td mat-cell *matCellDef="let recipe"> {{recipe.recipeId}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+    <td mat-cell *matCellDef="let recipe"> {{recipe.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="liquidId">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Liquid Ingredient ID </th>
+    <td mat-cell *matCellDef="let recipe"> {{recipe.liquidId}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="volume">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Volume (ml) </th>
+    <td mat-cell *matCellDef="let recipe"> {{recipe.liquidIngredientVolumeMl}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let recipe">
+      <button mat-raised-button color="primary" (click)="startEditing(recipe)">Edit</button>
+      <button mat-raised-button color="warn" (click)="deleteRecipe(recipe.id)">Delete</button>
+    </td>
+  </ng-container>
+
+  <!-- Header and Row Declarations -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-      <td mat-cell *matCellDef="let recipe"> {{recipe.name}} </td>
-    </ng-container>
-  
-    <ng-container matColumnDef="liquidId">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Liquid Ingredient ID </th>
-      <td mat-cell *matCellDef="let recipe"> {{recipe.liquidId}} </td>
-    </ng-container>
-  
-    <ng-container matColumnDef="volume">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Volume (ml) </th>
-      <td mat-cell *matCellDef="let recipe"> {{recipe.liquidIngredientVolumeMl}} </td>
-    </ng-container>
-  
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef> Actions </th>
-      <td mat-cell *matCellDef="let recipe">
-        <button mat-raised-button color="primary" (click)="startEditing(recipe)">Edit</button>
-        <button mat-raised-button color="warn" (click)="deleteRecipe(recipe.id)">Delete</button>
-      </td>
-    </ng-container>
-  
-    <!-- Header and Row Declarations -->
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  
-  </table>
-</div>
+</table>
 
 
 <!--
