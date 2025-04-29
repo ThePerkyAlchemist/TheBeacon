@@ -1,40 +1,136 @@
-<img src="assets/theBeaconLogo4K.png" alt="The Beacon Logo" style="height: 60px;" />
+<!-- Container that wraps both the image and search input -->
+<div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+  
+  <!-- Logo -->
+  <img src="assets/theBeaconLogo4K.png" alt="The Beacon Logo" style="height: 60px;" />
 
-<h2>Liquid Ingredients</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Subcategory</th>
-      <th>Volume</th>
-      <th>Units</th>
-      <th>Status</th>
-      <th>Barcode</th>
-      <th>Expiry</th>
-      <th>Actions</th> <!-- Added actions column for buttons -->
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let ingredient of ingredients">
-      <td>{{ ingredient.name }}</td>
-      <td>{{ ingredient.category }}</td>
-      <td>{{ ingredient.subcategory }}</td>
-      <td>{{ ingredient.volumePerUnit }}</td>
-      <td>{{ ingredient.numberOfUnits }}</td>
-      <td>{{ ingredient.status }}</td>
-      <td>{{ ingredient.barcodeString }}</td>
-      <td>{{ ingredient.dateOfExpiry | date }}</td>
-      <td>
-        <!-- Action buttons -->
-        <button (click)="editIngredient(ingredient)">Edit</button>
-        <button *ngIf="ingredient.id !== undefined" (click)="deleteIngredient(ingredient.id!)">Delete</button>
+  <!-- Search box -->
+  <input 
+    placeholder="Search liquid ingredients..." 
+    (input)="applyFilter($event)"
+    style="padding: 8px; font-size: 16px; width: 250px;"
+  />
+</div>
 
-      </td>
-    </tr>
-  </tbody>
+<!-- Display of success message -->
+<div *ngIf="successMessage" style="color: green; margin-bottom: 1rem;">
+  {{ successMessage }}
+</div>
+
+<!-- Table -->
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+    <td mat-cell *matCellDef="let ingredient"> {{ingredient.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
+    <td mat-cell *matCellDef="let ingredient"> {{ingredient.category}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="subcategory">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Subcategory </th>
+    <td mat-cell *matCellDef="let ingredient"> {{ingredient.subcategory}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="volume">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Volume </th>
+    <td mat-cell *matCellDef="let ingredient"> {{ingredient.volumePerUnit}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="units">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Units </th>
+    <td mat-cell *matCellDef="let ingredient"> {{ingredient.numberOfUnits}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+    <td mat-cell *matCellDef="let ingredient"> {{ingredient.status}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="barcode">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Barcode </th>
+    <td mat-cell *matCellDef="let ingredient"> {{ingredient.barcodeString}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="expiry">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Expiry </th>
+    <td mat-cell *matCellDef="let ingredient"> {{ingredient.dateOfExpiry | date}} </td>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let ingredient">
+      <button mat-raised-button color="primary" (click)="editIngredient(ingredient)">Edit</button>
+      <button mat-raised-button color="warn" *ngIf="ingredient.id !== undefined" (click)="deleteIngredient(ingredient.id)">Delete</button>
+    </td>
+  </ng-container>
+
+  <!-- Row Definitions -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
+
+ <!-- Edit Form (only when editing) -->
+<div *ngIf="editingIngredient" style="margin-top: 1rem; padding: 1rem; border: 1px solid #ccc;">
+  <h3>Edit Ingredient</h3>
+
+  <form (ngSubmit)="saveEdit()" #editForm="ngForm">
+    <label>Name:
+      <input [(ngModel)]="editingIngredient.name" name="name" required #nameInput="ngModel" />
+    </label>
+    <div *ngIf="nameInput.invalid && nameInput.touched" style="color: red;">Name is required.</div>
+    <br />
+
+    <label>Category:
+      <input [(ngModel)]="editingIngredient.category" name="category" required #categoryInput="ngModel" />
+    </label>
+    <div *ngIf="categoryInput.invalid && categoryInput.touched" style="color: red;">Category is required.</div>
+    <br />
+
+    <label>Subcategory:
+      <input [(ngModel)]="editingIngredient.subcategory" name="subcategory" required #subcategoryInput="ngModel" />
+    </label>
+    <div *ngIf="subcategoryInput.invalid && subcategoryInput.touched" style="color: red;">Subcategory is required.</div>
+    <br />
+
+    <label>Volume Per Unit:
+      <input type="number" [(ngModel)]="editingIngredient.volumePerUnit" name="volume" required min="1" #volumeInput="ngModel" />
+    </label>
+    <div *ngIf="volumeInput.invalid && volumeInput.touched" style="color: red;">Volume must be at least 1.</div>
+    <br />
+
+    <label>Number Of Units:
+      <input type="number" [(ngModel)]="editingIngredient.numberOfUnits" name="units" required min="1" #unitsInput="ngModel" />
+    </label>
+    <div *ngIf="unitsInput.invalid && unitsInput.touched" style="color: red;">Units must be at least 1.</div>
+    <br />
+
+    <label>Status:
+      <input [(ngModel)]="editingIngredient.status" name="status" required #statusInput="ngModel" />
+    </label>
+    <div *ngIf="statusInput.invalid && statusInput.touched" style="color: red;">Status is required.</div>
+    <br />
+
+    <label>Barcode:
+      <input [(ngModel)]="editingIngredient.barcodeString" name="barcode" />
+    </label><br />
+
+    <label>Expiry Date:
+      <input type="date" [(ngModel)]="editingIngredient.dateOfExpiry" name="expiry" required #expiryInput="ngModel" />
+    </label>
+    <div *ngIf="expiryInput.invalid && expiryInput.touched" style="color: red;">Expiry Date is required.</div>
+    <br /><br />
+
+    <button type="submit" [disabled]="!editForm.form.valid">Save Changes</button>
+    <button type="button" (click)="cancelEdit()">Cancel</button>
+  </form>
+</div>
+
+<!--
 <div *ngIf="editingIngredient" style="margin-top: 1rem; padding: 1rem; border: 1px solid #ccc;">
     <h3>Edit Ingredient</h3>
   
@@ -73,7 +169,7 @@
     <button (click)="saveEdit()">Save Changes</button>
     <button (click)="cancelEdit()">Cancel</button>
   </div>
-
+-->
 
 
 
