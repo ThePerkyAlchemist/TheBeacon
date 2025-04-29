@@ -1,70 +1,199 @@
 <h2>Drink Profiles</h2>
 
-<!-- Create New Profile -->
-<div *ngIf="!editingProfile">
+<!-- Create New Drink Profile Button -->
+<div style="margin-bottom: 20px;">
+  <button mat-raised-button color="primary" (click)="startCreating()">Create New Drink Profile</button>
+</div>
+
+<!-- Create New Profile Form -->
+<div *ngIf="showCreateForm">
   <h3>Add New Drink Profile</h3>
-  <form (ngSubmit)="createProfile()">
-    <input [(ngModel)]="newProfile.recipeId" name="recipeId" placeholder="Recipe ID" required>
-    <input [(ngModel)]="newProfile.description" name="description" placeholder="Description" required>
-    <input [(ngModel)]="newProfile.sweetnessOrFruitiness" name="sweetness" placeholder="Sweetness" required>
-    <input [(ngModel)]="newProfile.richness" name="richness" placeholder="Richness" required>
-    <input [(ngModel)]="newProfile.booziness" name="booziness" placeholder="Booziness" required>
-    <input [(ngModel)]="newProfile.sourness" name="sourness" placeholder="Sourness" required>
-    <input [(ngModel)]="newProfile.freshness" name="freshness" placeholder="Freshness" required>
-    <input [(ngModel)]="newProfile.lightness" name="lightness" placeholder="Lightness" required>
-    <button type="submit">Create Drink Profile</button>
+  <form (ngSubmit)="createProfile()" #createForm="ngForm">
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Recipe ID</mat-label>
+      <input matInput type="number" [(ngModel)]="newProfile.recipeId" name="recipeId" required #recipeIdInput="ngModel">
+      <mat-error *ngIf="recipeIdInput.invalid && recipeIdInput.touched">Recipe ID is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Sweetness</mat-label>
+      <input matInput type="number" [(ngModel)]="newProfile.sweetnessOrFruitiness" name="sweetness" required #sweetnessInput="ngModel">
+      <mat-error *ngIf="sweetnessInput.invalid && sweetnessInput.touched">Sweetness is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Richness</mat-label>
+      <input matInput type="number" [(ngModel)]="newProfile.richness" name="richness" required #richnessInput="ngModel">
+      <mat-error *ngIf="richnessInput.invalid && richnessInput.touched">Richness is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Booziness</mat-label>
+      <input matInput type="number" [(ngModel)]="newProfile.booziness" name="booziness" required #boozinessInput="ngModel">
+      <mat-error *ngIf="boozinessInput.invalid && boozinessInput.touched">Booziness is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Sourness</mat-label>
+      <input matInput type="number" [(ngModel)]="newProfile.sourness" name="sourness" required #sournessInput="ngModel">
+      <mat-error *ngIf="sournessInput.invalid && sournessInput.touched">Sourness is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Freshness</mat-label>
+      <input matInput type="number" [(ngModel)]="newProfile.freshness" name="freshness" required #freshnessInput="ngModel">
+      <mat-error *ngIf="freshnessInput.invalid && freshnessInput.touched">Freshness is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Lightness</mat-label>
+      <input matInput type="number" [(ngModel)]="newProfile.lightness" name="lightness" required #lightnessInput="ngModel">
+      <mat-error *ngIf="lightnessInput.invalid && lightnessInput.touched">Lightness is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Description</mat-label>
+      <input matInput [(ngModel)]="newProfile.description" name="description" required #descriptionInput="ngModel">
+      <mat-error *ngIf="descriptionInput.invalid && descriptionInput.touched">Description is required</mat-error>
+    </mat-form-field>
+  
+    <div style="margin-top: 10px;">
+      <button mat-raised-button color="primary" type="submit" [disabled]="createForm.invalid">Save Profile</button>
+      <button mat-raised-button color="warn" type="button" (click)="cancelCreate()">Cancel</button>
+    </div>
+  
   </form>
 </div>
 
-<!-- Edit Existing Profile -->
+<!-- Edit Existing Profile Form -->
 <div *ngIf="editingProfile">
   <h3>Edit Drink Profile</h3>
-  <form (ngSubmit)="saveProfile()">
-    <input [(ngModel)]="editingProfile.recipeId" name="editRecipeId" placeholder="Recipe ID" required>
-    <input [(ngModel)]="editingProfile.description" name="editDescription" placeholder="Description" required>
-    <input [(ngModel)]="editingProfile.sweetnessOrFruitiness" name="editSweetness" placeholder="Sweetness" required>
-    <input [(ngModel)]="editingProfile.richness" name="editRichness" placeholder="Richness" required>
-    <input [(ngModel)]="editingProfile.booziness" name="editBooziness" placeholder="Booziness" required>
-    <input [(ngModel)]="editingProfile.sourness" name="editSourness" placeholder="Sourness" required>
-    <input [(ngModel)]="editingProfile.freshness" name="editFreshness" placeholder="Freshness" required>
-    <input [(ngModel)]="editingProfile.lightness" name="editLightness" placeholder="Lightness" required>
-    <button type="submit">Save Changes</button>
-    <button type="button" (click)="cancelEdit()">Cancel</button>
+  <form (ngSubmit)="saveProfile()" #editForm="ngForm">
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Recipe ID</mat-label>
+      <input matInput type="number" [(ngModel)]="editingProfile.recipeId" name="editRecipeId" required #editRecipeIdInput="ngModel">
+      <mat-error *ngIf="editRecipeIdInput.invalid && editRecipeIdInput.touched">Recipe ID is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Sweetness</mat-label>
+      <input matInput type="number" [(ngModel)]="editingProfile.sweetnessOrFruitiness" name="editSweetness" required #editSweetnessInput="ngModel">
+      <mat-error *ngIf="editSweetnessInput.invalid && editSweetnessInput.touched">Sweetness is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Richness</mat-label>
+      <input matInput type="number" [(ngModel)]="editingProfile.richness" name="editRichness" required #editRichnessInput="ngModel">
+      <mat-error *ngIf="editRichnessInput.invalid && editRichnessInput.touched">Richness is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Booziness</mat-label>
+      <input matInput type="number" [(ngModel)]="editingProfile.booziness" name="editBooziness" required #editBoozinessInput="ngModel">
+      <mat-error *ngIf="editBoozinessInput.invalid && editBoozinessInput.touched">Booziness is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Sourness</mat-label>
+      <input matInput type="number" [(ngModel)]="editingProfile.sourness" name="editSourness" required #editSournessInput="ngModel">
+      <mat-error *ngIf="editSournessInput.invalid && editSournessInput.touched">Sourness is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Freshness</mat-label>
+      <input matInput type="number" [(ngModel)]="editingProfile.freshness" name="editFreshness" required #editFreshnessInput="ngModel">
+      <mat-error *ngIf="editFreshnessInput.invalid && editFreshnessInput.touched">Freshness is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Lightness</mat-label>
+      <input matInput type="number" [(ngModel)]="editingProfile.lightness" name="editLightness" required #editLightnessInput="ngModel">
+      <mat-error *ngIf="editLightnessInput.invalid && editLightnessInput.touched">Lightness is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Description</mat-label>
+      <input matInput [(ngModel)]="editingProfile.description" name="editDescription" required #editDescriptionInput="ngModel">
+      <mat-error *ngIf="editDescriptionInput.invalid && editDescriptionInput.touched">Description is required</mat-error>
+    </mat-form-field>
+  
+    <div style="margin-top: 10px;">
+      <button mat-raised-button color="primary" type="submit" [disabled]="editForm.invalid">Save Changes</button>
+      <button mat-raised-button color="warn" type="button" (click)="cancelEdit()">Cancel</button>
+    </div>
+  
   </form>
+  
 </div>
 
-<!-- List Profiles -->
-<div>
+<!-- Drink Profile List using Material Table -->
+<div style="margin-top: 30px;">
   <h3>Drink Profile List</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Recipe ID</th>
-        <th>Description</th>
-        <th>Sweetness</th>
-        <th>Richness</th>
-        <th>Booziness</th>
-        <th>Sourness</th>
-        <th>Freshness</th>
-        <th>Lightness</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let profile of profiles">
-        <td>{{ profile.recipeId }}</td>
-        <td>{{ profile.description }}</td>
-        <td>{{ profile.sweetnessOrFruitiness }}</td>
-        <td>{{ profile.richness }}</td>
-        <td>{{ profile.booziness }}</td>
-        <td>{{ profile.sourness }}</td>
-        <td>{{ profile.freshness }}</td>
-        <td>{{ profile.lightness }}</td>
-        <td>
-          <button (click)="startEditing(profile)">Edit</button>
-          <button (click)="deleteProfile(profile.id)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+
+  <mat-table [dataSource]="profiles" class="mat-elevation-z8">
+
+    <!-- Recipe ID Column -->
+    <ng-container matColumnDef="recipeId">
+      <mat-header-cell *matHeaderCellDef> Recipe ID </mat-header-cell>
+      <mat-cell *matCellDef="let profile"> {{profile.recipeId}} </mat-cell>
+    </ng-container>
+
+    <!-- Sweetness Column -->
+    <ng-container matColumnDef="sweetness">
+      <mat-header-cell *matHeaderCellDef> Sweetness </mat-header-cell>
+      <mat-cell *matCellDef="let profile"> {{profile.sweetnessOrFruitiness}} </mat-cell>
+    </ng-container>
+
+    <!-- Richness Column -->
+    <ng-container matColumnDef="richness">
+      <mat-header-cell *matHeaderCellDef> Richness </mat-header-cell>
+      <mat-cell *matCellDef="let profile"> {{profile.richness}} </mat-cell>
+    </ng-container>
+
+    <!-- Booziness Column -->
+    <ng-container matColumnDef="booziness">
+      <mat-header-cell *matHeaderCellDef> Booziness </mat-header-cell>
+      <mat-cell *matCellDef="let profile"> {{profile.booziness}} </mat-cell>
+    </ng-container>
+
+    <!-- Sourness Column -->
+    <ng-container matColumnDef="sourness">
+      <mat-header-cell *matHeaderCellDef> Sourness </mat-header-cell>
+      <mat-cell *matCellDef="let profile"> {{profile.sourness}} </mat-cell>
+    </ng-container>
+
+    <!-- Freshness Column -->
+    <ng-container matColumnDef="freshness">
+      <mat-header-cell *matHeaderCellDef> Freshness </mat-header-cell>
+      <mat-cell *matCellDef="let profile"> {{profile.freshness}} </mat-cell>
+    </ng-container>
+
+    <!-- Lightness Column -->
+    <ng-container matColumnDef="lightness">
+      <mat-header-cell *matHeaderCellDef> Lightness </mat-header-cell>
+      <mat-cell *matCellDef="let profile"> {{profile.lightness}} </mat-cell>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+      <mat-cell *matCellDef="let profile"> {{profile.description}} </mat-cell>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+      <mat-cell *matCellDef="let profile">
+        <button mat-raised-button color="accent" (click)="startEditing(profile)">Edit</button>
+        <button mat-raised-button color="warn" (click)="deleteProfile(profile.id)">Delete</button>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Render Header and Row -->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  </mat-table>
 </div>
