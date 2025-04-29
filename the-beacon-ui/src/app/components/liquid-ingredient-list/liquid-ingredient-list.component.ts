@@ -3,17 +3,40 @@ import { LiquidIngredientService } from '../../services/liquid-ingredient.servic
 import { LiquidIngredient } from '../../model/liquidingredient';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MatTableModule, MatTableDataSource } from '@angular/material/table'; 
+import { MatSortModule, MatSort } from '@angular/material/sort';  // Table sorting
+import { ViewChild } from '@angular/core'; // table polishing 
+import {MatPaginatorModule} from '@angular/material/paginator'; //importing the paginator - this is done on all the components
+import { PageEvent } from '@angular/material/paginator'; //importing the "event" that happens when the user interacts with the paginator
 
 @Component({
   selector: 'app-liquid-ingredient-list',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, MatTableModule, MatSortModule,MatPaginatorModule],
   templateUrl: './liquid-ingredient-list.component.html',
   styleUrls: ['./liquid-ingredient-list.component.css']
 })
 export class LiquidIngredientListComponent implements OnInit {
   ingredients: LiquidIngredient[] = [];
   editingIngredient: LiquidIngredient | null = null;
+  successMessage: string = ''; 
+  dataSource = new MatTableDataSource<LiquidIngredient>();
+  
+  displayedColumns: string[] = [
+    'name', 
+    'category', 
+    'subcategory', 
+    'volume', 
+    'units', 
+    'status', 
+    'barcode', 
+    'expiry', 
+    'actions'
+  ];
+
+  @ViewChild(MatSort) sort!: MatSort;
+  currentPage = 0; //Keeping track of what page the user are at
+  pageSize = 5; //how many ingredients show on each page
 
   constructor(private service: LiquidIngredientService) {}
 
@@ -21,9 +44,12 @@ export class LiquidIngredientListComponent implements OnInit {
     this.getAllIngredients();
   }
 
+  // Talks to backend API
   getAllIngredients(): void {
     this.service.getAll().subscribe((data: LiquidIngredient[]) => {
-      this.ingredients = data;
+      console.log('Fetched ingredients:', data);  // 👈 ADD THIS
+      this.dataSource.data = data;
+      this.dataSource.sort = this.sort;
     });
   }
 
@@ -45,6 +71,7 @@ export class LiquidIngredientListComponent implements OnInit {
   
     this.service.add(newIngredient).subscribe(() => {
       this.getAllIngredients();
+      this.currentPage = 0; //method add
     });
   }
 
@@ -58,6 +85,10 @@ export class LiquidIngredientListComponent implements OnInit {
       this.service.update(this.editingIngredient).subscribe(() => {
         this.getAllIngredients();
         this.editingIngredient = null;
+        this.successMessage = 'Ingredient saved successfully!';
+        setTimeout(() => {
+          this.successMessage = '';
+        }, 3000);
       });
     }
   }
@@ -66,4 +97,13 @@ export class LiquidIngredientListComponent implements OnInit {
     this.editingIngredient = null;
   }
 
+  // The search box
+  applyFilter(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  get dataLength(): number {
+    return this.dataSource?.data?.length || 0;
+  }
+  
 }

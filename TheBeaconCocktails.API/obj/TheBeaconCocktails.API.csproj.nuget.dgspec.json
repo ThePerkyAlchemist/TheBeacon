@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pierr\\Documents\\AppliedProgramming\\TheBeacon\\TheBeaconCocktails.API\\TheBeaconCocktails.API.csproj": {}
+    "C:\\Users\\pierr\\Documents\\AppliedProgramming\\Merge\\TheBeacon\\TheBeaconCocktails.API\\TheBeaconCocktails.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pierr\\Documents\\AppliedProgramming\\TheBeacon\\TheBeaconCocktails.API\\TheBeaconCocktails.API.csproj": {
+    "C:\\Users\\pierr\\Documents\\AppliedProgramming\\Merge\\TheBeacon\\TheBeaconCocktails.API\\TheBeaconCocktails.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pierr\\Documents\\AppliedProgramming\\TheBeacon\\TheBeaconCocktails.API\\TheBeaconCocktails.API.csproj",
+        "projectUniqueName": "C:\\Users\\pierr\\Documents\\AppliedProgramming\\Merge\\TheBeacon\\TheBeaconCocktails.API\\TheBeaconCocktails.API.csproj",
         "projectName": "TheBeaconCocktails.API",
-        "projectPath": "C:\\Users\\pierr\\Documents\\AppliedProgramming\\TheBeacon\\TheBeaconCocktails.API\\TheBeaconCocktails.API.csproj",
+        "projectPath": "C:\\Users\\pierr\\Documents\\AppliedProgramming\\Merge\\TheBeacon\\TheBeaconCocktails.API\\TheBeaconCocktails.API.csproj",
         "packagesPath": "C:\\Users\\pierr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pierr\\Documents\\AppliedProgramming\\TheBeacon\\TheBeaconCocktails.API\\obj\\",
+        "outputPath": "C:\\Users\\pierr\\Documents\\AppliedProgramming\\Merge\\TheBeacon\\TheBeaconCocktails.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pierr\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\pierr\\Documents\\AppliedProgramming\\TheBeacon\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj": {
-                "projectPath": "C:\\Users\\pierr\\Documents\\AppliedProgramming\\TheBeacon\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj"
+              "C:\\Users\\pierr\\Documents\\AppliedProgramming\\Merge\\TheBeacon\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj": {
+                "projectPath": "C:\\Users\\pierr\\Documents\\AppliedProgramming\\Merge\\TheBeacon\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj"
               }
             }
           }
@@ -75,14 +75,14 @@
         }
       }
     },
-    "C:\\Users\\pierr\\Documents\\AppliedProgramming\\TheBeacon\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj": {
+    "C:\\Users\\pierr\\Documents\\AppliedProgramming\\Merge\\TheBeacon\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pierr\\Documents\\AppliedProgramming\\TheBeacon\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj",
+        "projectUniqueName": "C:\\Users\\pierr\\Documents\\AppliedProgramming\\Merge\\TheBeacon\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj",
         "projectName": "TheBeaconCocktails.Model",
-        "projectPath": "C:\\Users\\pierr\\Documents\\AppliedProgramming\\TheBeacon\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj",
+        "projectPath": "C:\\Users\\pierr\\Documents\\AppliedProgramming\\Merge\\TheBeacon\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj",
         "packagesPath": "C:\\Users\\pierr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pierr\\Documents\\AppliedProgramming\\TheBeacon\\TheBeaconCocktails.Model\\obj\\",
+        "outputPath": "C:\\Users\\pierr\\Documents\\AppliedProgramming\\Merge\\TheBeacon\\TheBeaconCocktails.Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pierr\\AppData\\Roaming\\NuGet\\NuGet.Config"

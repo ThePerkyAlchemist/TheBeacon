@@ -4,7 +4,6 @@ import { DisplayRecipeComponent } from './components/display-recipe/display-reci
 import { LiquidIngredientListComponent } from './components/liquid-ingredient-list/liquid-ingredient-list.component';
 import { DisplayDrinkProfileComponent } from './components/display-drinkprofile/display-drinkprofile.component';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -13,5 +12,6 @@ import { DisplayDrinkProfileComponent } from './components/display-drinkprofile/
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  activeTab: 'recipes' | 'ingredients' | 'drinkprofile'= 'recipes'; // this is the aktiv fane
+  activeTab: 'recipes' | 'ingredients' | 'drinkprofile'= 'recipes'; // this is tool bar
 }
+
