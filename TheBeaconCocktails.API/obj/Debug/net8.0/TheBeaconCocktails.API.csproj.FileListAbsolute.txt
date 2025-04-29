@@ -121,3 +121,4 @@ C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj
 C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.genruntimeconfig.cache
 C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\ref\TheBeaconCocktails.API.dll
 C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\package-lock.json
+C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\package-lock.json

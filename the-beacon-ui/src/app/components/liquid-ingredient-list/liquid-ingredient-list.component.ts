@@ -6,11 +6,14 @@ import { FormsModule } from '@angular/forms';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table'; 
 import { MatSortModule, MatSort } from '@angular/material/sort';  // Table sorting
 import { ViewChild } from '@angular/core'; // table polishing 
+import {MatPaginatorModule} from '@angular/material/paginator'; //importing the paginator - this is done on all the components
+import { PageEvent } from '@angular/material/paginator'; //importing the "event" that happens when the user interacts with the paginator
 
 @Component({
   selector: 'app-liquid-ingredient-list',
   standalone: true,
   imports: [CommonModule, FormsModule, MatTableModule, MatSortModule],
+  imports: [CommonModule, FormsModule,MatPaginatorModule],
   templateUrl: './liquid-ingredient-list.component.html',
   styleUrls: ['./liquid-ingredient-list.component.css']
 })
@@ -33,6 +36,8 @@ export class LiquidIngredientListComponent implements OnInit {
   ];
 
   @ViewChild(MatSort) sort!: MatSort;
+  currentPage = 0; //Keeping track of what page the user are at
+  pageSize = 5; //how many ingredients show on each page
 
   constructor(private service: LiquidIngredientService) {}
 
@@ -67,6 +72,7 @@ export class LiquidIngredientListComponent implements OnInit {
   
     this.service.add(newIngredient).subscribe(() => {
       this.getAllIngredients();
+      this.currentPage = 0; //method add
     });
   }
 

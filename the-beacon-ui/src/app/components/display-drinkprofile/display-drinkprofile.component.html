@@ -197,3 +197,12 @@
 
   </mat-table>
 </div>
+
+  <!--This is our paginator:-->
+  <mat-paginator 
+    [length]="drinkProfiles.length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    (page)="onPageChange($event)"
+    aria-label="Select page">
+  </mat-paginator>

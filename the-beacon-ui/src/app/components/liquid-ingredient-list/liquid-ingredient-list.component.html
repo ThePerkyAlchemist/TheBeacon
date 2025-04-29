@@ -4,13 +4,36 @@
   <!-- Logo -->
   <img src="assets/theBeaconLogo4K.png" alt="The Beacon Logo" style="height: 60px;" />
 
-  <!-- Search box -->
-  <input 
-    placeholder="Search liquid ingredients..." 
-    (input)="applyFilter($event)"
-    style="padding: 8px; font-size: 16px; width: 250px;"
-  />
-</div>
+<h2>Liquid Ingredients</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Subcategory</th>
+      <th>Volume</th>
+      <th>Units</th>
+      <th>Status</th>
+      <th>Barcode</th>
+      <th>Expiry</th>
+      <th>Actions</th> <!-- Added actions column for buttons -->
+    </tr>
+  </thead>
+  <tbody>
+    <!--<tr *ngFor="let ingredient of ingredients">-->
+      <tr *ngFor="let ingredient of paginatedIngredients"> <!--New line with paginator-->
+      <td>{{ ingredient.name }}</td>
+      <td>{{ ingredient.category }}</td>
+      <td>{{ ingredient.subcategory }}</td>
+      <td>{{ ingredient.volumePerUnit }}</td>
+      <td>{{ ingredient.numberOfUnits }}</td>
+      <td>{{ ingredient.status }}</td>
+      <td>{{ ingredient.barcodeString }}</td>
+      <td>{{ ingredient.dateOfExpiry | date }}</td>
+      <td>
+        <!-- Action buttons -->
+        <button (click)="editIngredient(ingredient)">Edit</button>
+        <button *ngIf="ingredient.id !== undefined" (click)="deleteIngredient(ingredient.id!)">Delete</button>
 
 <!-- Display of success message -->
 <div *ngIf="successMessage" style="color: green; margin-bottom: 1rem;">
@@ -176,3 +199,13 @@
 
 <!-- Button to Add a new ingredient -->
 <button (click)="addIngredient()">Add New Ingredient</button>
+
+
+  <!--This is our paginator:-->
+  <mat-paginator 
+    [length]="ingredients.length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    (page) = "onPageChange($event)"
+    aria-label="Select page">
+  </mat-paginator>
