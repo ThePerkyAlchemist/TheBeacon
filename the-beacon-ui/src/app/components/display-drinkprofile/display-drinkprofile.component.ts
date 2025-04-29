@@ -16,8 +16,8 @@ import { PageEvent } from '@angular/material/paginator'; //importing the "event"
   selector: 'app-display-drinkprofile',
   templateUrl: './display-drinkprofile.component.html',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule, MatPaginatorModule]
-  imports: [CommonModule, FormsModule, HttpClientModule, MatFormFieldModule, MatInputModule, MatButtonModule,MatTableModule]
+  imports: [CommonModule, FormsModule, HttpClientModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatButtonModule,MatTableModule]
+ 
 })
 export class DisplayDrinkProfileComponent implements OnInit {
   profiles: DrinkProfile[] = [];

@@ -13,11 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TheBeaconCocktails.Model")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ccfa811d44ff1aaab790079fa83ac53a13f0104c")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+827e952135203f4f45b49c8abccac7ac27460490")]
->>>>>>> origin/mikkel-branch
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4ce1c87d0b70819307eb60dd8d93b74a447d7972")]
 [assembly: System.Reflection.AssemblyProductAttribute("TheBeaconCocktails.Model")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TheBeaconCocktails.Model")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -12,8 +12,7 @@ import { PageEvent } from '@angular/material/paginator'; //importing the "event"
 @Component({
   selector: 'app-liquid-ingredient-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatTableModule, MatSortModule],
-  imports: [CommonModule, FormsModule,MatPaginatorModule],
+  imports: [CommonModule, FormsModule, MatTableModule, MatSortModule,MatPaginatorModule],
   templateUrl: './liquid-ingredient-list.component.html',
   styleUrls: ['./liquid-ingredient-list.component.css']
 })
@@ -103,4 +102,8 @@ export class LiquidIngredientListComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+  get dataLength(): number {
+    return this.dataSource?.data?.length || 0;
+  }
+  
 }

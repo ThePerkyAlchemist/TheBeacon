@@ -17,9 +17,8 @@ import { PageEvent } from '@angular/material/paginator'; //importing the "event"
   selector: 'app-display-recipe',
   templateUrl: './display-recipe.component.html',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule, MatTableModule, MatSortModule] 
-  standalone: true, 
-  imports: [CommonModule, FormsModule, HttpClientModule, MatPaginatorModule] 
+  imports: [CommonModule, FormsModule, HttpClientModule, MatTableModule, MatSortModule, MatPaginatorModule], 
+
 })
 export class DisplayRecipeComponent implements OnInit {
   recipes: Recipe[] = [];
@@ -140,8 +139,6 @@ export class DisplayRecipeComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
     }
   
-}
-  }
 
    /*adding a "getter" for the sliced list*/
     get paginatedRecipe(): Recipe[] {

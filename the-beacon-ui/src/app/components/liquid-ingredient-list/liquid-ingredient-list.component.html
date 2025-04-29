@@ -1,82 +1,60 @@
-<!-- Container that wraps both the image and search input -->
+<!-- Container with logo and heading -->
 <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
-  
-  <!-- Logo -->
   <img src="assets/theBeaconLogo4K.png" alt="The Beacon Logo" style="height: 60px;" />
+  <h2>Liquid Ingredients</h2>
+</div>
 
-<h2>Liquid Ingredients</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Subcategory</th>
-      <th>Volume</th>
-      <th>Units</th>
-      <th>Status</th>
-      <th>Barcode</th>
-      <th>Expiry</th>
-      <th>Actions</th> <!-- Added actions column for buttons -->
-    </tr>
-  </thead>
-  <tbody>
-    <!--<tr *ngFor="let ingredient of ingredients">-->
-      <tr *ngFor="let ingredient of paginatedIngredients"> <!--New line with paginator-->
-      <td>{{ ingredient.name }}</td>
-      <td>{{ ingredient.category }}</td>
-      <td>{{ ingredient.subcategory }}</td>
-      <td>{{ ingredient.volumePerUnit }}</td>
-      <td>{{ ingredient.numberOfUnits }}</td>
-      <td>{{ ingredient.status }}</td>
-      <td>{{ ingredient.barcodeString }}</td>
-      <td>{{ ingredient.dateOfExpiry | date }}</td>
-      <td>
-        <!-- Action buttons -->
-        <button (click)="editIngredient(ingredient)">Edit</button>
-        <button *ngIf="ingredient.id !== undefined" (click)="deleteIngredient(ingredient.id!)">Delete</button>
-
-<!-- Display of success message -->
+<!-- Success message -->
 <div *ngIf="successMessage" style="color: green; margin-bottom: 1rem;">
   {{ successMessage }}
 </div>
 
-<!-- Table -->
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+<!-- Material Table -->
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" style="width: 100%;">
+
+  <!-- Name Column -->
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
     <td mat-cell *matCellDef="let ingredient"> {{ingredient.name}} </td>
   </ng-container>
 
+  <!-- Category Column -->
   <ng-container matColumnDef="category">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
     <td mat-cell *matCellDef="let ingredient"> {{ingredient.category}} </td>
   </ng-container>
 
+  <!-- Subcategory Column -->
   <ng-container matColumnDef="subcategory">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Subcategory </th>
     <td mat-cell *matCellDef="let ingredient"> {{ingredient.subcategory}} </td>
   </ng-container>
 
+  <!-- Volume Column -->
   <ng-container matColumnDef="volume">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Volume </th>
     <td mat-cell *matCellDef="let ingredient"> {{ingredient.volumePerUnit}} </td>
   </ng-container>
 
+  <!-- Units Column -->
   <ng-container matColumnDef="units">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Units </th>
     <td mat-cell *matCellDef="let ingredient"> {{ingredient.numberOfUnits}} </td>
   </ng-container>
 
+  <!-- Status Column -->
   <ng-container matColumnDef="status">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
     <td mat-cell *matCellDef="let ingredient"> {{ingredient.status}} </td>
   </ng-container>
 
+  <!-- Barcode Column -->
   <ng-container matColumnDef="barcode">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Barcode </th>
     <td mat-cell *matCellDef="let ingredient"> {{ingredient.barcodeString}} </td>
   </ng-container>
 
+  <!-- Expiry Column -->
   <ng-container matColumnDef="expiry">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Expiry </th>
     <td mat-cell *matCellDef="let ingredient"> {{ingredient.dateOfExpiry | date}} </td>
@@ -91,16 +69,26 @@
     </td>
   </ng-container>
 
-  <!-- Row Definitions -->
+  <!-- Table headers and rows -->
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
+<!-- Paginator -->
+<mat-paginator
+  [length]="dataLength"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  showFirstLastButtons
+  aria-label="Select page">
+</mat-paginator>
 
- <!-- Edit Form (only when editing) -->
+<!-- Add New Ingredient -->
+<button (click)="addIngredient()" style="margin-top: 20px;">Add New Ingredient</button>
+
+<!-- Edit Form -->
 <div *ngIf="editingIngredient" style="margin-top: 1rem; padding: 1rem; border: 1px solid #ccc;">
   <h3>Edit Ingredient</h3>
-
   <form (ngSubmit)="saveEdit()" #editForm="ngForm">
     <label>Name:
       <input [(ngModel)]="editingIngredient.name" name="name" required #nameInput="ngModel" />
@@ -152,60 +140,3 @@
     <button type="button" (click)="cancelEdit()">Cancel</button>
   </form>
 </div>
-
-<!--
-<div *ngIf="editingIngredient" style="margin-top: 1rem; padding: 1rem; border: 1px solid #ccc;">
-    <h3>Edit Ingredient</h3>
-  
-    <label>Name:
-      <input [(ngModel)]="editingIngredient.name" />
-    </label><br />
-  
-    <label>Category:
-      <input [(ngModel)]="editingIngredient.category" />
-    </label><br />
-  
-    <label>Subcategory:
-      <input [(ngModel)]="editingIngredient.subcategory" />
-    </label><br />
-  
-    <label>Volume Per Unit:
-      <input type="number" [(ngModel)]="editingIngredient.volumePerUnit" />
-    </label><br />
-  
-    <label>Number Of Units:
-      <input type="number" [(ngModel)]="editingIngredient.numberOfUnits" />
-    </label><br />
-  
-    <label>Status:
-      <input [(ngModel)]="editingIngredient.status" />
-    </label><br />
-  
-    <label>Barcode:
-      <input [(ngModel)]="editingIngredient.barcodeString" />
-    </label><br />
-  
-    <label>Expiry Date:
-      <input type="date" [(ngModel)]="editingIngredient.dateOfExpiry" />
-    </label><br /><br />
-  
-    <button (click)="saveEdit()">Save Changes</button>
-    <button (click)="cancelEdit()">Cancel</button>
-  </div>
--->
-
-
-
-
-<!-- Button to Add a new ingredient -->
-<button (click)="addIngredient()">Add New Ingredient</button>
-
-
-  <!--This is our paginator:-->
-  <mat-paginator 
-    [length]="ingredients.length"
-    [pageSize]="pageSize"
-    [pageSizeOptions]="[5, 10, 25, 100]"
-    (page) = "onPageChange($event)"
-    aria-label="Select page">
-  </mat-paginator>
