@@ -330,11 +330,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pierr\\Documents\\AppliedProgramming\\Merge\\TheBeacon\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj",
+      "projectUniqueName": "C:\\Users\\pierr\\Documents\\APP\\TheBeacon\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj",
       "projectName": "TheBeaconCocktails.Model",
-      "projectPath": "C:\\Users\\pierr\\Documents\\AppliedProgramming\\Merge\\TheBeacon\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj",
+      "projectPath": "C:\\Users\\pierr\\Documents\\APP\\TheBeacon\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj",
       "packagesPath": "C:\\Users\\pierr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pierr\\Documents\\AppliedProgramming\\Merge\\TheBeacon\\TheBeaconCocktails.Model\\obj\\",
+      "outputPath": "C:\\Users\\pierr\\Documents\\APP\\TheBeacon\\TheBeaconCocktails.Model\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pierr\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -49,3 +49,16 @@ C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.M
 C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\refint\TheBeaconCocktails.Model.dll
 C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\TheBeaconCocktails.Model.pdb
 C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\ref\TheBeaconCocktails.Model.dll
+C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.Model\bin\Debug\net8.0\TheBeaconCocktails.Model.deps.json
+C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.Model\bin\Debug\net8.0\TheBeaconCocktails.Model.dll
+C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.Model\bin\Debug\net8.0\TheBeaconCocktails.Model.pdb
+C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\TheBeaconCocktails.Model.csproj.AssemblyReference.cache
+C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\TheBeaconCocktails.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\TheBeaconCocktails.Model.AssemblyInfoInputs.cache
+C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\TheBeaconCocktails.Model.AssemblyInfo.cs
+C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\TheBeaconCocktails.Model.csproj.CoreCompileInputs.cache
+C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\TheBeaconCocktails.Model.sourcelink.json
+C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\TheBeaconCocktails.Model.dll
+C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\refint\TheBeaconCocktails.Model.dll
+C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\TheBeaconCocktails.Model.pdb
+C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.Model\obj\Debug\net8.0\ref\TheBeaconCocktails.Model.dll

@@ -17,8 +17,9 @@ builder.Services.AddCors(options =>
 });
 
 // <--- Registrér LiquidIngredientRepository i DI-containeren
-builder.Services.AddScoped<LiquidIngredientRepository>();
+builder.Services.AddScoped<IngredientRepository>();
 builder.Services.AddScoped<RecipeRepository>();
+builder.Services.AddScoped<StockRepository>();
 builder.Services.AddScoped<DrinkProfileRepository>();
 
 var app = builder.Build();
@@ -32,7 +33,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection(); // <-- This is the correct line!
+app.UseHttpsRedirection(); 
 
 app.UseAuthorization();
 app.MapControllers();
