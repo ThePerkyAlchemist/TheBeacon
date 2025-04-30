@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vpQ4nwBA5zA=",
+  "dgSpecHash": "uVaOOX7cf+g=",
   "success": true,
-  "projectFilePath": "C:\\Users\\pierr\\Documents\\AppliedProgramming\\Merge\\TheBeacon\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj",
+  "projectFilePath": "C:\\Users\\pierr\\Documents\\APP\\TheBeacon\\TheBeaconCocktails.Model\\TheBeaconCocktails.Model.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pierr\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.4\\microsoft.extensions.configuration.9.0.4.nupkg.sha512",
     "C:\\Users\\pierr\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.4\\microsoft.extensions.configuration.abstractions.9.0.4.nupkg.sha512",

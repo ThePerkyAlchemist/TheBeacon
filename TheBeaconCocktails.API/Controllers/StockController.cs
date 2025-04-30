@@ -6,38 +6,38 @@ namespace TheBeaconCocktails.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class RecipeController : ControllerBase
+public class StockController : ControllerBase
 {
-    private readonly RecipeRepository _repository;
+    private readonly StockRepository _repository;
 
-    public RecipeController(RecipeRepository repository)
+    public StockController(StockRepository repository)
     {
         _repository = repository;
     }
 
     [HttpGet]
-    public ActionResult<List<Recipe>> GetAll() => Ok(_repository.GetAll());
+    public ActionResult<List<Stock>> GetAll() => Ok(_repository.GetAll());
 
     [HttpGet("{id}")]
-    public ActionResult<Recipe> GetById(int id)
+    public ActionResult<Stock> GetById(int id)
     {
         var item = _repository.GetById(id);
         return item == null ? NotFound() : Ok(item);
     }
 
     [HttpPost]
-    public ActionResult Add([FromBody] Recipe item)
+    public ActionResult Add([FromBody] Stock item)
     {
         if (item == null) return BadRequest();
         return _repository.Insert(item) ? Ok() : BadRequest("Insert failed");
     }
 
     [HttpPut("{id}")]
-    public ActionResult Update(int id, [FromBody] Recipe item)
+    public ActionResult Update(int id, [FromBody] Stock item)
     {
         if (item == null) return BadRequest();
         var existing = _repository.GetById(id);
-        if (existing == null) return NotFound($"Recipe with ID {id} not found");
+        if (existing == null) return NotFound($"Stock with ID {id} not found");
         return _repository.Update(item) ? Ok() : BadRequest("Update failed");
     }
 

@@ -7,109 +7,109 @@ using TheBeaconCocktails.Model.entities;
 
 namespace TheBeaconCocktails.Model.Repositories
 {
-    public class LiquidIngredientRepository : BaseRepository
+    public class StockRepository : BaseRepository
     {
-        public LiquidIngredientRepository(IConfiguration configuration) : base(configuration) { }
+        public StockRepository(IConfiguration configuration) : base(configuration) { }
 
-        // HENTER ALLE RÆKKER
-        public List<LiquidIngredient> GetAll()
+        // GET ALL
+        public List<Stock> GetAll()
         {
-            var result = new List<LiquidIngredient>();
+            var result = new List<Stock>();
             using var conn = new NpgsqlConnection(ConnectionString);
             var cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM LiquidIngredient";
+            cmd.CommandText = "SELECT * FROM Stock";
 
             var reader = GetData(conn, cmd);
             while (reader.Read())
             {
-                var li = new LiquidIngredient
+                var stock = new Stock
                 {
                     Id = Convert.ToInt32(reader["id"]),
                     Category = reader["category"]?.ToString(),
-                    Subcategory = reader["subcategory"]?.ToString(),
+                    SubCategory = reader["subcategory"]?.ToString(),
                     Name = reader["name"]?.ToString(),
                     DateOfExpiry = Convert.ToDateTime(reader["dateofexpiry"]),
                     VolumePerUnit = Convert.ToDecimal(reader["volumeperunit"]),
                     NumberOfUnits = Convert.ToInt32(reader["numberofunits"]),
                     Status = reader["status"]?.ToString(),
-                    BarcodeString = reader["barcodestring"]?.ToString()
+                    BarCodeString = reader["barcodestring"]?.ToString()
                 };
-                result.Add(li);
+                result.Add(stock);
             }
 
             return result;
         }
 
-        // HENTER ÉN RÆKKE EFTER ID
-        public LiquidIngredient? GetById(int id)
+        // GET BY ID
+        public Stock? GetById(int id)
         {
             using var conn = new NpgsqlConnection(ConnectionString);
             var cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM LiquidIngredient WHERE id = @id";
+            cmd.CommandText = "SELECT * FROM Stock WHERE id = @id";
             cmd.Parameters.AddWithValue("@id", NpgsqlDbType.Integer, id);
             var reader = GetData(conn, cmd);
 
             if (reader.Read())
             {
-                return new LiquidIngredient
+                return new Stock
                 {
                     Id = id,
                     Category = reader["category"]?.ToString(),
-                    Subcategory = reader["subcategory"]?.ToString(),
+                    SubCategory = reader["subcategory"]?.ToString(),
                     Name = reader["name"]?.ToString(),
                     DateOfExpiry = Convert.ToDateTime(reader["dateofexpiry"]),
                     VolumePerUnit = Convert.ToDecimal(reader["volumeperunit"]),
                     NumberOfUnits = Convert.ToInt32(reader["numberofunits"]),
                     Status = reader["status"]?.ToString(),
-                    BarcodeString = reader["barcodestring"]?.ToString()
+                    BarCodeString = reader["barcodestring"]?.ToString()
                 };
             }
 
             return null;
         }
 
-        // INDSÆT NY INGREDIENS
-public bool Insert(LiquidIngredient li)
-{
-    using var conn = new NpgsqlConnection(ConnectionString);
-    var cmd = conn.CreateCommand();
-    cmd.CommandText = @"
-INSERT INTO LiquidIngredient
+        // INSERT NEW STOCK
+        public bool Insert(Stock stock)
+        {
+            using var conn = new NpgsqlConnection(ConnectionString);
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = @"
+INSERT INTO Stock
 (category, subcategory, name, dateofexpiry, volumeperunit, numberofunits, status, barcodestring)
 VALUES (@category, @subcategory, @name, @dateofexpiry, @volumeperunit, @numberofunits, @status, @barcodestring);
 ";
-    cmd.Parameters.AddWithValue("@category", NpgsqlDbType.Text, li.Category);
-    cmd.Parameters.AddWithValue("@subcategory", NpgsqlDbType.Text, li.Subcategory);
-    cmd.Parameters.AddWithValue("@name", NpgsqlDbType.Text, li.Name);
-    cmd.Parameters.AddWithValue("@dateofexpiry", NpgsqlDbType.Date, li.DateOfExpiry);
-    cmd.Parameters.AddWithValue("@volumeperunit", NpgsqlDbType.Numeric, li.VolumePerUnit);
-    cmd.Parameters.AddWithValue("@numberofunits", NpgsqlDbType.Integer, li.NumberOfUnits);
-    cmd.Parameters.AddWithValue("@status", NpgsqlDbType.Text, li.Status);
-    cmd.Parameters.AddWithValue("@barcodestring", NpgsqlDbType.Text, li.BarcodeString);
+            cmd.Parameters.AddWithValue("@category", NpgsqlDbType.Text, stock.Category);
+            cmd.Parameters.AddWithValue("@subcategory", NpgsqlDbType.Text, stock.SubCategory);
+            cmd.Parameters.AddWithValue("@name", NpgsqlDbType.Text, stock.Name);
+            cmd.Parameters.AddWithValue("@dateofexpiry", NpgsqlDbType.Date, stock.DateOfExpiry);
+            cmd.Parameters.AddWithValue("@volumeperunit", NpgsqlDbType.Numeric, stock.VolumePerUnit);
+            cmd.Parameters.AddWithValue("@numberofunits", NpgsqlDbType.Integer, stock.NumberOfUnits);
+            cmd.Parameters.AddWithValue("@status", NpgsqlDbType.Text, stock.Status);
+            cmd.Parameters.AddWithValue("@barcodestring", NpgsqlDbType.Text, stock.BarCodeString);
 
-    return InsertData(conn, cmd);
-}
+            return InsertData(conn, cmd);
+        }
 
         // SLET
         //I just noticed that this most likely deletes all the bottles regardless of how many of them are in stock 2025.04.23
         //TODO only deduct as many as the user indicates on the UI. 
         //probably a for loop on numbers until i  or stock = 0. if stock = 0, throw error
-        public bool Delete(int id)
+       public bool Delete(int id)
         {
             using var conn = new NpgsqlConnection(ConnectionString);
             var cmd = conn.CreateCommand();
-            cmd.CommandText = "DELETE FROM LiquidIngredient WHERE id = @id";
+            cmd.CommandText = "DELETE FROM Stock WHERE id = @id";
             cmd.Parameters.AddWithValue("@id", NpgsqlDbType.Integer, id);
             return DeleteData(conn, cmd);
         }
 
-        // OPDATER
-        public bool Update(LiquidIngredient li)
+        // UPDATE STOCK
+        public bool Update(Stock stock)
         {
             using var conn = new NpgsqlConnection(ConnectionString);
             var cmd = conn.CreateCommand();
             cmd.CommandText = @"
-UPDATE LiquidIngredient SET
+UPDATE Stock SET
     category = @category,
     subcategory = @subcategory,
     name = @name,
@@ -120,15 +120,15 @@ UPDATE LiquidIngredient SET
     barcodestring = @barcodestring
 WHERE id = @id;
 ";
-            cmd.Parameters.AddWithValue("@category", NpgsqlDbType.Text, li.Category);
-            cmd.Parameters.AddWithValue("@subcategory", NpgsqlDbType.Text, li.Subcategory);
-            cmd.Parameters.AddWithValue("@name", NpgsqlDbType.Text, li.Name);
-            cmd.Parameters.AddWithValue("@dateofexpiry", NpgsqlDbType.Date, li.DateOfExpiry);
-            cmd.Parameters.AddWithValue("@volumeperunit", NpgsqlDbType.Numeric, li.VolumePerUnit);
-            cmd.Parameters.AddWithValue("@numberofunits", NpgsqlDbType.Integer, li.NumberOfUnits);
-            cmd.Parameters.AddWithValue("@status", NpgsqlDbType.Text, li.Status);
-            cmd.Parameters.AddWithValue("@barcodestring", NpgsqlDbType.Text, li.BarcodeString);
-            cmd.Parameters.AddWithValue("@id", NpgsqlDbType.Integer, li.Id);
+            cmd.Parameters.AddWithValue("@category", NpgsqlDbType.Text, stock.Category);
+            cmd.Parameters.AddWithValue("@subcategory", NpgsqlDbType.Text, stock.SubCategory);
+            cmd.Parameters.AddWithValue("@name", NpgsqlDbType.Text, stock.Name);
+            cmd.Parameters.AddWithValue("@dateofexpiry", NpgsqlDbType.Date, stock.DateOfExpiry);
+            cmd.Parameters.AddWithValue("@volumeperunit", NpgsqlDbType.Numeric, stock.VolumePerUnit);
+            cmd.Parameters.AddWithValue("@numberofunits", NpgsqlDbType.Integer, stock.NumberOfUnits);
+            cmd.Parameters.AddWithValue("@status", NpgsqlDbType.Text, stock.Status);
+            cmd.Parameters.AddWithValue("@barcodestring", NpgsqlDbType.Text, stock.BarCodeString);
+            cmd.Parameters.AddWithValue("@id", NpgsqlDbType.Integer, stock.Id);
 
             return UpdateData(conn, cmd);
         }
