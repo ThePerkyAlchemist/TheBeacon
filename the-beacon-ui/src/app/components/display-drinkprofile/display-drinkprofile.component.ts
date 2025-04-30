@@ -9,7 +9,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
-
 import { PageEvent } from '@angular/material/paginator'; //importing the "event" that happens when the user interacts with the paginator
 
 @Component({

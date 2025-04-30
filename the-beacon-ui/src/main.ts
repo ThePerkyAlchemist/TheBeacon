@@ -4,11 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { Routes } from '@angular/router';
-import { LiquidIngredientListComponent } from './app/components/liquid-ingredient-list/liquid-ingredient-list.component';
 import { CommonModule } from '@angular/common';
+import { DisplayStockListComponent } from './app/components/display-stock-list/display-stock-list.component';
 
 const routes: Routes = [
-  { path: '', component: LiquidIngredientListComponent }
+  { path: '', component: DisplayStockListComponent}
 ];
 
 bootstrapApplication(AppComponent, {

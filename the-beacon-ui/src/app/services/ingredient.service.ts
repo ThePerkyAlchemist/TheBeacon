@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { LiquidIngredient } from  '../model/liquidingredient';
+import { Ingredient } from  '../model/ingredient';
 
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class LiquidIngredientService {
-  apiUrl = 'http://localhost:5146/api/liquidingredient'; //This is an absolute safety violation in the long run. 
+export class IngredientService {
+  apiUrl = 'http://localhost:5146/api/ingredient'; //This is an absolute safety violation in the long run. 
 
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<LiquidIngredient[]> {
-    return this.http.get<LiquidIngredient[]>(this.apiUrl);
+  getAll(): Observable<Ingredient[]> {
+    return this.http.get<Ingredient[]>(this.apiUrl);
   }
-  update(ingredient: LiquidIngredient) {
+  update(ingredient: Ingredient) {
     return this.http.put(`${this.apiUrl}/${ingredient.id}`, ingredient);
   }
 
@@ -24,7 +24,7 @@ export class LiquidIngredientService {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
 
-  add(ingredient: LiquidIngredient) {
+  add(ingredient: Ingredient) {
     return this.http.post(this.apiUrl, ingredient); // <-- Tilføjet
   }
 }

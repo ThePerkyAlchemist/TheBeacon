@@ -1,40 +1,45 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { NgForm, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Recipe } from '../../model/recipe';
-import { GroupedRecipe } from '../../model/groupedrecipe';
 import { RecipeService } from '../../services/recipe.service';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table'; 
-import { MatSortModule, MatSort } from '@angular/material/sort';
-import { NgForm } from '@angular/forms';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import { PageEvent } from '@angular/material/paginator'; //importing the "event" that happens when the user interacts with the paginator
-
+import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-display-recipe',
   templateUrl: './display-recipe.component.html',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule, MatTableModule, MatSortModule, MatPaginatorModule], 
-
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule
+  ],
 })
 export class DisplayRecipeComponent implements OnInit {
   recipes: Recipe[] = [];
   dataSource = new MatTableDataSource<Recipe>(); 
   successMessage: string = '';
   hideSuccess: boolean = false;
-  displayedColumns: string[] = ['recipeId', 'name', 'liquidId', 'volume', 'actions']; 
+  displayedColumns: string[] = ['id', 'name', 'ingredientId', 'volumeMl', 'actions'];
 
   editingRecipe: Recipe | null = null;
-  currentPage = 0; //Keeping track of what page the user are at
-  pageSize = 5; //how many ingredients show on each page
+  currentPage = 0;
+  pageSize = 5;
+
   newRecipe: Recipe = {
-    id: 0, recipeId: 0, name: '', liquidId: 0, liquidIngredientVolumeMl: 0, liquidName: ''
+    recipeId: 0,
+    id:0,
+    name: '',
+    ingredientId: 0,
+    volumeMl: 0
   };
 
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild('createForm') createForm!: NgForm;
 
   constructor(private recipeService: RecipeService) {}
@@ -47,8 +52,9 @@ export class DisplayRecipeComponent implements OnInit {
     this.recipeService.getRecipes().subscribe({
       next: (data) => {
         this.recipes = data;
-        this.dataSource.data = data;  // bind to datasource
-        this.dataSource.sort = this.sort; // enable sorting
+        this.dataSource = new MatTableDataSource<Recipe>(this.recipes);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
       },
       error: (err) => {
         console.error('Error loading recipes', err);
@@ -85,30 +91,22 @@ export class DisplayRecipeComponent implements OnInit {
           this.loadRecipes();
           this.successMessage = 'Recipe created successfully!';
           this.hideSuccess = false;
-          
-          // 1. Reset the model FIRST
-        this.newRecipe = {
-          id: 0,
-          recipeId: 0,
-          name: '',
-          liquidId: 0,
-          liquidIngredientVolumeMl: 0,
-          liquidName: ''
-        };
 
-        // THEN reset the form AFTER a short delay
-        setTimeout(() => {
-          this.createForm.resetForm({
-            recipeId: '',
+          // Reset model
+          this.newRecipe = {
+            recipeId:0,
+            id: 0,
             name: '',
-            liquidId: '',
-            liquidIngredientVolumeMl: '',
-            liquidName: ''
+            ingredientId: 0,
+            volumeMl: 0
+          };
+
+          // Reset form view
+          setTimeout(() => {
+            this.createForm.resetForm();
           });
-        });
 
-
-          // Fade away success message
+          // Hide message after 3 sec
           setTimeout(() => {
             this.hideSuccess = true;
             setTimeout(() => {
@@ -132,26 +130,15 @@ export class DisplayRecipeComponent implements OnInit {
         console.error('Error deleting recipe', err);
       }
     });
-  }  
+  }
 
   applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-    }
-  
+  }
 
-   /*adding a "getter" for the sliced list*/
-    get paginatedRecipe(): Recipe[] {
-      const start = this.currentPage * this.pageSize; 
-      const end = start + this.pageSize;
-      return this.recipes.slice(start,end);
-    }
-   
-  //calling the method when the user interacts with the paginator and updating the pagenr and size
-    onPageChange(event: PageEvent): void{
-    
-      this.currentPage = event.pageIndex;
-      this.pageSize = event.pageSize;
-      
-    }
+  onPageChange(event: PageEvent): void {
+    this.currentPage = event.pageIndex;
+    this.pageSize = event.pageSize;
+  }
 }
