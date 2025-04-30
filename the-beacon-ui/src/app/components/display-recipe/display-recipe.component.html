@@ -21,98 +21,87 @@
 <!-- Recipe Form (Create / Edit) -->
 <div style="margin-bottom: 2rem;">
   
-  <!-- Create New Recipe -->
-  <div *ngIf="!editingRecipe">
-    <h3>Add New Recipe</h3>
-    <form (ngSubmit)="createRecipe()" #createForm="ngForm">
-      
-      <label>Recipe Group ID:
-        <input [(ngModel)]="newRecipe.recipeId" name="recipeId" required type="number" min="1" #recipeIdInput="ngModel">
-      </label>
-      <div *ngIf="recipeIdInput.invalid && recipeIdInput.touched" style="color: red;">Recipe Group ID is required and must be positive.</div>
-      <br>
+<!-- Create New Recipe -->
+<div *ngIf="!editingRecipe">
+  <h3>Add New Recipe</h3>
+  <form (ngSubmit)="createRecipe()" #createForm="ngForm">
 
-      <label>Name:
-        <input [(ngModel)]="newRecipe.name" name="name" required #nameInput="ngModel">
-      </label>
-      <div *ngIf="nameInput.invalid && nameInput.touched" style="color: red;">Name is required.</div>
-      <br>
+    <label>Name:
+      <input [(ngModel)]="newRecipe.name" name="name" required #nameInput="ngModel">
+    </label>
+    <div *ngIf="nameInput.invalid && nameInput.touched" style="color: red;">Name is required.</div>
+    <br>
 
-      <label>Liquid Ingredient ID:
-        <input [(ngModel)]="newRecipe.liquidId" name="liquidId" required type="number" min="1" #liquidIdInput="ngModel">
-      </label>
-      <div *ngIf="liquidIdInput.invalid && liquidIdInput.touched" style="color: red;">Liquid Ingredient ID is required and must be positive.</div>
-      <br>
+    <label>Ingredient ID:
+      <input [(ngModel)]="newRecipe.ingredientId" name="ingredientId" required type="number" min="1" #ingredientIdInput="ngModel">
+    </label>
+    <div *ngIf="ingredientIdInput.invalid && ingredientIdInput.touched" style="color: red;">Ingredient ID is required and must be positive.</div>
+    <br>
 
-      <label>Volume (ml):
-        <input [(ngModel)]="newRecipe.liquidIngredientVolumeMl" name="volume" required type="number" min="1" #volumeInput="ngModel">
-      </label>
-      <div *ngIf="volumeInput.invalid && volumeInput.touched" style="color: red;">Volume is required and must be at least 1 ml.</div>
-      <br><br>
+    <label>Volume (ml):
+      <input [(ngModel)]="newRecipe.volumeMl" name="volumeMl" required type="number" min="1" #volumeInput="ngModel">
+    </label>
+    <div *ngIf="volumeInput.invalid && volumeInput.touched" style="color: red;">Volume is required and must be at least 1 ml.</div>
+    <br><br>
 
-      <button type="submit" [disabled]="!createForm.form.valid">Create Recipe Entry</button>
-    </form>
-  </div>
-
-  <!-- Edit Existing Recipe -->
-  <div *ngIf="editingRecipe" style="margin-top: 1rem; padding: 1rem; border: 1px solid #ccc;">
-    <h3>Edit Recipe</h3>
-    <form (ngSubmit)="saveRecipe()" #editForm="ngForm">
-      <label>Recipe Group ID:
-        <input [(ngModel)]="editingRecipe.recipeId" name="editRecipeId" required type="number" min="1" #editRecipeIdInput="ngModel">
-      </label>
-      <div *ngIf="editRecipeIdInput.invalid && editRecipeIdInput.touched" style="color: red;">Recipe Group ID is required and must be positive.</div>
-      <br>
-
-      <label>Name:
-        <input [(ngModel)]="editingRecipe.name" name="editName" required #editNameInput="ngModel">
-      </label>
-      <div *ngIf="editNameInput.invalid && editNameInput.touched" style="color: red;">Name is required.</div>
-      <br>
-
-      <label>Liquid Ingredient ID:
-        <input [(ngModel)]="editingRecipe.liquidId" name="editLiquidId" required type="number" min="1" #editLiquidIdInput="ngModel">
-      </label>
-      <div *ngIf="editLiquidIdInput.invalid && editLiquidIdInput.touched" style="color: red;">Liquid Ingredient ID is required and must be positive.</div>
-      <br>
-
-      <label>Volume (ml):
-        <input [(ngModel)]="editingRecipe.liquidIngredientVolumeMl" name="editVolume" required type="number" min="1" #editVolumeInput="ngModel">
-      </label>
-      <div *ngIf="editVolumeInput.invalid && editVolumeInput.touched" style="color: red;">Volume is required and must be at least 1 ml.</div>
-      <br><br>
-
-      <button type="submit" [disabled]="!editForm.form.valid">Save Changes</button>
-      <button type="button" (click)="cancelEdit()">Cancel</button>
-    </form>
-  </div>
+    <button type="submit" [disabled]="!createForm.form.valid">Create Recipe Entry</button>
+  </form>
 </div>
+
+<!-- Edit Existing Recipe -->
+<div *ngIf="editingRecipe" style="margin-top: 1rem; padding: 1rem; border: 1px solid #ccc;">
+  <h3>Edit Recipe</h3>
+  <form (ngSubmit)="saveRecipe()" #editForm="ngForm">
+
+    <label>Name:
+      <input [(ngModel)]="editingRecipe.name" name="editName" required #editNameInput="ngModel">
+    </label>
+    <div *ngIf="editNameInput.invalid && editNameInput.touched" style="color: red;">Name is required.</div>
+    <br>
+
+    <label>Ingredient ID:
+      <input [(ngModel)]="editingRecipe.ingredientId" name="editIngredientId" required type="number" min="1" #editIngredientIdInput="ngModel">
+    </label>
+    <div *ngIf="editIngredientIdInput.invalid && editIngredientIdInput.touched" style="color: red;">Ingredient ID is required and must be positive.</div>
+    <br>
+
+    <label>Volume (ml):
+      <input [(ngModel)]="editingRecipe.volumeMl" name="editVolume" required type="number" min="1" #editVolumeInput="ngModel">
+    </label>
+    <div *ngIf="editVolumeInput.invalid && editVolumeInput.touched" style="color: red;">Volume is required and must be at least 1 ml.</div>
+    <br><br>
+
+    <button type="submit" [disabled]="!editForm.form.valid">Save Changes</button>
+    <button type="button" (click)="cancelEdit()">Cancel</button>
+  </form>
+</div>
+
 
 <!-- Recipe Table List -->
 <h3>Recipe List</h3>
 
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
-  <ng-container matColumnDef="recipeId">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Recipe Group ID </th>
-    <td mat-cell *matCellDef="let recipe"> {{recipe.recipeId}} </td>
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+    <td mat-cell *matCellDef="let recipe"> {{recipe.id}} </td>
   </ng-container>
-
+  
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
     <td mat-cell *matCellDef="let recipe"> {{recipe.name}} </td>
   </ng-container>
-
-  <ng-container matColumnDef="liquidId">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Liquid Ingredient ID </th>
-    <td mat-cell *matCellDef="let recipe"> {{recipe.liquidId}} </td>
+  
+  <ng-container matColumnDef="ingredientId">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Ingredient ID </th>
+    <td mat-cell *matCellDef="let recipe"> {{recipe.ingredientId}} </td>
   </ng-container>
-
-  <ng-container matColumnDef="volume">
+  
+  <ng-container matColumnDef="volumeMl">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Volume (ml) </th>
-    <td mat-cell *matCellDef="let recipe"> {{recipe.liquidIngredientVolumeMl}} </td>
+    <td mat-cell *matCellDef="let recipe"> {{recipe.volumeMl}} </td>
   </ng-container>
-
+  
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let recipe">
