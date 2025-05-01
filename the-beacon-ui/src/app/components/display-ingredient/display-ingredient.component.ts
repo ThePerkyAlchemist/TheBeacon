@@ -1,136 +1,134 @@
-import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { MatTableModule } from '@angular/material/table';
-import { Ingredient } from '../../model/ingredient';
+import { CommonModule } from '@angular/common';
+
 import { IngredientService } from '../../services/ingredient.service';
+import { Ingredient } from '../../model/ingredient';
 
 @Component({
   selector: 'app-display-ingredient',
   templateUrl: './display-ingredient.component.html',
+  styleUrls: ['./display-ingredient.component.css'],
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule,
-    HttpClientModule,
-    MatPaginatorModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatIconModule,
+    MatButtonModule
   ]
 })
-export class DisplayIngredientComponent implements OnInit {
-  ingredients: Ingredient[] = [];
+export class DisplayIngredientComponent implements OnInit, AfterViewInit {
+  displayedColumns: string[] = ['name', 'category', 'subCategory', 'barCodeString', 'alcPercentage', 'actions'];
+  dataSource = new MatTableDataSource<Ingredient>();
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ingredientForm!: FormGroup;
+  showForm = false;
   editingIngredient: Ingredient | null = null;
-  showCreateForm: boolean = false;
 
-  displayedColumns: string[] = [
-    'name',
-    'category',
-    'subcategory',
-    'barcodeString',
-    'alcPercentage',
-    'actions'
-  ];
-
-  currentPage = 0;
-  pageSize = 5;
-
-  newIngredient: Ingredient = {
-    id: 0,
-    name: '',
-    category: '',
-    subcategory: '',
-    barcodestring: '',
-    alcpercentage: 0
-  };
-
-  constructor(private ingredientService: IngredientService) {}
+  constructor(
+    private ingredientService: IngredientService,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
+    this.initForm();
     this.loadIngredients();
   }
 
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
+  }
+
+  initForm(): void {
+    this.ingredientForm = this.fb.group({
+      name: ['', Validators.required],
+      category: ['', Validators.required],
+      subCategory: ['', Validators.required],
+      barCodeString: ['', Validators.required],
+      alcPercentage: [0, [Validators.required, Validators.min(0), Validators.max(100)]],
+    });
+  }
+
+  get nameControl() { return this.ingredientForm.get('name'); }
+  get categoryControl() { return this.ingredientForm.get('category'); }
+  get subCategoryControl() { return this.ingredientForm.get('subCategory'); }
+  get barCodeStringControl() { return this.ingredientForm.get('barCodeString'); }
+  get alcPercentageControl() { return this.ingredientForm.get('alcPercentage'); }
+
   loadIngredients(): void {
-    this.ingredientService.getAll().subscribe({
-      next: (data: Ingredient[]) => {
-        this.ingredients = data;
-      },
+    this.ingredientService.getIngredients().subscribe({
+      next: (data) => this.dataSource.data = data,
       error: (err) => console.error('Error loading ingredients', err)
     });
   }
 
-  startCreating(): void {
-    this.showCreateForm = true;
-    this.editingIngredient = null;
+  applyFilter(filterValue: string): void {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  cancelCreate(): void {
-    this.showCreateForm = false;
-    this.newIngredient = {
-      id: 0,
-      name: '',
-      category: '',
-      subcategory: '',
-      barcodestring: '',
-      alcpercentage: 0
-    };
+  startCreating(): void {
+    this.ingredientForm.reset();
+    this.editingIngredient = null;
+    this.showForm = true;
   }
 
   startEditing(ingredient: Ingredient): void {
-    this.editingIngredient = { ...ingredient };
-    this.showCreateForm = false;
+    this.editingIngredient = ingredient;
+    this.ingredientForm.patchValue(ingredient);
+    this.showForm = true;
   }
 
-  cancelEdit(): void {
+  cancelForm(): void {
+    this.showForm = false;
     this.editingIngredient = null;
+    this.ingredientForm.reset();
   }
 
   saveIngredient(): void {
+    if (this.ingredientForm.invalid) return;
+
+    const formValue = this.ingredientForm.value;
+
     if (this.editingIngredient) {
-      this.ingredientService.update(this.editingIngredient).subscribe({
+      const updated: Ingredient = { ...formValue, id: this.editingIngredient.id };
+      this.ingredientService.updateIngredient(updated).subscribe({
         next: () => {
           this.loadIngredients();
-          this.editingIngredient = null;
+          this.cancelForm();
         },
-        error: (err) => console.error('Error updating ingredient', err)
+        error: (err) => console.error('Update failed', err)
+      });
+    } else {
+      this.ingredientService.createIngredient(formValue).subscribe({
+        next: () => {
+          this.loadIngredients();
+          this.cancelForm();
+        },
+        error: (err) => console.error('Creation failed', err)
       });
     }
   }
 
-  createIngredient(): void {
-    this.ingredientService.add(this.newIngredient).subscribe({
-      next: () => {
-        this.loadIngredients();
-        this.cancelCreate();
-      },
-      error: (err) => console.error('Error creating ingredient', err)
-    });
-  }
-
   deleteIngredient(id: number): void {
-    this.ingredientService.delete(id).subscribe({
-      next: () => {
-        this.loadIngredients();
-      },
-      error: (err) => console.error('Error deleting ingredient', err)
+    if (!confirm('Are you sure you want to delete this ingredient?')) return;
+
+    this.ingredientService.deleteIngredient(id).subscribe({
+      next: () => this.loadIngredients(),
+      error: (err) => console.error('Delete failed', err)
     });
-  }
-
-  get paginatedIngredients(): Ingredient[] {
-    const start = this.currentPage * this.pageSize;
-    const end = start + this.pageSize;
-    return this.ingredients.slice(start, end);
-  }
-
-  onPageChange(event: PageEvent): void {
-    this.currentPage = event.pageIndex;
-    this.pageSize = event.pageSize;
   }
 }
+
