@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSort, MatSortModule } from '@angular/material/sort'; // The sorting function
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -34,6 +35,7 @@ import { Ingredient } from '../../model/ingredient';
     MatInputModule,          // For <input matInput>
     MatTableModule,          // For <mat-table>
     MatPaginatorModule,      // For pagination
+    MatSortModule,           // For sorting in the headers of the table
     MatIconModule,           // For <mat-icon>
     MatButtonModule          // For <button mat-raised-button>
   ]
@@ -48,6 +50,7 @@ export class DisplayIngredientComponent implements OnInit, AfterViewInit {
 
   // Paginator reference for Angular Material table
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort; // <-- ViewChild for MatSort
 
   // Reactive form instance for creating/updating ingredients
   ingredientForm!: FormGroup;
@@ -69,9 +72,10 @@ export class DisplayIngredientComponent implements OnInit, AfterViewInit {
     this.loadIngredients();
   }
 
-  // Lifecycle hook: set up table paginator after view loads
+  // Lifecycle hook: set up table paginator after view loads + assign sort
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort; // <-- Assign sort
   }
 
   // Initializes the reactive form with controls and validation rules
