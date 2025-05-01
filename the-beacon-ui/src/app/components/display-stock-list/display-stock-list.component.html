@@ -1,75 +1,77 @@
-<!-- Container with logo and heading -->
+<!-- Header with Logo and Title -->
 <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
   <img src="assets/theBeaconLogo4K.png" alt="The Beacon Logo" style="height: 60px;" />
   <h2>Stock</h2>
 </div>
 
-<!-- Success message -->
+<!-- Success Message -->
 <div *ngIf="successMessage" style="color: green; margin-bottom: 1rem;">
   {{ successMessage }}
 </div>
 
+<!-- Filter Input -->
+<mat-form-field appearance="fill" style="width: 300px; margin-bottom: 1rem;">
+  <mat-label>Filter stock</mat-label>
+  <input matInput (input)="applyFilter($event)" placeholder="Enter keyword" />
+</mat-form-field>
+
 <!-- Material Table -->
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" style="width: 100%;">
 
-  <!-- Name Column -->
+  <!-- Columns -->
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-    <td mat-cell *matCellDef="let stock"> {{stock.name}} </td>
+    <td mat-cell *matCellDef="let stock"> {{ stock.name }} </td>
   </ng-container>
 
-  <!-- Category Column -->
   <ng-container matColumnDef="category">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
-    <td mat-cell *matCellDef="let stock"> {{stock.category}} </td>
+    <td mat-cell *matCellDef="let stock"> {{ stock.category }} </td>
   </ng-container>
 
-  <!-- Subcategory Column -->
   <ng-container matColumnDef="subcategory">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Subcategory </th>
-    <td mat-cell *matCellDef="let stock"> {{stock.subcategory}} </td>
+    <td mat-cell *matCellDef="let stock"> {{ stock.subcategory }} </td>
   </ng-container>
 
-  <!-- Volume Column -->
   <ng-container matColumnDef="volumePerUnit">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Volume </th>
-    <td mat-cell *matCellDef="let stock"> {{stock.volumePerUnit}} </td>
+    <td mat-cell *matCellDef="let stock"> {{ stock.volumePerUnit }} </td>
   </ng-container>
 
-  <!-- Units Column -->
   <ng-container matColumnDef="numberOfUnits">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Units </th>
-    <td mat-cell *matCellDef="let stock"> {{stock.numberOfUnits}} </td>
+    <td mat-cell *matCellDef="let stock"> {{ stock.numberOfUnits }} </td>
   </ng-container>
 
-  <!-- Status Column -->
   <ng-container matColumnDef="status">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
-    <td mat-cell *matCellDef="let stock"> {{stock.status}} </td>
+    <td mat-cell *matCellDef="let stock"> {{ stock.status }} </td>
   </ng-container>
 
-  <!-- Barcode Column -->
   <ng-container matColumnDef="barcodeString">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Barcode </th>
-    <td mat-cell *matCellDef="let stock"> {{stock.barcodeString}} </td>
+    <td mat-cell *matCellDef="let stock"> {{ stock.barcodeString }} </td>
   </ng-container>
 
-  <!-- Expiry Column -->
   <ng-container matColumnDef="dateOfExpiry">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Expiry </th>
-    <td mat-cell *matCellDef="let stock"> {{stock.dateOfExpiry | date}} </td>
+    <td mat-cell *matCellDef="let stock"> {{ stock.dateOfExpiry | date:'yyyy-MM-dd' }} </td>
   </ng-container>
 
-  <!-- Actions Column -->
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let stock">
-      <button mat-raised-button color="primary" (click)="editStock(stock)">Edit</button>
-      <button mat-raised-button color="warn" *ngIf="stock.id !== undefined" (click)="deleteStock(stock.id)">Delete</button>
+      <button mat-icon-button color="primary" (click)="editStock(stock)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" *ngIf="stock.id !== undefined" (click)="deleteStock(stock.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
     </td>
   </ng-container>
 
-  <!-- Table headers and rows -->
+  <!-- Table Rows -->
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
@@ -83,32 +85,57 @@
   aria-label="Select page">
 </mat-paginator>
 
-<!-- Add New Stock Item -->
-<button (click)="addStock()" style="margin-top: 20px;">Add New Stock Item</button>
+<!-- Add Button -->
+<button mat-raised-button color="accent" (click)="addStock()" style="margin-top: 20px;">Add New Stock Item</button>
 
 <!-- Edit Form -->
 <div *ngIf="editingStock" style="margin-top: 1rem; padding: 1rem; border: 1px solid #ccc;">
   <h3>Edit Stock</h3>
   <form (ngSubmit)="saveEdit()" #editForm="ngForm">
-    <label>Name:
-      <input [(ngModel)]="editingStock.name" name="name" required #nameInput="ngModel" />
-    </label>
-    <div *ngIf="nameInput.invalid && nameInput.touched" style="color: red;">Name is required.</div>
-    <br />
 
-    <label>Category:
-      <input [(ngModel)]="editingStock.category" name="category" required #categoryInput="ngModel" />
-    </label>
-    <div *ngIf="categoryInput.invalid && categoryInput.touched" style="color: red;">Category is required.</div>
-    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="editingStock.name" name="name" required />
+    </mat-form-field>
 
-    <label>Subcategory:
-      <input [(ngModel)]="editingStock.subcategory" name="subcategory" required #subcategoryInput="ngModel" />
-    </label>
-    <div *ngIf="subcategoryInput.invalid && subcategoryInput.touched" style="color: red;">Subcategory is required.</div>
-    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <input matInput [(ngModel)]="editingStock.category" name="category" required />
+    </mat-form-field>
 
-    <label>Volume Per Unit:
-      <input type="number" [(ngModel)]="editingStock.volumePerUnit" name="volumePerUnit" required min="1" #volumeInput="ngModel" />
-    </label>
-    <div *ngIf="volumeInput.invalid && volumeInput.touched" style="color: red;">Volume must be*
+    <mat-form-field appearance="fill">
+      <mat-label>Subcategory</mat-label>
+      <input matInput [(ngModel)]="editingStock.subcategory" name="subcategory" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Volume Per Unit</mat-label>
+      <input type="number" matInput [(ngModel)]="editingStock.volumePerUnit" name="volumePerUnit" required min="1" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Number of Units</mat-label>
+      <input type="number" matInput [(ngModel)]="editingStock.numberOfUnits" name="numberOfUnits" required min="1" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Status</mat-label>
+      <input matInput [(ngModel)]="editingStock.status" name="status" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Barcode</mat-label>
+      <input matInput [(ngModel)]="editingStock.barcodeString" name="barcodeString" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Date of Expiry</mat-label>
+      <input matInput type="date" [(ngModel)]="editingStock.dateOfExpiry" name="dateOfExpiry" />
+    </mat-form-field>
+
+    <div style="margin-top: 1rem;">
+      <button mat-raised-button color="primary" type="submit">Save</button>
+      <button mat-stroked-button color="warn" type="button" (click)="cancelEdit()">Cancel</button>
+    </div>
+  </form>
+</div>

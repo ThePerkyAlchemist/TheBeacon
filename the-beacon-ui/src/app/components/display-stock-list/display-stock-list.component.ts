@@ -1,21 +1,34 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { MatSort, MatSortModule } from '@angular/material/sort';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { PageEvent } from '@angular/material/paginator';
+import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { Stock } from '../../model/stock';
-import { StockService } from '../../services/stock.service'; // Husk at denne skal eksistere
+import { StockService } from '../../services/stock.service';
 
 @Component({
   selector: 'app-display-stock-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatTableModule, MatSortModule, MatPaginatorModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule
+  ],
   templateUrl: './display-stock-list.component.html',
   styleUrls: ['./display-stock-list.component.css']
 })
-export class DisplayStockListComponent implements OnInit {
+export class DisplayStockListComponent implements OnInit, AfterViewInit {
   stock: Stock[] = [];
   editingStock: Stock | null = null;
   successMessage: string = '';
@@ -25,15 +38,17 @@ export class DisplayStockListComponent implements OnInit {
     'name',
     'category',
     'subcategory',
-    'volume',
-    'units',
+    'volumePerUnit',
+    'numberOfUnits',
     'status',
-    'barcode',
-    'expiry',
+    'barcodeString',
+    'dateOfExpiry',
     'actions'
   ];
 
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   currentPage = 0;
   pageSize = 5;
 
@@ -43,11 +58,19 @@ export class DisplayStockListComponent implements OnInit {
     this.getAllStock();
   }
 
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+  }
+
   getAllStock(): void {
-    this.stockService.getAll().subscribe((data: Stock[]) => {
-      console.log('Fetched stock:', data);
-      this.dataSource.data = data;
-      this.dataSource.sort = this.sort;
+    this.stockService.getAll().subscribe({
+      next: (data: Stock[]) => {
+        this.dataSource.data = data;
+      },
+      error: err => {
+        console.error('Error fetching stock:', err);
+      }
     });
   }
 
@@ -64,8 +87,8 @@ export class DisplayStockListComponent implements OnInit {
       numberOfUnits: 1,
       status: 'new',
       barcodeString: '',
-      dateOfExpiry: new Date().toISOString().split('T')[0], // hvis din backend bruger string format
-      id: 0 // placeholder, backend bør autogenerere
+      dateOfExpiry: new Date().toISOString().split('T')[0],
+      id: 0
     };
 
     this.stockService.add(newStock).subscribe(() => {
@@ -86,9 +109,7 @@ export class DisplayStockListComponent implements OnInit {
         this.getAllStock();
         this.editingStock = null;
         this.successMessage = 'Stock item saved successfully!';
-        setTimeout(() => {
-          this.successMessage = '';
-        }, 3000);
+        setTimeout(() => (this.successMessage = ''), 3000);
       });
     }
   }
