@@ -1,159 +1,75 @@
-<!-- Search Bar -->
-<div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+<div class="recipe-container">
+  <!-- Search and Create Form in One Row -->
+  <div class="top-bar">
+    <!-- Search Bar -->
+    <mat-form-field appearance="fill" class="search-field">
+      <mat-label>Search recipes…</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="e.g. Margarita" />
+    </mat-form-field>
 
-  <!-- Search Box -->
-  <input 
-    placeholder="Search recipes..." 
-    (input)="applyFilter($event)"
-    style="padding: 8px; font-size: 16px; width: 250px;"
-  />
-</div>
+    <!-- Create Form -->
+    <form #createForm="ngForm" (ngSubmit)="createRecipe()" class="create-form">
+      <div class="form-group">
+        <mat-label>Name:</mat-label>
+        <input type="text" name="name" [(ngModel)]="newRecipe.name" required />
+      </div>
+      <div class="form-group">
+        <mat-label>Ingredient ID:</mat-label>
+        <input type="number" name="ingredientId" [(ngModel)]="newRecipe.ingredientId" required />
+      </div>
+      <div class="form-group">
+        <mat-label>Volume (ml):</mat-label>
+        <input type="number" name="volumeMl" [(ngModel)]="newRecipe.volumeMl" required />
+      </div>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!createForm.valid">
+        Create Recipe Entry
+      </button>
+    </form>
+  </div>
 
-<!-- Success Message -->
-<div *ngIf="successMessage" [class.hide]="hideSuccess" class="success-message" 
-     style="background-color: #d4edda; color: #155724; padding: 10px; margin-bottom: 1rem; border-radius: 5px;">
-  {{ successMessage }}
-</div>
+  <!-- Success Message -->
+  <div *ngIf="successMessage && !hideSuccess" class="success-message">
+    {{ successMessage }}
+  </div>
 
-<!-- Recipe Form (Create / Edit) -->
-<div style="margin-bottom: 2rem;">
-  
-<!-- Create New Recipe -->
-<div *ngIf="!editingRecipe">
-  <h3>Add New Recipe</h3>
-  <form (ngSubmit)="createRecipe()" #createForm="ngForm">
+  <!-- Table -->
+  <h3>Recipe List</h3>
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
-    <label>Name:
-      <input [(ngModel)]="newRecipe.name" name="name" required #nameInput="ngModel">
-    </label>
-    <div *ngIf="nameInput.invalid && nameInput.touched" style="color: red;">Name is required.</div>
-    <br>
-
-    <label>Ingredient ID:
-      <input [(ngModel)]="newRecipe.ingredientId" name="ingredientId" required type="number" min="1" #ingredientIdInput="ngModel">
-    </label>
-    <div *ngIf="ingredientIdInput.invalid && ingredientIdInput.touched" style="color: red;">Ingredient ID is required and must be positive.</div>
-    <br>
-
-    <label>Volume (ml):
-      <input [(ngModel)]="newRecipe.volumeMl" name="volumeMl" required type="number" min="1" #volumeInput="ngModel">
-    </label>
-    <div *ngIf="volumeInput.invalid && volumeInput.touched" style="color: red;">Volume is required and must be at least 1 ml.</div>
-    <br><br>
-
-    <button type="submit" [disabled]="!createForm.form.valid">Create Recipe Entry</button>
-  </form>
-</div>
-
-<!-- Edit Existing Recipe -->
-<div *ngIf="editingRecipe" style="margin-top: 1rem; padding: 1rem; border: 1px solid #ccc;">
-  <h3>Edit Recipe</h3>
-  <form (ngSubmit)="saveRecipe()" #editForm="ngForm">
-
-    <label>Name:
-      <input [(ngModel)]="editingRecipe.name" name="editName" required #editNameInput="ngModel">
-    </label>
-    <div *ngIf="editNameInput.invalid && editNameInput.touched" style="color: red;">Name is required.</div>
-    <br>
-
-    <label>Ingredient ID:
-      <input [(ngModel)]="editingRecipe.ingredientId" name="editIngredientId" required type="number" min="1" #editIngredientIdInput="ngModel">
-    </label>
-    <div *ngIf="editIngredientIdInput.invalid && editIngredientIdInput.touched" style="color: red;">Ingredient ID is required and must be positive.</div>
-    <br>
-
-    <label>Volume (ml):
-      <input [(ngModel)]="editingRecipe.volumeMl" name="editVolume" required type="number" min="1" #editVolumeInput="ngModel">
-    </label>
-    <div *ngIf="editVolumeInput.invalid && editVolumeInput.touched" style="color: red;">Volume is required and must be at least 1 ml.</div>
-    <br><br>
-
-    <button type="submit" [disabled]="!editForm.form.valid">Save Changes</button>
-    <button type="button" (click)="cancelEdit()">Cancel</button>
-  </form>
-</div>
-
-
-<!-- Recipe Table List -->
-<h3>Recipe List</h3>
-
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-    <td mat-cell *matCellDef="let recipe"> {{recipe.id}} </td>
-  </ng-container>
-  
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-    <td mat-cell *matCellDef="let recipe"> {{recipe.name}} </td>
-  </ng-container>
-  
-  <ng-container matColumnDef="ingredientId">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Ingredient ID </th>
-    <td mat-cell *matCellDef="let recipe"> {{recipe.ingredientId}} </td>
-  </ng-container>
-  
-  <ng-container matColumnDef="volumeMl">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Volume (ml) </th>
-    <td mat-cell *matCellDef="let recipe"> {{recipe.volumeMl}} </td>
-  </ng-container>
-  
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let recipe">
-      <button mat-raised-button color="primary" (click)="startEditing(recipe)">Edit</button>
-      <button mat-raised-button color="warn" (click)="deleteRecipe(recipe.id)">Delete</button>
-    </td>
-  </ng-container>
-
-  <!-- Header and Row Declarations -->
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  
-</table>
-
-
-<!--
-<h2>Recipes</h2>
-
-<table border="1" cellpadding="8" cellspacing="0">
-  <thead>
-    <tr>
-      <th>Recipe ID</th>
-      <th>Recipe</th>
-      <th>Ingredient</th>
-      <th>Volume (ml)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <ng-container *ngFor="let recipe of groupedRecipes">
-      <tr>
-        <td [attr.rowspan]="recipe.ingredients.length">
-          {{ recipe.id }}
-        </td>
-        <td [attr.rowspan]="recipe.ingredients.length">
-          {{ recipe.name }}
-          <div>
-            <button (click)="deleteRecipe(recipe.id)">Delete</button>
-          </div>
-        </td>
-        <td>{{ recipe.ingredients[0].liquidName }}</td>
-        <td>{{ recipe.ingredients[0].liquidIngredientVolumeMl }}</td>
-      </tr>
-      <tr *ngFor="let ingredient of recipe.ingredients.slice(1)">
-        <td>{{ ingredient.liquidName }}</td>
-        <td>{{ ingredient.liquidIngredientVolumeMl }}</td>
-      </tr>
+    <!-- Columns -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let recipe">{{ recipe.id }}</td>
     </ng-container>
-  </tbody>
-</table>
--->
 
-  <!--This is our paginator:-->
-  <mat-paginator [length]="recipes.length"
-    [pageSize]="pageSize"
-    [pageSizeOptions]="[5, 10, 25, 100]"
-    (page) = "onPageChange($event)"
-    aria-label="Select page">
-  </mat-paginator>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let recipe">{{ recipe.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ingredientId">
+      <th mat-header-cell *matHeaderCellDef>Ingredient ID</th>
+      <td mat-cell *matCellDef="let recipe">{{ recipe.ingredientId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="volumeMl">
+      <th mat-header-cell *matHeaderCellDef>Volume (ml)</th>
+      <td mat-cell *matCellDef="let recipe">{{ recipe.volumeMl }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let recipe">
+        <button mat-button (click)="startEditing(recipe)">Edit</button>
+        <button mat-button color="warn" (click)="deleteRecipe(recipe.id)">Delete</button>
+      </td>
+    </ng-container>
+
+    <!-- Header and Row Declarations -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <!-- Paginator -->
+  <mat-paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

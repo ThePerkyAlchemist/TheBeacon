@@ -6,6 +6,10 @@ import { RecipeService } from '../../services/recipe.service';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table'; 
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { MatFormField, MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+
 
 @Component({
   selector: 'app-display-recipe',
@@ -16,7 +20,9 @@ import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/p
     FormsModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatInputModule, // For search bar
+    MatFormFieldModule // search bar
   ],
 })
 export class DisplayRecipeComponent implements OnInit {
