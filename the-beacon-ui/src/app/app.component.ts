@@ -7,12 +7,15 @@ import { DisplayRecipeComponent } from './components/display-recipe/display-reci
 import { DisplayStockListComponent} from './components/display-stock-list/display-stock-list.component';
 import { DisplayIngredientComponent} from './components/display-ingredient/display-ingredient.component';
 
+// Header component
+import { HeaderComponent } from './components/header/header.component';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   standalone: true,
-  imports: [MatTabsModule,DisplayRecipeComponent,DisplayDrinkProfileComponent,DisplayStockListComponent, DisplayIngredientComponent],
+  imports: [MatTabsModule,DisplayRecipeComponent,DisplayDrinkProfileComponent,DisplayStockListComponent, DisplayIngredientComponent, HeaderComponent],
 })
 export class AppComponent {
   // Optional: keep track of active tab index if needed (e.g., to restore state)
