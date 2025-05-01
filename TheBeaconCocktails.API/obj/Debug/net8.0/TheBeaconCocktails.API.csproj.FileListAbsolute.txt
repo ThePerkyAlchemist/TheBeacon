@@ -1,250 +1,292 @@
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\bin\Debug\net8.0\appsettings.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.exe
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.deps.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.runtimeconfig.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.pdb
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.OpenApi.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\bin\Debug\net8.0\Npgsql.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.Model.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.Model.pdb
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.csproj.AssemblyReference.cache
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.AssemblyInfoInputs.cache
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.AssemblyInfo.cs
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.csproj.CoreCompileInputs.cache
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.TheBeaconCocktails.API.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.build.TheBeaconCocktails.API.props
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.TheBeaconCocktails.API.props
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.TheBeaconCocktails.API.props
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\obj\Debug\net8.0\scopedcss\bundle\TheBeaconCocktails.API.styles.css
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaco.597E4F0D.Up2Date
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\obj\Debug\net8.0\refint\TheBeaconCocktails.API.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.pdb
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.genruntimeconfig.cache
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeaconCocktails\TheBeaconCocktails.API\obj\Debug\net8.0\ref\TheBeaconCocktails.API.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\appsettings.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.exe
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.deps.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.runtimeconfig.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.pdb
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.OpenApi.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Npgsql.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.Model.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.Model.pdb
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.csproj.AssemblyReference.cache
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.AssemblyInfoInputs.cache
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.AssemblyInfo.cs
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.csproj.CoreCompileInputs.cache
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.sourcelink.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.TheBeaconCocktails.API.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.build.TheBeaconCocktails.API.props
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.TheBeaconCocktails.API.props
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.TheBeaconCocktails.API.props
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\scopedcss\bundle\TheBeaconCocktails.API.styles.css
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaco.597E4F0D.Up2Date
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\refint\TheBeaconCocktails.API.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.pdb
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.genruntimeconfig.cache
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\ref\TheBeaconCocktails.API.dll
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\appsettings.json
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.exe
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.deps.json
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.runtimeconfig.json
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.dll
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.pdb
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.OpenApi.dll
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Npgsql.dll
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.Model.dll
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.Model.pdb
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.csproj.AssemblyReference.cache
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.AssemblyInfoInputs.cache
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.AssemblyInfo.cs
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.csproj.CoreCompileInputs.cache
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.sourcelink.json
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.TheBeaconCocktails.API.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.build.TheBeaconCocktails.API.props
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.TheBeaconCocktails.API.props
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.TheBeaconCocktails.API.props
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\scopedcss\bundle\TheBeaconCocktails.API.styles.css
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaco.597E4F0D.Up2Date
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.dll
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\refint\TheBeaconCocktails.API.dll
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.pdb
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.genruntimeconfig.cache
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\ref\TheBeaconCocktails.API.dll
-C:\Users\pierr\Documents\AppliedProgramming\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\package-lock.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\package-lock.json
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\appsettings.json
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\package-lock.json
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.exe
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.deps.json
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.runtimeconfig.json
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.dll
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.pdb
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.OpenApi.dll
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Npgsql.dll
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.Model.dll
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.Model.pdb
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.csproj.AssemblyReference.cache
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.AssemblyInfoInputs.cache
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.AssemblyInfo.cs
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.csproj.CoreCompileInputs.cache
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.sourcelink.json
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.TheBeaconCocktails.API.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.build.TheBeaconCocktails.API.props
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.TheBeaconCocktails.API.props
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.TheBeaconCocktails.API.props
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\scopedcss\bundle\TheBeaconCocktails.API.styles.css
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaco.597E4F0D.Up2Date
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.dll
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\refint\TheBeaconCocktails.API.dll
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.pdb
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.genruntimeconfig.cache
-C:\Users\pierr\Documents\AppliedProgramming\Merge\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\ref\TheBeaconCocktails.API.dll
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\appsettings.json
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\package-lock.json
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.exe
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.deps.json
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.runtimeconfig.json
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.dll
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.pdb
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.OpenApi.dll
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Npgsql.dll
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.Model.dll
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.Model.pdb
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.csproj.AssemblyReference.cache
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.AssemblyInfoInputs.cache
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.AssemblyInfo.cs
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.csproj.CoreCompileInputs.cache
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.sourcelink.json
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.TheBeaconCocktails.API.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.build.TheBeaconCocktails.API.props
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.TheBeaconCocktails.API.props
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.TheBeaconCocktails.API.props
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\scopedcss\bundle\TheBeaconCocktails.API.styles.css
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaco.597E4F0D.Up2Date
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.dll
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\refint\TheBeaconCocktails.API.dll
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.pdb
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.genruntimeconfig.cache
-C:\Users\pierr\Documents\APP\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\ref\TheBeaconCocktails.API.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\appsettings.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\package-lock.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.exe
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.deps.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.runtimeconfig.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.API.pdb
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Microsoft.OpenApi.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Npgsql.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.Model.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\bin\Debug\net8.0\TheBeaconCocktails.Model.pdb
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.csproj.AssemblyReference.cache
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.AssemblyInfoInputs.cache
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.AssemblyInfo.cs
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.csproj.CoreCompileInputs.cache
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.sourcelink.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.TheBeaconCocktails.API.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.build.TheBeaconCocktails.API.props
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.TheBeaconCocktails.API.props
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.TheBeaconCocktails.API.props
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\scopedcss\bundle\TheBeaconCocktails.API.styles.css
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaco.597E4F0D.Up2Date
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\refint\TheBeaconCocktails.API.dll
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.pdb
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\TheBeaconCocktails.API.genruntimeconfig.cache
-C:\Users\mikke\OneDrive\Dokumenter\CBS\2. semester\Applied Programming\Projects\TheBeacon\TheBeacon\TheBeaconCocktails.API\obj\Debug\net8.0\ref\TheBeaconCocktails.API.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/bin/Debug/net8.0/appsettings.Development.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/bin/Debug/net8.0/appsettings.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.exe
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.deps.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.runtimeconfig.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.pdb
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Configuration.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Primitives.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.OpenApi.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/bin/Debug/net8.0/Npgsql.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.Model.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.Model.pdb
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.csproj.AssemblyReference.cache
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.AssemblyInfoInputs.cache
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.AssemblyInfo.cs
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.csproj.CoreCompileInputs.cache
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets.build.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets.development.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.TheBeaconCocktails.API.Microsoft.AspNetCore.StaticWebAssets.props
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.build.TheBeaconCocktails.API.props
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.TheBeaconCocktails.API.props
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.TheBeaconCocktails.API.props
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets.pack.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/obj/Debug/net8.0/scopedcss/bundle/TheBeaconCocktails.API.styles.css
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaco.597E4F0D.Up2Date
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/obj/Debug/net8.0/refint/TheBeaconCocktails.API.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.pdb
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.genruntimeconfig.cache
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeaconCocktails/TheBeaconCocktails.API/obj/Debug/net8.0/ref/TheBeaconCocktails.API.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/appsettings.Development.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/appsettings.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.exe
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.deps.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.runtimeconfig.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.pdb
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Configuration.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Primitives.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.OpenApi.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Npgsql.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.Model.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.Model.pdb
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.csproj.AssemblyReference.cache
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.AssemblyInfoInputs.cache
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.AssemblyInfo.cs
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.csproj.CoreCompileInputs.cache
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.sourcelink.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets.build.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets.development.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.TheBeaconCocktails.API.Microsoft.AspNetCore.StaticWebAssets.props
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.build.TheBeaconCocktails.API.props
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.TheBeaconCocktails.API.props
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.TheBeaconCocktails.API.props
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets.pack.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/scopedcss/bundle/TheBeaconCocktails.API.styles.css
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaco.597E4F0D.Up2Date
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/refint/TheBeaconCocktails.API.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.pdb
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.genruntimeconfig.cache
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/ref/TheBeaconCocktails.API.dll
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/appsettings.Development.json
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/appsettings.json
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.exe
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.deps.json
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.runtimeconfig.json
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.dll
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.pdb
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Configuration.dll
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Primitives.dll
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.OpenApi.dll
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Npgsql.dll
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.Model.dll
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.Model.pdb
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.csproj.AssemblyReference.cache
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.AssemblyInfoInputs.cache
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.AssemblyInfo.cs
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.csproj.CoreCompileInputs.cache
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.sourcelink.json
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets.build.json
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets.development.json
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.TheBeaconCocktails.API.Microsoft.AspNetCore.StaticWebAssets.props
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.build.TheBeaconCocktails.API.props
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.TheBeaconCocktails.API.props
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.TheBeaconCocktails.API.props
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets.pack.json
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/scopedcss/bundle/TheBeaconCocktails.API.styles.css
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaco.597E4F0D.Up2Date
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.dll
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/refint/TheBeaconCocktails.API.dll
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.pdb
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.genruntimeconfig.cache
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/ref/TheBeaconCocktails.API.dll
+C:/Users/pierr/Documents/AppliedProgramming/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/package-lock.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/package-lock.json
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/appsettings.Development.json
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/appsettings.json
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/package-lock.json
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.exe
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.deps.json
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.runtimeconfig.json
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.dll
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.pdb
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Configuration.dll
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Primitives.dll
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.OpenApi.dll
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Npgsql.dll
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.Model.dll
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.Model.pdb
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.csproj.AssemblyReference.cache
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.AssemblyInfoInputs.cache
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.AssemblyInfo.cs
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.csproj.CoreCompileInputs.cache
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.sourcelink.json
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets.build.json
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets.development.json
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.TheBeaconCocktails.API.Microsoft.AspNetCore.StaticWebAssets.props
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.build.TheBeaconCocktails.API.props
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.TheBeaconCocktails.API.props
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.TheBeaconCocktails.API.props
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets.pack.json
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/scopedcss/bundle/TheBeaconCocktails.API.styles.css
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaco.597E4F0D.Up2Date
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.dll
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/refint/TheBeaconCocktails.API.dll
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.pdb
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.genruntimeconfig.cache
+C:/Users/pierr/Documents/AppliedProgramming/Merge/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/ref/TheBeaconCocktails.API.dll
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/appsettings.Development.json
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/appsettings.json
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/package-lock.json
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.exe
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.deps.json
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.runtimeconfig.json
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.dll
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.pdb
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Configuration.dll
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Primitives.dll
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.OpenApi.dll
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Npgsql.dll
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.Model.dll
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.Model.pdb
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.csproj.AssemblyReference.cache
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.AssemblyInfoInputs.cache
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.AssemblyInfo.cs
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.csproj.CoreCompileInputs.cache
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.sourcelink.json
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets.build.json
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets.development.json
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.TheBeaconCocktails.API.Microsoft.AspNetCore.StaticWebAssets.props
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.build.TheBeaconCocktails.API.props
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.TheBeaconCocktails.API.props
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.TheBeaconCocktails.API.props
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets.pack.json
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/scopedcss/bundle/TheBeaconCocktails.API.styles.css
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaco.597E4F0D.Up2Date
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.dll
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/refint/TheBeaconCocktails.API.dll
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.pdb
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.genruntimeconfig.cache
+C:/Users/pierr/Documents/APP/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/ref/TheBeaconCocktails.API.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/appsettings.Development.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/appsettings.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/package-lock.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.exe
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.deps.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.runtimeconfig.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.pdb
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Configuration.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Primitives.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.OpenApi.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Npgsql.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.Model.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.Model.pdb
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.csproj.AssemblyReference.cache
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.AssemblyInfoInputs.cache
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.AssemblyInfo.cs
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.csproj.CoreCompileInputs.cache
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.sourcelink.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets.build.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets.development.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.TheBeaconCocktails.API.Microsoft.AspNetCore.StaticWebAssets.props
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.build.TheBeaconCocktails.API.props
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.TheBeaconCocktails.API.props
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.TheBeaconCocktails.API.props
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets.pack.json
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/scopedcss/bundle/TheBeaconCocktails.API.styles.css
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaco.597E4F0D.Up2Date
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/refint/TheBeaconCocktails.API.dll
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.pdb
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.genruntimeconfig.cache
+C:/Users/mikke/OneDrive/Dokumenter/CBS/2. semester/Applied Programming/Projects/TheBeacon/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/ref/TheBeaconCocktails.API.dll
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/appsettings.Development.json
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/appsettings.json
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/package-lock.json
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.deps.json
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.runtimeconfig.json
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.dll
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.API.pdb
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Configuration.dll
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.Extensions.Primitives.dll
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Microsoft.OpenApi.dll
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Npgsql.dll
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.Model.dll
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/bin/Debug/net8.0/TheBeaconCocktails.Model.pdb
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.csproj.AssemblyReference.cache
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.AssemblyInfoInputs.cache
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.AssemblyInfo.cs
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.csproj.CoreCompileInputs.cache
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cs
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.MvcApplicationPartsAssemblyInfo.cache
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.sourcelink.json
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets.build.json
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets.development.json
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.TheBeaconCocktails.API.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.build.TheBeaconCocktails.API.props
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.TheBeaconCocktails.API.props
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.TheBeaconCocktails.API.props
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/staticwebassets.pack.json
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/scopedcss/bundle/TheBeaconCocktails.API.styles.css
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaco.597E4F0D.Up2Date
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.dll
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/refint/TheBeaconCocktails.API.dll
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.pdb
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/TheBeaconCocktails.API.genruntimeconfig.cache
+/Users/ekaterinapetrounina/CodingProjects/The Beacon Project/TheBeacon/TheBeaconCocktails.API/obj/Debug/net8.0/ref/TheBeaconCocktails.API.dll

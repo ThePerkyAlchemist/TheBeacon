@@ -1,28 +1,26 @@
-table {
-  border-collapse: collapse;
+.recipe-container {
+  padding: 1rem;
+}
+
+.full-width {
   width: 100%;
-}
-
-th {
-  background-color: #f0f0f0;
-}
-
-td, th {
-  text-align: left;
-}
-
-/* Success Message Styling */
-.success-message {
-  background-color: #d4edda;
-  color: #155724;
-  padding: 10px;
   margin-bottom: 1rem;
-  border-radius: 5px;
-  opacity: 1;
-  transition: opacity 1s ease;
 }
 
-/* Hide Class for Success Message */
-.success-message.hide {
-  opacity: 0;
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: flex-end;
+}
+
+.form-field {
+  flex: 1;
+  min-width: 200px;
+}
+
+.button-wrapper {
+  display: flex;
+  align-items: center;
 }
