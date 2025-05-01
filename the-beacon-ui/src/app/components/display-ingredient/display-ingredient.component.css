@@ -1,0 +1,34 @@
+/* Toolbar containing the create button and search field */
+.table-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* Make form fields stretch to full width */
+  .full-width {
+    width: 100%;
+  }
+  
+  /* Container for the form to add some spacing and max-width for better layout */
+  .form-container {
+    max-width: 600px;
+    margin-bottom: 2rem;
+  }
+  
+  /* Actions cell alignment */
+  .actions-cell {
+    text-align: right;
+  }
+  
+  /* Optional: spacing between action icon buttons */
+  .actions-cell button + button {
+    margin-left: 8px;
+  }
+  
+  /* Ensure the table takes full width of container */
+  .ingredient-table {
+    width: 100%;
+  }
+  

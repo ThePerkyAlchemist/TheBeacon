@@ -1,1 +1,101 @@
-<p>ingredient works!</p>
+<h2>Ingredients</h2>
+
+<!-- Toolbar: Create button and filter input -->
+<div class="table-toolbar">
+  <button mat-raised-button color="primary" (click)="startCreating()">Create New Ingredient</button>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Search Ingredients</mat-label>
+    <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Filter ingredients..." />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
+
+<!-- Ingredient Form -->
+<div *ngIf="showForm" class="form-container">
+  <h3>{{ editingIngredient ? 'Edit Ingredient' : 'New Ingredient' }}</h3>
+  <form [formGroup]="ingredientForm" (ngSubmit)="saveIngredient()">
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+      <mat-error *ngIf="nameControl?.hasError('required')">Name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Category</mat-label>
+      <input matInput formControlName="category" />
+      <mat-error *ngIf="categoryControl?.hasError('required')">Category is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>SubCategory</mat-label>
+      <input matInput formControlName="subCategory" />
+      <mat-error *ngIf="subCategoryControl?.hasError('required')">SubCategory is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Barcode</mat-label>
+      <input matInput formControlName="barCodeString" />
+      <mat-error *ngIf="barCodeStringControl?.hasError('required')">Barcode is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Alcohol %</mat-label>
+      <input matInput type="number" formControlName="alcPercentage" />
+      <mat-error *ngIf="alcPercentageControl?.hasError('required')">Alcohol % is required</mat-error>
+      <mat-error *ngIf="alcPercentageControl?.hasError('min') || alcPercentageControl?.hasError('max')">
+        Must be between 0 and 100
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="ingredientForm.invalid">Save</button>
+    <button mat-raised-button color="warn" type="button" (click)="cancelForm()">Cancel</button>
+  </form>
+</div>
+
+<!-- Ingredient Table -->
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 ingredient-table">
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.name }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="category">
+    <mat-header-cell *matHeaderCellDef>Category</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.category }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="subCategory">
+    <mat-header-cell *matHeaderCellDef>SubCategory</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.subCategory }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="barCodeString">
+    <mat-header-cell *matHeaderCellDef>Barcode</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.barCodeString }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="alcPercentage">
+    <mat-header-cell *matHeaderCellDef>Alc %</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.alcPercentage }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+    <mat-cell *matCellDef="let item">
+      <button mat-icon-button color="accent" (click)="startEditing(item)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="deleteIngredient(item.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
