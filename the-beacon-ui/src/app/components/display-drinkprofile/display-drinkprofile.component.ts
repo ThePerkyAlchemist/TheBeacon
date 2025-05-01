@@ -2,28 +2,34 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { DrinkProfile } from '../../model/drinkprofile';
 import { DrinkProfileService } from '../../services/drinkprofile.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
-import { PageEvent } from '@angular/material/paginator'; //importing the "event" that happens when the user interacts with the paginator
 
 @Component({
   selector: 'app-display-drinkprofile',
   templateUrl: './display-drinkprofile.component.html',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatButtonModule,MatTableModule]
- 
+  imports: [
+    CommonModule,
+    FormsModule,
+    HttpClientModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatTableModule
+  ]
 })
 export class DisplayDrinkProfileComponent implements OnInit {
   profiles: DrinkProfile[] = [];
   editingProfile: DrinkProfile | null = null;
   showCreateForm: boolean = false;
 
-  
   displayedColumns: string[] = [
     'recipeId',
     'sweetness',
@@ -35,9 +41,11 @@ export class DisplayDrinkProfileComponent implements OnInit {
     'description',
     'actions'
   ];
-  drinkProfiles: DrinkProfile[] = []; //an array holding all drink profiles starting empty
-  currentPage = 0; //Keeping track of what page the user are at
-  pageSize = 5; //how many ingredients show on each page
+
+  drinkProfiles: DrinkProfile[] = [];
+  currentPage = 0;
+  pageSize = 5;
+
   newProfile: DrinkProfile = {
     id: 0,
     recipeId: 0,
@@ -68,7 +76,7 @@ export class DisplayDrinkProfileComponent implements OnInit {
 
   startCreating(): void {
     this.showCreateForm = true;
-    this.editingProfile = null; // Prevent edit mode while creating
+    this.editingProfile = null;
   }
 
   cancelCreate(): void {
@@ -89,7 +97,7 @@ export class DisplayDrinkProfileComponent implements OnInit {
 
   startEditing(profile: DrinkProfile): void {
     this.editingProfile = { ...profile };
-    this.showCreateForm = false; // Prevent create mode while editing
+    this.showCreateForm = false;
   }
 
   cancelEdit(): void {
@@ -123,7 +131,7 @@ export class DisplayDrinkProfileComponent implements OnInit {
     this.drinkProfileService.createDrinkProfile(profileToSend).subscribe({
       next: () => {
         this.loadProfiles();
-        this.cancelCreate(); // Reset form and hide it
+        this.cancelCreate();
       },
       error: (err) => console.error('Error creating profile', err)
     });
@@ -138,20 +146,14 @@ export class DisplayDrinkProfileComponent implements OnInit {
     });
   }
 
+  get paginatedDrinkProfiles(): DrinkProfile[] {
+    const start = this.currentPage * this.pageSize;
+    const end = start + this.pageSize;
+    return this.drinkProfiles.slice(start, end);
+  }
 
-   /*adding a "getter" for the sliced list*/
-    get paginatedDrinkProfiles(): DrinkProfile[] {
-      const start = this.currentPage * this.pageSize; 
-      const end = start + this.pageSize;
-      return this.drinkProfiles.slice(start,end);
-    }
-   
-  //calling the method when the user interacts with the paginator and updating the pagenr and size
-    onPageChange(event: PageEvent): void{
-    
-      this.currentPage = event.pageIndex;
-      this.pageSize = event.pageSize;
-      
-    }
-
+  onPageChange(event: PageEvent): void {
+    this.currentPage = event.pageIndex;
+    this.pageSize = event.pageSize;
+  }
 }

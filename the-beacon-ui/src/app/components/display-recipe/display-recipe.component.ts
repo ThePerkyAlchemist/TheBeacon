@@ -9,7 +9,9 @@ import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/p
 import { MatFormField, MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
-
+// Button and Icon styling
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-display-recipe',
@@ -22,7 +24,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatSortModule,
     MatPaginatorModule,
     MatInputModule, // For search bar
-    MatFormFieldModule // search bar
+    MatFormFieldModule, // search bar
+    MatButtonModule, // Button styling
+    MatIconModule // Adding Icon
   ],
 })
 export class DisplayRecipeComponent implements OnInit {
@@ -147,4 +151,18 @@ export class DisplayRecipeComponent implements OnInit {
     this.currentPage = event.pageIndex;
     this.pageSize = event.pageSize;
   }
+
+  showCreateForm: boolean = false;
+
+  cancelCreate(): void {
+    this.showCreateForm = false;
+    this.newRecipe = {
+      recipeId: 0,
+      id: 0,
+      name: '',
+      ingredientId: 0,
+      volumeMl: 0
+    };
+}
+
 }
