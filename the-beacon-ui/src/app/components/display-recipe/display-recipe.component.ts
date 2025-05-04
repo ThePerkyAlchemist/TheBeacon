@@ -8,8 +8,6 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatFormField, MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
-// Button and Icon styling
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -124,7 +122,47 @@ export class DisplayRecipeComponent implements OnInit {
           this.loadRecipes();
           this.editingRecipe = null;
         },
+<<<<<<< HEAD
         error: (err) => console.error('Error updating recipe', err)
+=======
+        error: (err) => {
+          console.error('Error updating recipe', err);
+        }
+      });
+    }
+  }
+
+  createRecipe(): void {
+    if (this.createForm.valid) {
+      this.recipeService.createRecipe(this.newRecipe).subscribe({
+        next: () => {
+          this.loadRecipes();
+          this.successMessage = 'Recipe created successfully!';
+          this.hideSuccess = false;
+
+          this.newRecipe = {
+            recipeId: 0,
+            id: 0,
+            name: '',
+            ingredientId: 0,
+            volumeMl: 0
+          };
+
+          setTimeout(() => {
+            this.createForm.resetForm();
+          });
+
+          setTimeout(() => {
+            this.hideSuccess = true;
+            setTimeout(() => {
+              this.successMessage = '';
+            }, 1000);
+          }, 3000);
+        },
+        error: (err) => {
+          console.error('Error creating recipe', err);
+        }
+>>>>>>> 7efce1e (fixed pagniator on drinkprofile and refactored the setup to be simpler and comply to angular material)
       });
     }
   }
@@ -143,4 +181,20 @@ export class DisplayRecipeComponent implements OnInit {
     this.currentPage = event.pageIndex;
     this.pageSize = event.pageSize;
   }
+<<<<<<< HEAD
+=======
+
+  showCreateForm: boolean = false;
+
+  cancelCreate(): void {
+    this.showCreateForm = false;
+    this.newRecipe = {
+      recipeId: 0,
+      id: 0,
+      name: '',
+      ingredientId: 0,
+      volumeMl: 0
+    };
+  }
+>>>>>>> 7efce1e (fixed pagniator on drinkprofile and refactored the setup to be simpler and comply to angular material)
 }
