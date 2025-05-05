@@ -1,22 +1,34 @@
+// Angular core imports
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+
+// Form modules for reactive form handling
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+
+// Angular common directives (e.g. *ngIf, *ngFor)
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { MatTableModule, MatTableDataSource } from '@angular/material/table';
+
+// Angular Material UI modules
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatSort, MatSortModule } from '@angular/material/sort';
-import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+
+// Model and service for Stock
 import { Stock } from '../../model/stock';
 import { StockService } from '../../services/stock.service';
 
 @Component({
   selector: 'app-display-stock-list',
   standalone: true,
+  templateUrl: './display-stock-list.component.html',
+  styleUrls: ['./display-stock-list.component.css'],
+  // Declare necessary Angular and Material modules for this standalone component
   imports: [
     CommonModule,
-    FormsModule,
+    ReactiveFormsModule,
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
@@ -24,106 +36,147 @@ import { StockService } from '../../services/stock.service';
     MatInputModule,
     MatButtonModule,
     MatIconModule
-  ],
-  templateUrl: './display-stock-list.component.html',
-  styleUrls: ['./display-stock-list.component.css']
+  ]
 })
 export class DisplayStockListComponent implements OnInit, AfterViewInit {
-  stock: Stock[] = [];
-  editingStock: Stock | null = null;
-  successMessage: string = '';
-  dataSource = new MatTableDataSource<Stock>();
 
+  // Table data source and displayed columns
+  dataSource = new MatTableDataSource<Stock>();
   displayedColumns: string[] = [
-    'name',
-    'category',
-    'subcategory',
-    'volumePerUnit',
-    'numberOfUnits',
-    'status',
-    'barcodeString',
-    'dateOfExpiry',
-    'actions'
+    'name', 'category', 'subcategory', 'volumePerUnit', 'numberOfUnits',
+    'status', 'barcodeString', 'dateOfExpiry', 'actions'
   ];
 
+  // Table sorting and pagination
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  currentPage = 0;
-  pageSize = 5;
+  // Reactive form instance
+  stockForm!: FormGroup;
 
-  constructor(private stockService: StockService) {}
+  // Controls whether the stock form is visible
+  showForm = false;
 
+  // Holds the current stock being edited (or null if creating a new one)
+  editingStock: Stock | null = null;
+
+  // Optional success message (e.g. after saving)
+  successMessage = '';
+
+  constructor(
+    private stockService: StockService,   // Service for API communication
+    private fb: FormBuilder               // Used to create and manage form controls
+  ) {}
+
+  // Initialize form and load table data on component mount
   ngOnInit(): void {
-    this.getAllStock();
+    this.initForm();
+    this.loadStock();
   }
 
+  // Setup paginator and sorting after view is fully initialized
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
 
-  getAllStock(): void {
+  // Initialize form controls with validators
+  initForm(): void {
+    this.stockForm = this.fb.group({
+      name: ['', Validators.required],
+      category: ['', Validators.required],
+      subcategory: ['', Validators.required],
+      volumePerUnit: [0, Validators.min(1)],
+      numberOfUnits: [0, Validators.min(1)],
+      status: ['', Validators.required],
+      barcodeString: [''],
+      dateOfExpiry: ['']
+    });
+  }
+
+  // Shortcut for name input field (used in HTML validation)
+  get nameControl() {
+    return this.stockForm.get('name');
+  }
+
+  // Load stock data from the backend and populate the table
+  loadStock(): void {
     this.stockService.getAll().subscribe({
-      next: (data: Stock[]) => {
-        this.dataSource.data = data;
-      },
-      error: err => {
-        console.error('Error fetching stock:', err);
-      }
+      next: (data) => this.dataSource.data = data,
+      error: (err) => console.error('Error loading stock', err)
     });
   }
 
-  editStock(stockItem: Stock): void {
-    this.editingStock = { ...stockItem };
+  // Filter function triggered by the search bar
+  applyFilter(filterValue: string): void {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  addStock(): void {
-    const newStock: Stock = {
-      name: 'New Ingredient',
-      category: 'Category',
-      subcategory: 'Subcategory',
-      volumePerUnit: 700,
-      numberOfUnits: 1,
-      status: 'new',
-      barcodeString: '',
-      dateOfExpiry: new Date().toISOString().split('T')[0],
-      id: 0
-    };
-
-    this.stockService.add(newStock).subscribe(() => {
-      this.getAllStock();
-      this.currentPage = 0;
-    });
+  // Start creation of new stock: reset form and show it
+  startCreating(): void {
+    this.stockForm.reset();
+    this.editingStock = null;
+    this.showForm = true;
   }
 
-  deleteStock(id: number): void {
-    this.stockService.delete(id).subscribe(() => {
-      this.getAllStock();
-    });
+  // Start editing: populate form with selected stock's values
+  startEditing(stock: Stock): void {
+    this.editingStock = stock;
+    this.stockForm.patchValue(stock);
+    this.showForm = true;
   }
 
-  saveEdit(): void {
+  // Cancel form (both edit and create): hide and reset
+  cancelForm(): void {
+    this.editingStock = null;
+    this.showForm = false;
+    this.stockForm.reset();
+  }
+
+  // Save the form (handles both create and update logic)
+  saveStock(): void {
+    if (this.stockForm.invalid) return;
+
+    const formValue = this.stockForm.value;
+
     if (this.editingStock) {
-      this.stockService.update(this.editingStock).subscribe(() => {
-        this.getAllStock();
-        this.editingStock = null;
-        this.successMessage = 'Stock item saved successfully!';
-        setTimeout(() => (this.successMessage = ''), 3000);
+      // Update existing stock
+      const updated: Stock = { ...formValue, id: this.editingStock.id };
+      this.stockService.update(updated).subscribe({
+        next: () => {
+          this.loadStock();
+          this.cancelForm();
+          this.successMessage = 'Stock updated!';
+          setTimeout(() => this.successMessage = '', 3000);
+        },
+        error: (err) => console.error('Error updating stock', err)
+      });
+    } else {
+      // Create new stock
+      this.stockService.add(formValue).subscribe({
+        next: () => {
+          this.loadStock();
+          this.cancelForm();
+          this.successMessage = 'New stock item added!';
+          setTimeout(() => this.successMessage = '', 3000);
+        },
+        error: (err) => console.error('Error creating stock', err)
       });
     }
   }
 
-  cancelEdit(): void {
-    this.editingStock = null;
+  // Delete stock by ID after confirmation
+  deleteStock(id: number): void {
+    if (!confirm('Are you sure you want to delete this item?')) return;
+
+    this.stockService.delete(id).subscribe({
+      next: () => this.loadStock(),
+      error: (err) => console.error('Error deleting stock', err)
+    });
   }
 
-  applyFilter(event: Event): void {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-
+  // Getter for total data length (used in paginator)
   get dataLength(): number {
-    return this.dataSource?.data?.length || 0;
+    return this.dataSource.data.length;
   }
 }
