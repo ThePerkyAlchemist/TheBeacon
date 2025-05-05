@@ -1,8 +1,32 @@
+/* Toolbar aligned like Stock */
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 1rem;
+}
+
+/* Form fields full width with spacing */
 .full-width {
-    width: 100%;
-    margin-bottom: 16px;
-  }
-  .mat-column-recipeId,
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Optional: constrain form container width */
+.form-container {
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+/* Search field consistent with others */
+.search-field {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+/* Table column alignment */
+.mat-column-recipeId,
 .mat-column-sweetness,
 .mat-column-richness,
 .mat-column-booziness,
@@ -19,6 +43,10 @@
 }
 
 .mat-column-actions {
-  text-align: center;
+  text-align: right;
   width: 150px;
+}
+
+.actions-cell button + button {
+  margin-left: 8px;
 }

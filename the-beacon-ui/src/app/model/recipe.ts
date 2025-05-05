@@ -3,6 +3,6 @@ export interface Recipe {
     recipeId: number;
     name: string;
     ingredientId: number;
-//    ingredientName: string;  todo implement later for usability
+    ingredientName: string;  
     volumeMl: number;
   }

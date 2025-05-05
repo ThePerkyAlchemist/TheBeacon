@@ -1,4 +1,4 @@
-/* Toolbar container: flex row, no wrap, spacing between left and right sides */
+/* Toolbar aligned like Stock */
 .table-toolbar {
   display: flex;
   justify-content: space-between;
@@ -7,36 +7,24 @@
   margin-bottom: 1rem;
 }
 
-/* Left section (button) */
-.toolbar-left {
-  display: flex;
-  align-items: center;
-}
-
-/* Right section (search input) */
-.toolbar-right {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-/* Search field width */
-.search-field {
-  width: 250px;
-}
-
-/* Optional: Full width for form layout below */
+/* Form fields full width with spacing */
 .full-width {
   width: 100%;
   margin-bottom: 1rem;
 }
 
-/* Table should use full width */
+/* Optional max width for create/edit form container */
+.form-container {
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+/* Table width */
 .recipe-table {
   width: 100%;
 }
 
-/* Align actions in the rightmost column */
+/* Align action buttons to the right */
 .actions-cell {
   text-align: right;
 }
@@ -45,3 +33,7 @@
   margin-left: 8px;
 }
 
+/* Consistent search field width */
+.search-field {
+  width: 250px;
+}

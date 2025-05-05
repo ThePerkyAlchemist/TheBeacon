@@ -1,4 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+  
+  /* Ensure Angular Material surfaces use dark theme styling */
+  .mat-app-background, .mat-card, .mat-toolbar, .mat-sidenav, .mat-form-field, .mat-table {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+  }
+  
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #888;
+  }
+  
