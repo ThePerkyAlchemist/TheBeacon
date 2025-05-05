@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table'; // Added for Angular Material data table
 import { DrinkProfile } from '../../model/drinkprofile';
 import { DrinkProfileService } from '../../services/drinkprofile.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -26,7 +27,7 @@ import { MatTableModule } from '@angular/material/table';
   ]
 })
 export class DisplayDrinkProfileComponent implements OnInit {
-  profiles: DrinkProfile[] = [];
+  // profiles: DrinkProfile[] = []; // Replaced by MatTableDataSource below
   editingProfile: DrinkProfile | null = null;
   showCreateForm: boolean = false;
 
@@ -42,9 +43,13 @@ export class DisplayDrinkProfileComponent implements OnInit {
     'actions'
   ];
 
-  drinkProfiles: DrinkProfile[] = [];
-  currentPage = 0;
-  pageSize = 5;
+  // drinkProfiles: DrinkProfile[] = []; // Not needed with MatTableDataSource
+  // currentPage = 0; // Replaced by MatPaginator
+  // pageSize = 5;     // Replaced by MatPaginator
+
+  dataSource = new MatTableDataSource<DrinkProfile>(); // ✅ Used by the mat-table
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator; // ✅ Link the table to the paginator
 
   newProfile: DrinkProfile = {
     id: 0,
@@ -68,7 +73,8 @@ export class DisplayDrinkProfileComponent implements OnInit {
   loadProfiles(): void {
     this.drinkProfileService.getDrinkProfiles().subscribe({
       next: (data) => {
-        this.profiles = data;
+        this.dataSource.data = data; // Set table data source
+        this.dataSource.paginator = this.paginator; // Enable pagination
       },
       error: (err) => console.error('Error loading profiles', err)
     });
@@ -146,14 +152,15 @@ export class DisplayDrinkProfileComponent implements OnInit {
     });
   }
 
-  get paginatedDrinkProfiles(): DrinkProfile[] {
-    const start = this.currentPage * this.pageSize;
-    const end = start + this.pageSize;
-    return this.drinkProfiles.slice(start, end);
-  }
+//not needed with mat paginator strucutre above:
+  // get paginatedDrinkProfiles(): DrinkProfile[] {
+  //   const start = this.currentPage * this.pageSize;
+  //   const end = start + this.pageSize;
+  //   return this.drinkProfiles.slice(start, end);
+  // }
 
-  onPageChange(event: PageEvent): void {
-    this.currentPage = event.pageIndex;
-    this.pageSize = event.pageSize;
-  }
+  // onPageChange(event: PageEvent): void {
+  //   this.currentPage = event.pageIndex;
+  //   this.pageSize = event.pageSize;
+  // }
 }

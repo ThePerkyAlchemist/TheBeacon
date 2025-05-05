@@ -132,7 +132,9 @@
 <div style="margin-top: 30px;">
   <h3>Drink Profile List</h3>
 
-  <mat-table [dataSource]="profiles" class="mat-elevation-z8">
+ <!--<mat-table [dataSource]="profiles" class="mat-elevation-z8">-->
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8"> <!--binding the table to angular mat. data source class that handles pagination-->
+
 
     <!-- Recipe ID Column -->
     <ng-container matColumnDef="recipeId">
@@ -198,11 +200,18 @@
   </mat-table>
 </div>
 
-  <!--This is our paginator:-->
+  <!--This is our paginator:
   <mat-paginator 
     [length]="drinkProfiles.length"
     [pageSize]="pageSize"
     [pageSizeOptions]="[5, 10, 25, 100]"
     (page)="onPageChange($event)"
     aria-label="Select page">
+  </mat-paginator>-->
+
+  <mat-paginator
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  showFirstLastButtons
+  aria-label="Select page">
   </mat-paginator>
+  <!--MatTableDataSoruce handles the page slicing, so no need for (page) or manual pagination variable-->
