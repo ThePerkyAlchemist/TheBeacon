@@ -1,21 +1,28 @@
-<!-- Header with Logo and Title -->
-<div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
-  <h2>Stock</h2>
+<!-- Title -->
+<h2>Stock</h2>
+
+<!-- Toolbar: Add button and search filter -->
+<div class="table-toolbar">
+  <!-- Add new stock item -->
+  <button mat-raised-button color="primary" (click)="addStock()">
+    Add New Stock Item
+  </button>
+
+  <!-- Filter input -->
+  <mat-form-field appearance="outline">
+    <mat-label>Search Stock</mat-label>
+    <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Filter stock..." />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
 </div>
 
-<!-- Success Message -->
+<!-- Optional success message -->
 <div *ngIf="successMessage" style="color: green; margin-bottom: 1rem;">
   {{ successMessage }}
 </div>
 
-<!-- Filter Input -->
-<mat-form-field appearance="fill" style="width: 300px; margin-bottom: 1rem;">
-  <mat-label>Filter stock</mat-label>
-  <input matInput (input)="applyFilter($event)" placeholder="Enter keyword" />
-</mat-form-field>
-
 <!-- Material Table -->
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" style="width: 100%;">
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 ingredient-table">
 
   <!-- Columns -->
   <ng-container matColumnDef="name">
@@ -84,50 +91,47 @@
   aria-label="Select page">
 </mat-paginator>
 
-<!-- Add Button -->
-<button mat-raised-button color="accent" (click)="addStock()" style="margin-top: 20px;">Add New Stock Item</button>
-
 <!-- Edit Form -->
-<div *ngIf="editingStock" style="margin-top: 1rem; padding: 1rem; border: 1px solid #ccc;">
+<div *ngIf="editingStock" class="form-container">
   <h3>Edit Stock</h3>
   <form (ngSubmit)="saveEdit()" #editForm="ngForm">
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline" class="full-width">
       <mat-label>Name</mat-label>
       <input matInput [(ngModel)]="editingStock.name" name="name" required />
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline" class="full-width">
       <mat-label>Category</mat-label>
       <input matInput [(ngModel)]="editingStock.category" name="category" required />
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline" class="full-width">
       <mat-label>Subcategory</mat-label>
       <input matInput [(ngModel)]="editingStock.subcategory" name="subcategory" required />
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline" class="full-width">
       <mat-label>Volume Per Unit</mat-label>
       <input type="number" matInput [(ngModel)]="editingStock.volumePerUnit" name="volumePerUnit" required min="1" />
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline" class="full-width">
       <mat-label>Number of Units</mat-label>
       <input type="number" matInput [(ngModel)]="editingStock.numberOfUnits" name="numberOfUnits" required min="1" />
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline" class="full-width">
       <mat-label>Status</mat-label>
       <input matInput [(ngModel)]="editingStock.status" name="status" required />
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline" class="full-width">
       <mat-label>Barcode</mat-label>
       <input matInput [(ngModel)]="editingStock.barcodeString" name="barcodeString" />
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline" class="full-width">
       <mat-label>Date of Expiry</mat-label>
       <input matInput type="date" [(ngModel)]="editingStock.dateOfExpiry" name="dateOfExpiry" />
     </mat-form-field>

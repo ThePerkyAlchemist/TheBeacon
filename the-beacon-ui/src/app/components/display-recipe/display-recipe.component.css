@@ -1,5 +1,8 @@
-.recipe-container {
-  padding: 1rem;
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .full-width {
@@ -7,20 +10,19 @@
   margin-bottom: 1rem;
 }
 
-.form-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  align-items: flex-end;
+.form-container {
+  max-width: 600px;
+  margin-bottom: 2rem;
 }
 
-.form-field {
-  flex: 1;
-  min-width: 200px;
+.actions-cell {
+  text-align: right;
 }
 
-.button-wrapper {
-  display: flex;
-  align-items: center;
+.actions-cell button + button {
+  margin-left: 8px;
+}
+
+.recipe-table {
+  width: 100%;
 }

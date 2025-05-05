@@ -1,33 +1,27 @@
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
 
-table {
-    width: 80%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-    font-family: Arial, sans-serif;
-  }
-  
-  th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  tr:hover {
-    background-color: #e0e0e0;
-  }
-  
-  button {
-    margin: 0 4px;
-    padding: 4px 8px;
-    cursor: pointer;
-  }
-  
+.full-width {
+  width: 100%;
+}
+
+.form-container {
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.actions-cell {
+  text-align: right;
+}
+
+.actions-cell button + button {
+  margin-left: 8px;
+}
+
+.ingredient-table {
+  width: 100%;
+}
