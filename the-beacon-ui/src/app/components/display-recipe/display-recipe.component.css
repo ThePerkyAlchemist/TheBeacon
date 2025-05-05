@@ -1,20 +1,42 @@
+/* Toolbar container: flex row, no wrap, spacing between left and right sides */
 .table-toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap;
   margin-bottom: 1rem;
 }
 
+/* Left section (button) */
+.toolbar-left {
+  display: flex;
+  align-items: center;
+}
+
+/* Right section (search input) */
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Search field width */
+.search-field {
+  width: 250px;
+}
+
+/* Optional: Full width for form layout below */
 .full-width {
   width: 100%;
   margin-bottom: 1rem;
 }
 
-.form-container {
-  max-width: 600px;
-  margin-bottom: 2rem;
+/* Table should use full width */
+.recipe-table {
+  width: 100%;
 }
 
+/* Align actions in the rightmost column */
 .actions-cell {
   text-align: right;
 }
@@ -23,6 +45,3 @@
   margin-left: 8px;
 }
 
-.recipe-table {
-  width: 100%;
-}

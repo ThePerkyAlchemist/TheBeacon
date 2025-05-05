@@ -1,27 +1,39 @@
+/* Toolbar containing the create button and search field */
 .table-toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap; /* Prevent wrap */
   margin-bottom: 1rem;
 }
 
+/* Make form fields stretch to full width */
 .full-width {
   width: 100%;
+  margin-bottom: 1rem;
 }
 
+/* Container for the form to add some spacing and max-width for better layout */
 .form-container {
   max-width: 600px;
   margin-bottom: 2rem;
 }
 
+/* Actions cell alignment */
 .actions-cell {
   text-align: right;
 }
 
+/* Optional: spacing between action icon buttons */
 .actions-cell button + button {
   margin-left: 8px;
 }
 
-.ingredient-table {
+/* Ensure the table takes full width of container */
+.recipe-table {
   width: 100%;
+}
+
+.search-field {
+  width: 250px;
 }
