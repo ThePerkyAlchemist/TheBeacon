@@ -1,8 +1,17 @@
 <h2>Drink Profiles</h2>
 
-<!-- Create New Drink Profile Button -->
-<div style="margin-bottom: 20px;">
-  <button mat-raised-button color="primary" (click)="startCreating()">Create New Drink Profile</button>
+
+<!-- Unified Toolbar for Drink Profiles -->
+<div class="table-toolbar">
+  <button mat-raised-button color="primary" (click)="startCreating()">
+    Create New Drink Profile
+  </button>
+
+  <mat-form-field appearance="outline" class="search-field">
+    <mat-label>Search Drink Profiles</mat-label>
+    <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Filter drink profiles..." />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
 </div>
 
 <!-- Create New Profile Form -->

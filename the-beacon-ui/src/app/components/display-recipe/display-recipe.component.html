@@ -1,23 +1,17 @@
 <!-- Page title -->
 <h2>Recipes</h2>
 
-<!-- Toolbar containing Create button and Search field -->
+<!-- Unified Toolbar for Recipes -->
 <div class="table-toolbar">
-  <!-- Left side (Create button) -->
-  <div class="toolbar-left">
-    <button mat-raised-button color="primary" (click)="startCreating()">
-      Create New Recipe
-    </button>
-  </div>
+  <button mat-raised-button color="primary" (click)="startCreating()">
+    Create New Recipe
+  </button>
 
-  <!-- Right side (Search input) -->
-  <div class="toolbar-right">
-    <mat-form-field appearance="outline" class="search-field">
-      <mat-label>Search Recipes</mat-label>
-      <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Filter recipes..." />
-      <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
-  </div>
+  <mat-form-field appearance="outline" class="search-field">
+    <mat-label>Search Recipes</mat-label>
+    <input matInput (keyup)="applyGroupedFilter($any($event.target).value)" placeholder="Filter recipes..." />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
 </div>
 
 <!-- Create form -->
@@ -56,59 +50,161 @@
   {{ successMessage }}
 </div>
 
-<!-- Recipe Table -->
-<h3>Recipe List</h3>
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 ingredient-table">
-
-  <!-- ID Column -->
-  <ng-container matColumnDef="id">
-    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
-    <mat-cell *matCellDef="let item">{{ item.id }}</mat-cell>
-  </ng-container>
+<!-- Grouped Recipe Table -->
+<h3>Grouped Recipes</h3>
+<table mat-table [dataSource]="groupedDataSource" matSort class="mat-elevation-z8 full-width">
 
   <!-- Name Column -->
   <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
-    <mat-cell *matCellDef="let item">{{ item.name }}</mat-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+    <mat-cell *matCellDef="let item; let i = index">
+      <ng-container *ngIf="i === 0 || groupedDataSource.data[i - 1].name !== item.name">
+        {{ item.name }}
+      </ng-container>
+    </mat-cell>
   </ng-container>
 
-  <!-- Ingredient ID Column -->
-  <ng-container matColumnDef="ingredientId">
-    <mat-header-cell *matHeaderCellDef>Ingredient ID</mat-header-cell>
-    <mat-cell *matCellDef="let item">{{ item.ingredientId }}</mat-cell>
+  <!-- Ingredient Column -->
+  <ng-container matColumnDef="ingredientName">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Ingredient</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.ingredientName }}</mat-cell>
   </ng-container>
 
   <!-- Volume Column -->
   <ng-container matColumnDef="volumeMl">
-    <mat-header-cell *matHeaderCellDef>Volume (ml)</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Volume (ml)</mat-header-cell>
     <mat-cell *matCellDef="let item">{{ item.volumeMl }}</mat-cell>
   </ng-container>
 
   <!-- Actions Column -->
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
-    <mat-cell *matCellDef="let item" class="actions-cell">
-      <!-- Edit button -->
+    <mat-cell *matCellDef="let item">
+      <button mat-icon-button color="primary" (click)="viewDrinkProfile(item.recipeId || item.id)" matTooltip="View Drink Profile">
+        <mat-icon>visibility</mat-icon>
+      </button>
       <button mat-icon-button color="accent" (click)="startEditing(item)" matTooltip="Edit">
         <mat-icon>edit</mat-icon>
       </button>
-
-      <!-- Delete button -->
       <button mat-icon-button color="warn" (click)="deleteRecipe(item.id)" matTooltip="Delete">
         <mat-icon>delete</mat-icon>
       </button>
     </mat-cell>
   </ng-container>
 
-  <!-- Table rows -->
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  <mat-header-row *matHeaderRowDef="['name', 'ingredientName', 'volumeMl', 'actions']"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: ['name', 'ingredientName', 'volumeMl', 'actions']"></mat-row>
 </table>
 
-<!-- Pagination -->
 <mat-paginator
   [pageSize]="pageSize"
   [pageSizeOptions]="[5, 10, 20]"
   showFirstLastButtons
   aria-label="Select page">
 </mat-paginator>
+
+<!-- Edit form -->
+<div *ngIf="editingRecipe" class="form-container">
+  <h3>Edit Recipe</h3>
+
+  <form #editForm="ngForm" (ngSubmit)="saveRecipe()" class="create-form">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" name="name" [(ngModel)]="editingRecipe.name" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Ingredient ID</mat-label>
+      <input matInput type="number" name="ingredientId" [(ngModel)]="editingRecipe.ingredientId" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Volume (ml)</mat-label>
+      <input matInput type="number" name="volumeMl" [(ngModel)]="editingRecipe.volumeMl" required />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">
+      Save
+    </button>
+    <button mat-raised-button color="warn" type="button" (click)="cancelEdit()">Cancel</button>
+  </form>
+</div>
+
+
+<!-- Show drinkprofile -->
+<div *ngIf="selectedDrinkProfiles.length > 0" class="drink-profile-preview">
+  <h3>Associated Drink Profile(s)</h3>
+
+  <table mat-table [dataSource]="selectedDrinkProfiles" class="mat-elevation-z2 full-width">
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+      <mat-cell *matCellDef="let profile">{{ profile.id }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="recipeId">
+      <mat-header-cell *matHeaderCellDef>Recipe ID</mat-header-cell>
+      <mat-cell *matCellDef="let profile">{{ profile.recipeId }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+      <mat-cell *matCellDef="let profile">{{ profile.description }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sweetnessOrFruitiness">
+      <mat-header-cell *matHeaderCellDef>Sweetness</mat-header-cell>
+      <mat-cell *matCellDef="let profile">{{ profile.sweetnessOrFruitiness }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="richness">
+      <mat-header-cell *matHeaderCellDef>Richness</mat-header-cell>
+      <mat-cell *matCellDef="let profile">{{ profile.richness }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="booziness">
+      <mat-header-cell *matHeaderCellDef>Booziness</mat-header-cell>
+      <mat-cell *matCellDef="let profile">{{ profile.booziness }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sourness">
+      <mat-header-cell *matHeaderCellDef>Sourness</mat-header-cell>
+      <mat-cell *matCellDef="let profile">{{ profile.sourness }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="freshness">
+      <mat-header-cell *matHeaderCellDef>Freshness</mat-header-cell>
+      <mat-cell *matCellDef="let profile">{{ profile.freshness }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lightness">
+      <mat-header-cell *matHeaderCellDef>Lightness</mat-header-cell>
+      <mat-cell *matCellDef="let profile">{{ profile.lightness }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="timestamp">
+      <mat-header-cell *matHeaderCellDef>Timestamp</mat-header-cell>
+      <mat-cell *matCellDef="let profile">{{ profile.timestamp }}</mat-cell>
+    </ng-container>
+
+    <!-- Header and Row Declarations -->
+    <mat-header-row *matHeaderRowDef="[
+      'id', 'recipeId', 'description', 'sweetnessOrFruitiness',
+      'richness', 'booziness', 'sourness', 'freshness',
+      'lightness', 'timestamp'
+    ]"></mat-header-row>
+
+    <mat-row *matRowDef="let row; columns: [
+      'id', 'recipeId', 'description', 'sweetnessOrFruitiness',
+      'richness', 'booziness', 'sourness', 'freshness',
+      'lightness', 'timestamp'
+    ]"></mat-row>
+
+  </table>
+
+  <button mat-stroked-button color="primary" (click)="selectedDrinkProfiles = []" style="margin-top: 1rem;">
+    Hide Drink Profile(s)
+  </button>
+</div>
+
+

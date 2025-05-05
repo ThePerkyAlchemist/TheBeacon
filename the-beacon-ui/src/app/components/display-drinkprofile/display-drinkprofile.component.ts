@@ -75,12 +75,28 @@ export class DisplayDrinkProfileComponent implements OnInit {
   loadProfiles(): void {
     this.drinkProfileService.getDrinkProfiles().subscribe({
       next: (data) => {
-        this.dataSource.data = data; // Set table data source
-        this.dataSource.paginator = this.paginator; // Enable pagination
+        this.dataSource.data = data;
+        this.dataSource.paginator = this.paginator;
+  
+        this.dataSource.filterPredicate = (profile: DrinkProfile, filter: string) => {
+          const lower = filter.trim().toLowerCase();
+          const combined = `
+            ${profile.recipeId}
+            ${profile.sweetnessOrFruitiness}
+            ${profile.richness}
+            ${profile.booziness}
+            ${profile.sourness}
+            ${profile.freshness}
+            ${profile.lightness}
+            ${profile.description ?? ''}
+          `.toLowerCase();
+          return combined.includes(lower);
+        };
       },
       error: (err) => console.error('Error loading profiles', err)
     });
   }
+  
 
   startCreating(): void {
     this.showCreateForm = true;
@@ -154,6 +170,10 @@ export class DisplayDrinkProfileComponent implements OnInit {
     });
   }
 
+  applyFilter(filterValue: string): void {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  
 //not needed with mat paginator strucutre above:
   // get paginatedDrinkProfiles(): DrinkProfile[] {
   //   const start = this.currentPage * this.pageSize;
