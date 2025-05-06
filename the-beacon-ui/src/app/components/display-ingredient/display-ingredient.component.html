@@ -1,17 +1,17 @@
 <!-- Page title -->
-<h2>Recipes</h2>
+<h2>Ingredients</h2>
 
 <!-- Toolbar with Create + Search -->
 <div class="table-toolbar">
   <!-- Create button on the left -->
   <button mat-raised-button color="primary" (click)="startCreating()">
-    Create New Recipe
+    Create New Ingredient
   </button>
 
   <!-- Search input on the right -->
   <mat-form-field appearance="outline">
-    <mat-label>Search Recipes</mat-label>
-    <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Filter recipes..." />
+    <mat-label>Search Ingredients</mat-label>
+    <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Filter Ingredients..." />
     <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
 </div>

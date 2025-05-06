@@ -1,47 +1,52 @@
 <!-- Page title -->
 <h2>Recipes</h2>
 
-<!-- Unified Toolbar for Recipes -->
-<div class="table-toolbar">
+<!-- Toolbar for Create and Search -->
+<div class="table-toolbar" style="display: flex; justify-content: space-between; align-items: center;">
+  <!-- Create on left -->
   <button mat-raised-button color="primary" (click)="startCreating()">
     Create New Recipe
   </button>
 
-  <mat-form-field appearance="outline" class="search-field">
+  <!-- Search on right -->
+  <mat-form-field appearance="outline">
     <mat-label>Search Recipes</mat-label>
-    <input matInput (keyup)="applyGroupedFilter($any($event.target).value)" placeholder="Filter recipes..." />
+    <input matInput (keyup)="applyGroupedFilter($any($event.target).value)" placeholder="Filter Recipes..." />
     <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
 </div>
 
-<!-- Create form -->
+<!-- Form Section: Create or Edit Recipe -->
 <div *ngIf="showCreateForm" class="form-container">
-  <h3>Add New Recipe</h3>
+  <h3>{{ editingRecipe ? 'Edit Recipe' : 'New Recipe' }}</h3>
 
-  <form #createForm="ngForm" (ngSubmit)="createRecipe()" class="create-form">
+  <!-- Reactive form bound to recipeForm -->
+  <form [formGroup]="recipeForm" (ngSubmit)="saveRecipe()">
     <!-- Name input -->
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Name</mat-label>
-      <input matInput type="text" name="name" [(ngModel)]="newRecipe.name" required />
+      <input matInput type="text" formControlName="name" required />
     </mat-form-field>
 
     <!-- Ingredient ID input -->
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Ingredient ID</mat-label>
-      <input matInput type="number" name="ingredientId" [(ngModel)]="newRecipe.ingredientId" required />
+      <input matInput type="number" formControlName="ingredientId" required />
     </mat-form-field>
 
     <!-- Volume input -->
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Volume (ml)</mat-label>
-      <input matInput type="number" name="volumeMl" [(ngModel)]="newRecipe.volumeMl" required />
+      <input matInput type="number" formControlName="volumeMl" required />
     </mat-form-field>
 
-    <!-- Action buttons -->
-    <button mat-raised-button color="primary" type="submit" [disabled]="!createForm.valid">
-      Save
-    </button>
-    <button mat-raised-button color="warn" type="button" (click)="cancelCreate()">Cancel</button>
+    <!-- Save and Cancel Buttons -->
+    <div style="margin-top: 1rem;">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!recipeForm.valid">
+        Save
+      </button>
+      <button mat-raised-button color="warn" type="button" (click)="cancelCreate()">Cancel</button>
+    </div>
   </form>
 </div>
 
@@ -53,7 +58,6 @@
 <!-- Grouped Recipe Table -->
 <h3>Grouped Recipes</h3>
 <table mat-table [dataSource]="groupedDataSource" matSort class="mat-elevation-z8 full-width">
-
   <!-- Name Column -->
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
@@ -103,7 +107,7 @@
   aria-label="Select page">
 </mat-paginator>
 
-<!-- Edit form -->
+<!-- Edit form (template-driven) -->
 <div *ngIf="editingRecipe" class="form-container">
   <h3>Edit Recipe</h3>
 
@@ -130,13 +134,11 @@
   </form>
 </div>
 
-
 <!-- Show drinkprofile -->
 <div *ngIf="selectedDrinkProfiles.length > 0" class="drink-profile-preview">
   <h3>Associated Drink Profile(s)</h3>
 
   <table mat-table [dataSource]="selectedDrinkProfiles" class="mat-elevation-z2 full-width">
-
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
       <mat-cell *matCellDef="let profile">{{ profile.id }}</mat-cell>
@@ -187,7 +189,6 @@
       <mat-cell *matCellDef="let profile">{{ profile.timestamp }}</mat-cell>
     </ng-container>
 
-    <!-- Header and Row Declarations -->
     <mat-header-row *matHeaderRowDef="[
       'id', 'recipeId', 'description', 'sweetnessOrFruitiness',
       'richness', 'booziness', 'sourness', 'freshness',
@@ -199,12 +200,9 @@
       'richness', 'booziness', 'sourness', 'freshness',
       'lightness', 'timestamp'
     ]"></mat-row>
-
   </table>
 
   <button mat-stroked-button color="primary" (click)="selectedDrinkProfiles = []" style="margin-top: 1rem;">
     Hide Drink Profile(s)
   </button>
 </div>
-
-
