@@ -3,8 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: nowrap;
-  margin-bottom: 1rem;
+  width: 100%;
 }
 
 /* Form fields full width with spacing */
