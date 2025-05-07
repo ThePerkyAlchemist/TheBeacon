@@ -1,9 +1,9 @@
 /* Toolbar containing the create button and search field */
 .table-toolbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* This aligns search to the right */
   align-items: center;
-  flex-wrap: nowrap; /* Prevent wrap */
+  flex-wrap: nowrap;
   margin-bottom: 1rem;
 }
 
@@ -34,6 +34,8 @@
   width: 100%;
 }
 
+/* Consistent width for the search field */
 .search-field {
   width: 250px;
 }
+

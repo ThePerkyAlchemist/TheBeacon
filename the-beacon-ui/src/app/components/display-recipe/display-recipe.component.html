@@ -1,60 +1,72 @@
-<!-- Page title -->
+<!-- Page Title -->
 <h2>Recipes</h2>
 
-<!-- Unified Toolbar for Recipes -->
-<div class="table-toolbar">
-  <button mat-raised-button color="primary" (click)="startCreating()">
-    Create New Recipe
-  </button>
+<!-- Toolbar: Create and Search aligned like Stock -->
+<div class="table-toolbar" style="display: flex; justify-content: space-between; align-items: center;">
+  <!-- Create button on the left -->
+  <button mat-raised-button color="primary" (click)="startCreating()">Create New Recipe</button>
 
-  <mat-form-field appearance="outline" class="search-field">
-    <mat-label>Search Recipes</mat-label>
-    <input matInput (keyup)="applyGroupedFilter($any($event.target).value)" placeholder="Filter recipes..." />
-    <mat-icon matSuffix>search</mat-icon>
-  </mat-form-field>
+  <!-- Search input on the right -->
+  <div style="margin-left: auto;">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Search Recipes</mat-label>
+      <input matInput (keyup)="applyGroupedFilter($any($event.target).value)" placeholder="Filter Recipes..." />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
 </div>
 
-<!-- Create form -->
-<div *ngIf="showCreateForm" class="form-container">
-  <h3>Add New Recipe</h3>
+<!-- Form Section: Create or Edit Recipe -->
+<div *ngIf="showForm" class="form-container">
+  <h3>{{ editingRecipe ? 'Edit Recipe' : 'New Recipe' }}</h3>
 
-  <form #createForm="ngForm" (ngSubmit)="createRecipe()" class="create-form">
-    <!-- Name input -->
+  <form [formGroup]="recipeForm" (ngSubmit)="saveRecipe()">
+    <!-- Name -->
+    <div class="form-grid">
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Name</mat-label>
-      <input matInput type="text" name="name" [(ngModel)]="newRecipe.name" required />
+      <input matInput formControlName="name" />
+      <mat-error *ngIf="recipeForm.get('name')?.hasError('required')">
+        Name is required
+      </mat-error>
     </mat-form-field>
 
-    <!-- Ingredient ID input -->
+    <!-- Ingredient ID -->
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Ingredient ID</mat-label>
-      <input matInput type="number" name="ingredientId" [(ngModel)]="newRecipe.ingredientId" required />
+      <input matInput type="number" formControlName="ingredientId" />
+      <mat-error *ngIf="recipeForm.get('ingredientId')?.hasError('required')">
+        Ingredient ID is required
+      </mat-error>
     </mat-form-field>
 
-    <!-- Volume input -->
+    <!-- Volume -->
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Volume (ml)</mat-label>
-      <input matInput type="number" name="volumeMl" [(ngModel)]="newRecipe.volumeMl" required />
+      <input matInput type="number" formControlName="volumeMl" />
+      <mat-error *ngIf="recipeForm.get('volumeMl')?.hasError('required')">
+        Volume is required
+      </mat-error>
     </mat-form-field>
+  </div>
 
     <!-- Action buttons -->
-    <button mat-raised-button color="primary" type="submit" [disabled]="!createForm.valid">
-      Save
-    </button>
-    <button mat-raised-button color="warn" type="button" (click)="cancelCreate()">Cancel</button>
+    <div style="margin-top: 1rem;">
+      <button mat-raised-button color="primary" type="submit" [disabled]="recipeForm.invalid">Save</button>
+      <button mat-raised-button color="warn" type="button" (click)="cancelForm()">Cancel</button>
+    </div>
   </form>
 </div>
 
-<!-- Success message after saving -->
-<div *ngIf="successMessage && !hideSuccess" class="success-message">
+<!-- Success message -->
+<div *ngIf="successMessage && !hideSuccess" style="color: green; margin-bottom: 1rem;">
   {{ successMessage }}
 </div>
 
 <!-- Grouped Recipe Table -->
 <h3>Grouped Recipes</h3>
-<table mat-table [dataSource]="groupedDataSource" matSort class="mat-elevation-z8 full-width">
-
-  <!-- Name Column -->
+<table mat-table [dataSource]="groupedDataSource" matSort class="mat-elevation-z8 recipe-table">
+  <!-- Name column -->
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
     <mat-cell *matCellDef="let item; let i = index">
@@ -64,79 +76,47 @@
     </mat-cell>
   </ng-container>
 
-  <!-- Ingredient Column -->
+  <!-- Ingredient column -->
   <ng-container matColumnDef="ingredientName">
     <mat-header-cell *matHeaderCellDef mat-sort-header>Ingredient</mat-header-cell>
     <mat-cell *matCellDef="let item">{{ item.ingredientName }}</mat-cell>
   </ng-container>
 
-  <!-- Volume Column -->
+  <!-- Volume column -->
   <ng-container matColumnDef="volumeMl">
     <mat-header-cell *matHeaderCellDef mat-sort-header>Volume (ml)</mat-header-cell>
     <mat-cell *matCellDef="let item">{{ item.volumeMl }}</mat-cell>
   </ng-container>
 
-  <!-- Actions Column -->
+  <!-- Actions column -->
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
-    <mat-cell *matCellDef="let item">
-      <button mat-icon-button color="primary" (click)="viewDrinkProfile(item.recipeId || item.id)" matTooltip="View Drink Profile">
+    <mat-cell *matCellDef="let item" class="actions-cell">
+      <button mat-icon-button color="primary" (click)="viewDrinkProfile(item.recipeId || item.id)">
         <mat-icon>visibility</mat-icon>
       </button>
-      <button mat-icon-button color="accent" (click)="startEditing(item)" matTooltip="Edit">
+      <button mat-icon-button color="accent" (click)="startEditing(item)">
         <mat-icon>edit</mat-icon>
       </button>
-      <button mat-icon-button color="warn" (click)="deleteRecipe(item.id)" matTooltip="Delete">
+      <button mat-icon-button color="warn" (click)="deleteRecipe(item.id)">
         <mat-icon>delete</mat-icon>
       </button>
     </mat-cell>
   </ng-container>
 
-  <mat-header-row *matHeaderRowDef="['name', 'ingredientName', 'volumeMl', 'actions']"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: ['name', 'ingredientName', 'volumeMl', 'actions']"></mat-row>
+  <mat-header-row *matHeaderRowDef="groupedDisplayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: groupedDisplayedColumns;"></mat-row>
 </table>
 
-<mat-paginator
-  [pageSize]="pageSize"
-  [pageSizeOptions]="[5, 10, 20]"
-  showFirstLastButtons
-  aria-label="Select page">
+<!-- Paginator -->
+<mat-paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page">
 </mat-paginator>
 
-<!-- Edit form -->
-<div *ngIf="editingRecipe" class="form-container">
-  <h3>Edit Recipe</h3>
-
-  <form #editForm="ngForm" (ngSubmit)="saveRecipe()" class="create-form">
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Name</mat-label>
-      <input matInput type="text" name="name" [(ngModel)]="editingRecipe.name" required />
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Ingredient ID</mat-label>
-      <input matInput type="number" name="ingredientId" [(ngModel)]="editingRecipe.ingredientId" required />
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Volume (ml)</mat-label>
-      <input matInput type="number" name="volumeMl" [(ngModel)]="editingRecipe.volumeMl" required />
-    </mat-form-field>
-
-    <button mat-raised-button color="primary" type="submit">
-      Save
-    </button>
-    <button mat-raised-button color="warn" type="button" (click)="cancelEdit()">Cancel</button>
-  </form>
-</div>
-
-
-<!-- Show drinkprofile -->
+<!-- Drink Profile Viewer -->
 <div *ngIf="selectedDrinkProfiles.length > 0" class="drink-profile-preview">
   <h3>Associated Drink Profile(s)</h3>
 
   <table mat-table [dataSource]="selectedDrinkProfiles" class="mat-elevation-z2 full-width">
-
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
       <mat-cell *matCellDef="let profile">{{ profile.id }}</mat-cell>
@@ -187,7 +167,6 @@
       <mat-cell *matCellDef="let profile">{{ profile.timestamp }}</mat-cell>
     </ng-container>
 
-    <!-- Header and Row Declarations -->
     <mat-header-row *matHeaderRowDef="[
       'id', 'recipeId', 'description', 'sweetnessOrFruitiness',
       'richness', 'booziness', 'sourness', 'freshness',
@@ -199,12 +178,9 @@
       'richness', 'booziness', 'sourness', 'freshness',
       'lightness', 'timestamp'
     ]"></mat-row>
-
   </table>
 
   <button mat-stroked-button color="primary" (click)="selectedDrinkProfiles = []" style="margin-top: 1rem;">
     Hide Drink Profile(s)
   </button>
 </div>
-
-
