@@ -10,8 +10,9 @@ export class RecipeService {
   baseUrl: string = "http://localhost:5146/api";
   constructor(private http: HttpClient) { }
 
+
   getRecipes():Observable<Recipe[]>{
-    return this.http.get<Recipe[]>(`${this.baseUrl}/recipe`);
+    return this.http.get<Recipe[]>(`${this.baseUrl}/recipe`, );
   }
 
   getRecipeByID(id: number): Observable<Recipe> {

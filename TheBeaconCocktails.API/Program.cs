@@ -1,11 +1,19 @@
 using TheBeaconCocktails.Model.Repositories;
+using TheBeaconCocktails.API.Middleware;using TheBeaconCocktails.Model.Context;
+using Microsoft.EntityFrameworkCore;
+
+
+
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<BeaconDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
 
 // <--- Denne linje tilføjer CORS tilladelse
 builder.Services.AddCors(options =>
@@ -34,6 +42,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection(); 
+
+app.UseBasicAuthenticationMiddleware();
+
 
 app.UseAuthorization();
 app.MapControllers();

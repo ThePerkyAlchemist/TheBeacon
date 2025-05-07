@@ -10,10 +10,14 @@ export class StockService {
   private baseUrl = 'http://localhost:5146/api/stock'; // Justér hvis din endpoint er anderledes
 
   constructor(private http: HttpClient) {}
-
+  authHeader: string = "Basic am9obi5kb2U6VmVyeVNlY3JldCE=";
   // GET all stock items
   getAll(): Observable<Stock[]> {
-    return this.http.get<Stock[]>(this.baseUrl);
+    return this.http.get<Stock[]>(this.baseUrl, {
+      headers: {
+        "Authorization": this.authHeader
+      }
+    });
   }
 
   // GET one stock item
