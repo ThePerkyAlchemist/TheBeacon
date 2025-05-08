@@ -1,4 +1,5 @@
 using TheBeaconCocktails.Model.Repositories;
+using TheBeaconCocktails.API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +36,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection(); 
 
+app.UseBasicAuthenticationMiddleware();
 app.UseAuthorization();
+
 app.MapControllers();
 app.Run();
