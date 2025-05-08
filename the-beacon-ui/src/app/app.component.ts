@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+
+
 
 // Angular Material Tabs module for tab navigation
 import { MatTabsModule } from '@angular/material/tabs';
@@ -13,6 +17,11 @@ import { DisplayIngredientComponent } from './components/display-ingredient/disp
 // Reusable header component
 import { HeaderComponent } from './components/header/header.component';
 
+//Authentication
+import { AuthService } from './services/auth.service';
+import { LoginComponent } from './login/login.component'; 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -21,19 +30,22 @@ import { HeaderComponent } from './components/header/header.component';
 
   // Import all the components and modules this standalone component depends on
   imports: [
+    CommonModule,
     MatTabsModule,                  // Material tab group UI
-    DisplayRecipeComponent,        // Tab 1: Recipe management
-    DisplayDrinkProfileComponent,  // Tab 2: Drink profile manager
-    DisplayStockListComponent,     // Tab 3: Stock inventory
-    DisplayIngredientComponent,    // Tab 4: Ingredient manager (the one you added)
-    HeaderComponent                // Top header bar
+    RouterOutlet,
+    HeaderComponent
   ]
 })
 export class AppComponent {
   // Tracks which tab is currently active (used for logic if needed)
   activeTabIndex = 0;
+  constructor(public auth: AuthService) {}
+  
+  isAuthenticated(): boolean {
+    return this.auth.isAuthenticated();
+  }
 
-  /**
+    /**
    * Event handler triggered when the user changes tabs.
    * Useful if you want to load data or run logic based on selected tab.
    * @param event MatTabChangeEvent
