@@ -65,49 +65,29 @@
 
 <!-- Grouped Recipe Table -->
 <h3>Grouped Recipes</h3>
-<table mat-table [dataSource]="groupedDataSource" matSort class="mat-elevation-z8 recipe-table">
-  <!-- Name column -->
-  <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
-    <mat-cell *matCellDef="let item; let i = index">
-      <ng-container *ngIf="i === 0 || groupedDataSource.data[i - 1].name !== item.name">
-        {{ item.name }}
-      </ng-container>
-    </mat-cell>
-  </ng-container>
-
-  <!-- Ingredient column -->
-  <ng-container matColumnDef="ingredientName">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Ingredient</mat-header-cell>
-    <mat-cell *matCellDef="let item">{{ item.ingredientName }}</mat-cell>
-  </ng-container>
-
-  <!-- Volume column -->
-<ng-container matColumnDef="volumeMl">
-  <mat-header-cell *matHeaderCellDef mat-sort-header>Volume (ml)</mat-header-cell>
-  <mat-cell *matCellDef="let item">{{ item.volumeMl }}</mat-cell>
-</ng-container>
-
-
-  <!-- Actions column -->
-  <ng-container matColumnDef="actions">
-    <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
-    <mat-cell *matCellDef="let item" class="actions-cell">
-      <button mat-icon-button color="primary" (click)="viewDrinkProfile(item.recipeId || item.id)">
-        <mat-icon>visibility</mat-icon>
-      </button>
-      <button mat-icon-button color="accent" (click)="startEditing(item)">
-        <mat-icon>edit</mat-icon>
-      </button>
-      <button mat-icon-button color="warn" (click)="deleteRecipe(item.id)">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </mat-cell>
-  </ng-container>
-
-  <mat-header-row *matHeaderRowDef="groupedDisplayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: groupedDisplayedColumns;"></mat-row>
-</table>
+<div class="recipe-card-list">
+  <mat-card *ngFor="let recipe of groupedRecipes" class="recipe-card">
+    <mat-card-title>{{ recipe.name }}</mat-card-title>
+    <mat-card-content>
+      <ul>
+        <li *ngFor="let ing of recipe.ingredients" class="ingredient-row">
+          <span>{{ ing.ingredientName }} – {{ ing.volumeMl }} ml</span>
+          <span class="ingredient-actions">
+            <button mat-icon-button color="accent" (click)="startEditing(ing)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteRecipe(ing.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </span>
+        </li>
+      </ul>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="viewDrinkProfile(recipe.recipeId)">View Drink Profile</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
 
 <!-- Paginator -->
 <mat-paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page">

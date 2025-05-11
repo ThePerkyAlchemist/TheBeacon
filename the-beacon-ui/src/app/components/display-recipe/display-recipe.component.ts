@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
 
 // App-specific models and services
 import { Recipe } from '../../model/recipe';
@@ -33,7 +34,8 @@ import { IngredientService } from '../../services/ingredient.service';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule, 
+    MatCardModule
   ]
 })
 export class DisplayRecipeComponent implements OnInit, AfterViewInit {
@@ -52,6 +54,8 @@ export class DisplayRecipeComponent implements OnInit, AfterViewInit {
   // Supplementary data
   ingredients: Ingredient[] = [];
   selectedDrinkProfiles: DrinkProfile[] = [];
+  groupedRecipes: { name: string; recipeId: number; ingredients: Recipe[] }[] = [];
+
 
   // Pagination
   currentPage = 0;
@@ -71,6 +75,23 @@ export class DisplayRecipeComponent implements OnInit, AfterViewInit {
     private ingredientService: IngredientService,
     private drinkProfileService: DrinkProfileService
   ) {}
+
+  groupRecipes(recipes: Recipe[]): {
+  name: string;
+  recipeId: number;
+  ingredients: Recipe[];
+}[] {
+  const grouped: { [key: string]: { name: string; recipeId: number; ingredients: Recipe[] } } = {};
+
+  for (const r of recipes) {
+    if (!grouped[r.name]) {
+      grouped[r.name] = { name: r.name, recipeId: r.recipeId || r.id, ingredients: [] };
+    }
+    grouped[r.name].ingredients.push(r);
+  }
+
+  return Object.values(grouped);
+}
 
   // Initialize form and load data
   ngOnInit(): void {
@@ -100,34 +121,25 @@ export class DisplayRecipeComponent implements OnInit, AfterViewInit {
   }
 
   // Load recipes and enrich with ingredient names
-  loadRecipes(): void {
-    this.recipeService.getRecipes().subscribe({
-      next: (data) => {
-        const enriched = data.map(recipe => {
-          const ingredient = this.ingredients.find(i => i.id === recipe.ingredientId);
-          return { ...recipe, ingredientName: ingredient?.name || 'Unknown' };
-        });
+loadRecipes(): void {
+  this.recipeService.getRecipes().subscribe({
+    next: (data) => {
+      const enriched = data.map(recipe => {
+        const ingredient = this.ingredients.find(i => i.id === recipe.ingredientId);
+        return { ...recipe, ingredientName: ingredient?.name || 'Unknown' };
+      });
 
-        //console.log('Enriched recipes:', enriched);
+      // Group by recipe name
+      this.groupedRecipes = this.groupRecipes(enriched);
 
-        this.groupedDataSource = new MatTableDataSource<Recipe>(enriched);
-        this.groupedDataSource.sort = this.sort;
-        this.groupedDataSource.paginator = this.paginator;
-        //console.log('First recipe:', enriched[0]);
-
-        // Filter predicate for search bar
-        this.groupedDataSource.filterPredicate = (data: Recipe, filter: string) => {
-          const lower = filter.trim().toLowerCase();
-          return (
-            data.name?.toLowerCase().includes(lower) ||
-            data.ingredientName?.toLowerCase().includes(lower) ||
-            data.volumeMl?.toString().includes(lower)
-          );
-        };
-      },
-      error: (err) => console.error('Error loading recipes', err)
-    });
-  }
+      // Optional: still populate table datasource if needed elsewhere
+      this.groupedDataSource = new MatTableDataSource<Recipe>(enriched);
+      this.groupedDataSource.sort = this.sort;
+      this.groupedDataSource.paginator = this.paginator;
+    },
+    error: (err) => console.error('Error loading recipes', err)
+  });
+}
 
   // Apply search filter
   applyGroupedFilter(value: string): void {
