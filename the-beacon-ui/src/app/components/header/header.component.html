@@ -1,11 +1,13 @@
 <!-- Static logo shown above tabs -->
 <header style="padding: 1rem; text-align: center;">
   <img src="assets/theBeaconLogo4K.png" alt="The Beacon Logo" style="height: 60px;" />
-  <button mat-button color="warn" (click)="logout()">Logout</button>
+  
   <nav>
     <button mat-button routerLink="/recipes">Recipes</button>
-    <button mat-button routerLink="/ingredients">Ingredients</button>
+
     <button mat-button routerLink="/stock">Stock</button>
     <button mat-button routerLink="/drinkprofiles">Drink Profiles</button>
+        <button mat-button routerLink="/ingredients">Ingredients</button>
+        <button mat-button color="warn" (click)="logout()">Log Out</button>
   </nav>
   </header>

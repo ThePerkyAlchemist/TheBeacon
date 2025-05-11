@@ -6,12 +6,12 @@ import { CommonModule } from '@angular/common';
 // Angular Material Modules
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatSort, MatSortModule } from '@angular/material/sort';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 
 // App-specific models and services
 import { Recipe } from '../../model/recipe';
@@ -34,7 +34,7 @@ import { IngredientService } from '../../services/ingredient.service';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule, 
+    MatIconModule,
     MatCardModule
   ]
 })
@@ -42,6 +42,10 @@ export class DisplayRecipeComponent implements OnInit, AfterViewInit {
   // Table data
   recipes: Recipe[] = [];
   groupedDataSource = new MatTableDataSource<Recipe>();
+
+  // Grouped and filtered recipes
+  groupedRecipes: { name: string; recipeId: number; ingredients: Recipe[] }[] = [];
+  filteredGroupedRecipes: { name: string; recipeId: number; ingredients: Recipe[] }[] = [];
 
   // Columns to be displayed in the table
   groupedDisplayedColumns: string[] = ['name', 'ingredientName', 'volumeMl', 'actions'];
@@ -54,8 +58,6 @@ export class DisplayRecipeComponent implements OnInit, AfterViewInit {
   // Supplementary data
   ingredients: Ingredient[] = [];
   selectedDrinkProfiles: DrinkProfile[] = [];
-  groupedRecipes: { name: string; recipeId: number; ingredients: Recipe[] }[] = [];
-
 
   // Pagination
   currentPage = 0;
@@ -76,22 +78,29 @@ export class DisplayRecipeComponent implements OnInit, AfterViewInit {
     private drinkProfileService: DrinkProfileService
   ) {}
 
+  // Recipe grouping helper
   groupRecipes(recipes: Recipe[]): {
-  name: string;
-  recipeId: number;
-  ingredients: Recipe[];
-}[] {
-  const grouped: { [key: string]: { name: string; recipeId: number; ingredients: Recipe[] } } = {};
+    name: string;
+    recipeId: number;
+    ingredients: Recipe[];
+  }[] {
+    const grouped: { [key: string]: { name: string; recipeId: number; ingredients: Recipe[] } } = {};
 
-  for (const r of recipes) {
-    if (!grouped[r.name]) {
-      grouped[r.name] = { name: r.name, recipeId: r.recipeId || r.id, ingredients: [] };
+    for (const r of recipes) {
+      if (!grouped[r.name]) {
+        grouped[r.name] = { name: r.name, recipeId: r.recipeId || r.id, ingredients: [] };
+      }
+      grouped[r.name].ingredients.push(r);
     }
-    grouped[r.name].ingredients.push(r);
+
+    return Object.values(grouped);
   }
 
-  return Object.values(grouped);
-}
+  // Derived paginated slice
+  get paginatedRecipes() {
+    const start = this.currentPage * this.pageSize;
+    return this.filteredGroupedRecipes.slice(start, start + this.pageSize);
+  }
 
   // Initialize form and load data
   ngOnInit(): void {
@@ -121,29 +130,43 @@ export class DisplayRecipeComponent implements OnInit, AfterViewInit {
   }
 
   // Load recipes and enrich with ingredient names
-loadRecipes(): void {
-  this.recipeService.getRecipes().subscribe({
-    next: (data) => {
-      const enriched = data.map(recipe => {
-        const ingredient = this.ingredients.find(i => i.id === recipe.ingredientId);
-        return { ...recipe, ingredientName: ingredient?.name || 'Unknown' };
-      });
+  loadRecipes(): void {
+    this.recipeService.getRecipes().subscribe({
+      next: (data) => {
+        const enriched = data.map(recipe => {
+          const ingredient = this.ingredients.find(i => i.id === recipe.ingredientId);
+          return { ...recipe, ingredientName: ingredient?.name || 'Unknown' };
+        });
 
-      // Group by recipe name
-      this.groupedRecipes = this.groupRecipes(enriched);
+        this.groupedRecipes = this.groupRecipes(enriched);
+        this.filteredGroupedRecipes = this.groupedRecipes;
 
-      // Optional: still populate table datasource if needed elsewhere
-      this.groupedDataSource = new MatTableDataSource<Recipe>(enriched);
-      this.groupedDataSource.sort = this.sort;
-      this.groupedDataSource.paginator = this.paginator;
-    },
-    error: (err) => console.error('Error loading recipes', err)
-  });
-}
+        // Optional: retain MatTableDataSource support
+        this.groupedDataSource = new MatTableDataSource<Recipe>(enriched);
+        this.groupedDataSource.sort = this.sort;
+        this.groupedDataSource.paginator = this.paginator;
+      },
+      error: (err) => console.error('Error loading recipes', err)
+    });
+  }
 
   // Apply search filter
   applyGroupedFilter(value: string): void {
-    this.groupedDataSource.filter = value.trim().toLowerCase();
+    const lower = value.trim().toLowerCase();
+    this.filteredGroupedRecipes = this.groupedRecipes.filter(group =>
+      group.name.toLowerCase().includes(lower) ||
+      group.ingredients.some(i =>
+        i.ingredientName.toLowerCase().includes(lower) ||
+        i.volumeMl.toString().includes(lower)
+      )
+    );
+    this.currentPage = 0;
+  }
+
+  // Handle page changes
+  onPageChange(event: PageEvent): void {
+    this.pageSize = event.pageSize;
+    this.currentPage = event.pageIndex;
   }
 
   // Start create mode
@@ -186,7 +209,6 @@ loadRecipes(): void {
     const formValue = this.recipeForm.value;
 
     if (this.editingRecipe) {
-      // Update existing
       const updated: Recipe = { ...this.editingRecipe, ...formValue };
       this.recipeService.updateRecipe(updated.id, updated).subscribe({
         next: () => {
@@ -199,7 +221,6 @@ loadRecipes(): void {
         error: (err) => console.error('Error updating recipe', err)
       });
     } else {
-      // Create new
       this.recipeService.createRecipe(formValue).subscribe({
         next: () => {
           this.loadRecipes();

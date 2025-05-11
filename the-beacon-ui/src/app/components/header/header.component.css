@@ -1,12 +1,15 @@
 nav {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  
-  nav button {
-    color: white;
-    font-weight: bold;
-  }
-  
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+nav button {
+  font-weight: bold;
+}
+
+/* Keep other buttons white */
+nav button:not(.mat-warn) {
+  color: white;
+}
