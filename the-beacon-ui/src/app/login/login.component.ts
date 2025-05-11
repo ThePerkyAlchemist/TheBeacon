@@ -10,7 +10,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 
-
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -52,6 +51,4 @@ export class LoginComponent {
       });
     }
   }
-  
-
 }
