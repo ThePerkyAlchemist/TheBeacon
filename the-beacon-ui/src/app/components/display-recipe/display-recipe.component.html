@@ -83,10 +83,11 @@
   </ng-container>
 
   <!-- Volume column -->
-  <ng-container matColumnDef="volumeMl">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Volume (ml)</mat-header-cell>
-    <mat-cell *matCellDef="let item">{{ item.volumeMl }}</mat-cell>
-  </ng-container>
+<ng-container matColumnDef="volumeMl">
+  <mat-header-cell *matHeaderCellDef mat-sort-header>Volume (ml)</mat-header-cell>
+  <mat-cell *matCellDef="let item">{{ item.volumeMl }}</mat-cell>
+</ng-container>
+
 
   <!-- Actions column -->
   <ng-container matColumnDef="actions">

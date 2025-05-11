@@ -16,6 +16,6 @@ public class Recipe
     [ForeignKey("Ingredient")]
     public int IngredientId { get; set; }
 
-    public int VolumeML { get; set; }
+    public int VolumeMl { get; set; }
 }
 }
