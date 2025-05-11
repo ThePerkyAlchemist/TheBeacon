@@ -108,9 +108,12 @@ export class DisplayRecipeComponent implements OnInit, AfterViewInit {
           return { ...recipe, ingredientName: ingredient?.name || 'Unknown' };
         });
 
+        //console.log('Enriched recipes:', enriched);
+
         this.groupedDataSource = new MatTableDataSource<Recipe>(enriched);
         this.groupedDataSource.sort = this.sort;
         this.groupedDataSource.paginator = this.paginator;
+        //console.log('First recipe:', enriched[0]);
 
         // Filter predicate for search bar
         this.groupedDataSource.filterPredicate = (data: Recipe, filter: string) => {

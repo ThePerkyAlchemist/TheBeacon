@@ -25,7 +25,7 @@ namespace TheBeaconCocktails.Model.Repositories
                 {
                     Name = reader["name"].ToString(),
                     IngredientId = Convert.ToInt32(reader["ingredientid"]),
-                    VolumeML = Convert.ToInt32(reader["volumeml"])
+                    VolumeMl = Convert.ToInt32(reader["volumeml"])
                 });
             }
 
@@ -46,7 +46,7 @@ namespace TheBeaconCocktails.Model.Repositories
                 {
                     Name = reader["name"].ToString(),
                     IngredientId = Convert.ToInt32(reader["ingredientid"]),
-                    VolumeML = Convert.ToInt32(reader["volumeml"])
+                    VolumeMl = Convert.ToInt32(reader["volumeml"])
                 };
             }
 
@@ -63,7 +63,7 @@ VALUES (@name, @ingredientid, @volumeml);";
 
             cmd.Parameters.AddWithValue("@name", NpgsqlDbType.Text, recipe.Name);
             cmd.Parameters.AddWithValue("@ingredientid", NpgsqlDbType.Integer, recipe.IngredientId);
-            cmd.Parameters.AddWithValue("@volumeml", NpgsqlDbType.Integer, recipe.VolumeML);
+            cmd.Parameters.AddWithValue("@volumeml", NpgsqlDbType.Integer, recipe.VolumeMl);
 
             return InsertData(conn, cmd);
         }
@@ -81,7 +81,7 @@ WHERE id = @id;";
 
             cmd.Parameters.AddWithValue("@name", NpgsqlDbType.Text, recipe.Name);
             cmd.Parameters.AddWithValue("@ingredientid", NpgsqlDbType.Integer, recipe.IngredientId);
-            cmd.Parameters.AddWithValue("@volumeml", NpgsqlDbType.Integer, recipe.VolumeML);
+            cmd.Parameters.AddWithValue("@volumeml", NpgsqlDbType.Integer, recipe.VolumeMl);
             cmd.Parameters.AddWithValue("@id", NpgsqlDbType.Integer, recipe.Id);
 
             return UpdateData(conn, cmd);
