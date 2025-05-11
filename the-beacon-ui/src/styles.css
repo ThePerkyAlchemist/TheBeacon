@@ -1,18 +1,120 @@
+/* Root */
 html, body {
-    height: 100%;
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color: #000000;
-    color: #e0e0e0;
-  }
-  
-  /* Ensure Angular Material surfaces use dark theme styling */
-  .mat-app-background, .mat-card, .mat-toolbar, .mat-sidenav, .mat-form-field, .mat-table {
-    background-color: #1e1e1e !important;
-    color: #e0e0e0 !important;
-  }
-  
-  .mat-form-field-appearance-outline .mat-form-field-outline {
-    color: #888;
-  }
-  
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #0d0d0d;
+  color: #f0f0f0;
+}
+
+/* Material component backgrounds */
+.mat-app-background {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+.mat-toolbar {
+  background-color: #1f1f1f;
+  color: #ffffff;
+}
+
+.mat-card {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  border: 1px solid #333;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.5);
+  padding: 16px;
+}
+
+.mat-form-field {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+/* Outline input border */
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #888;
+}
+
+/* Primary accent color for buttons/icons */
+.mat-raised-button.mat-primary,
+.mat-stroked-button.mat-primary {
+  background-color: #e91e63;
+  color: white;
+}
+
+.mat-icon-button {
+  color: #e91e63;
+}
+
+.mat-icon-button:hover {
+  background-color: rgba(233, 30, 99, 0.1);
+}
+
+/* Toolbar */
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 16px;
+  margin-top: 1rem;
+}
+
+/* Create/Edit Form */
+.form-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 16px;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Card layout */
+.recipe-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 0 16px;
+}
+
+.recipe-card {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+}
+
+.ingredient-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.ingredient-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Search field */
+.search-field {
+  width: 250px;
+}
+
+/* Drink profile table spacing */
+.drink-profile-preview {
+  margin: 2rem auto;
+  padding: 16px;
+  max-width: 1000px;
+  background-color: #1b1b1b;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
