@@ -1,0 +1,30 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+    
+  }
+  
+  .login-card {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 32px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    color: #c9d1d9;
+  
+    width: auto;             /* Let it size to content */
+    max-width: 360px;
+    outline: 2px solid #21262d;
+    outline-offset: 12px;
+  }
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* adds space between inputs and button */
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
