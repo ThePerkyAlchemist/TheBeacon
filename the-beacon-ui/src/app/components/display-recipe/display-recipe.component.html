@@ -2,7 +2,7 @@
 <h2>Recipes</h2>
 
 <!-- Toolbar: Create and Search aligned like Stock -->
-<div class="table-toolbar" style="display: flex; justify-content: space-between; align-items: center;">
+<div class="table-toolbar">
   <!-- Create button on the left -->
   <button mat-raised-button color="primary" (click)="startCreating()">Create New Recipe</button>
 
@@ -21,36 +21,26 @@
   <h3>{{ editingRecipe ? 'Edit Recipe' : 'New Recipe' }}</h3>
 
   <form [formGroup]="recipeForm" (ngSubmit)="saveRecipe()">
-    <!-- Name -->
     <div class="form-grid">
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Name</mat-label>
-      <input matInput formControlName="name" />
-      <mat-error *ngIf="recipeForm.get('name')?.hasError('required')">
-        Name is required
-      </mat-error>
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" />
+        <mat-error *ngIf="recipeForm.get('name')?.hasError('required')">Name is required</mat-error>
+      </mat-form-field>
 
-    <!-- Ingredient ID -->
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Ingredient ID</mat-label>
-      <input matInput type="number" formControlName="ingredientId" />
-      <mat-error *ngIf="recipeForm.get('ingredientId')?.hasError('required')">
-        Ingredient ID is required
-      </mat-error>
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Ingredient ID</mat-label>
+        <input matInput type="number" formControlName="ingredientId" />
+        <mat-error *ngIf="recipeForm.get('ingredientId')?.hasError('required')">Ingredient ID is required</mat-error>
+      </mat-form-field>
 
-    <!-- Volume -->
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Volume (ml)</mat-label>
-      <input matInput type="number" formControlName="volumeMl" />
-      <mat-error *ngIf="recipeForm.get('volumeMl')?.hasError('required')">
-        Volume is required
-      </mat-error>
-    </mat-form-field>
-  </div>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Volume (ml)</mat-label>
+        <input matInput type="number" formControlName="volumeMl" />
+        <mat-error *ngIf="recipeForm.get('volumeMl')?.hasError('required')">Volume is required</mat-error>
+      </mat-form-field>
+    </div>
 
-    <!-- Action buttons -->
     <div style="margin-top: 1rem;">
       <button mat-raised-button color="primary" type="submit" [disabled]="recipeForm.invalid">Save</button>
       <button mat-raised-button color="warn" type="button" (click)="cancelForm()">Cancel</button>
@@ -63,10 +53,82 @@
   {{ successMessage }}
 </div>
 
-<!-- Grouped Recipe Table -->
-<h3>Grouped Recipes</h3>
+<!-- Drink Profile Viewer -->
+<div *ngIf="selectedDrinkProfiles.length > 0" class="drink-profile-preview">
+  <h3>Associated Drink Profile(s)</h3>
+
+  <table mat-table [dataSource]="selectedDrinkProfiles" class="mat-elevation-z2 full-width">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+      <mat-cell *matCellDef="let profile">{{ profile.id }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="recipeId">
+      <mat-header-cell *matHeaderCellDef>Recipe ID</mat-header-cell>
+      <mat-cell *matCellDef="let profile">{{ profile.recipeId }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+      <mat-cell *matCellDef="let profile">{{ profile.description }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sweetnessOrFruitiness">
+      <mat-header-cell *matHeaderCellDef>Sweetness</mat-header-cell>
+      <mat-cell *matCellDef="let profile">{{ profile.sweetnessOrFruitiness }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="richness">
+      <mat-header-cell *matHeaderCellDef>Richness</mat-header-cell>
+      <mat-cell *matCellDef="let profile">{{ profile.richness }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="booziness">
+      <mat-header-cell *matHeaderCellDef>Booziness</mat-header-cell>
+      <mat-cell *matCellDef="let profile">{{ profile.booziness }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sourness">
+      <mat-header-cell *matHeaderCellDef>Sourness</mat-header-cell>
+      <mat-cell *matCellDef="let profile">{{ profile.sourness }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="freshness">
+      <mat-header-cell *matHeaderCellDef>Freshness</mat-header-cell>
+      <mat-cell *matCellDef="let profile">{{ profile.freshness }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lightness">
+      <mat-header-cell *matHeaderCellDef>Lightness</mat-header-cell>
+      <mat-cell *matCellDef="let profile">{{ profile.lightness }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="timestamp">
+      <mat-header-cell *matHeaderCellDef>Timestamp</mat-header-cell>
+      <mat-cell *matCellDef="let profile">{{ profile.timestamp }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="[
+      'id', 'recipeId', 'description', 'sweetnessOrFruitiness',
+      'richness', 'booziness', 'sourness', 'freshness',
+      'lightness', 'timestamp'
+    ]"></mat-header-row>
+
+    <mat-row *matRowDef="let row; columns: [
+      'id', 'recipeId', 'description', 'sweetnessOrFruitiness',
+      'richness', 'booziness', 'sourness', 'freshness',
+      'lightness', 'timestamp'
+    ]"></mat-row>
+  </table>
+
+  <button mat-stroked-button color="primary" (click)="selectedDrinkProfiles = []" style="margin-top: 1rem;">
+    Hide Drink Profile(s)
+  </button>
+</div>
+<!-- Grouped Recipes Card Layout -->
+
 <div class="recipe-card-list">
-  <mat-card *ngFor="let recipe of groupedRecipes" class="recipe-card">
+  <mat-card *ngFor="let recipe of paginatedRecipes" class="recipe-card">
     <mat-card-title>{{ recipe.name }}</mat-card-title>
     <mat-card-content>
       <ul>
@@ -89,8 +151,14 @@
   </mat-card>
 </div>
 
-<!-- Paginator -->
-<mat-paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page">
+<!-- Paginator (Manual) -->
+<mat-paginator
+  [length]="filteredGroupedRecipes.length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 20]"
+  (page)="onPageChange($event)"
+  showFirstLastButtons
+  aria-label="Select page">
 </mat-paginator>
 
 <!-- Drink Profile Viewer -->

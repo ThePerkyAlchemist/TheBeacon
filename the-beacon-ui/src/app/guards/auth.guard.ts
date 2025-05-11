@@ -7,6 +7,6 @@ export const canActivateGuard: CanActivateFn = () => {
   }
 
   const token = localStorage.getItem('headerValue');
-  console.log('AuthGuard check:', token);
+  //console.log('AuthGuard check:', token);
   return !!token;
 };
