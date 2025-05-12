@@ -9,8 +9,8 @@ namespace TheBeaconCocktails.API.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-        private const string USERNAME = "john.doe";
-        private const string PASSWORD = "VerySecret!";
+        private const string USERNAME = "thebeacon.admin";
+        private const string PASSWORD = "Youshallpass!";
 
         [AllowAnonymous]
         [HttpPost]
