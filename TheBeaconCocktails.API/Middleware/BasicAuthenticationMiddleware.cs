@@ -4,8 +4,8 @@ namespace TheBeaconCocktails.API.Middleware;
 public class BasicAuthenticationMiddleware
 {
     // Ideally, we would want to verfy them against a database
-    private const string USERNAME = "john.doe";
-    private const string PASSWORD = "VerySecret!";
+    private const string USERNAME = "thebeacon.admin";
+    private const string PASSWORD = "Youshallpass!";
     private readonly RequestDelegate _next;
     public BasicAuthenticationMiddleware(RequestDelegate next)
     {

@@ -20,6 +20,7 @@ describe('AuthService', () => {
     httpMock.verify();
   });
 
+  //Testing if authentication work
   it('should return header', (done) => {
     const mockResponse = { headerValue: 'Basic am9obi5kb2U6VmVyeVNlY3JldCE=' };
 
@@ -31,8 +32,8 @@ describe('AuthService', () => {
     const req = httpMock.expectOne('/api/login');
     expect(req.request.method).toBe('POST');
     expect(req.request.body).toEqual({
-      username: 'john.doe',
-      password: 'VerySecret!'
+      username: 'thebeacon.admin',
+      password: 'Youshallpass!'
     });
 
     req.flush(mockResponse);
