@@ -7,7 +7,7 @@ import { Stock } from '../model/stock';
   providedIn: 'root'
 })
 export class StockService {
-  private baseUrl = 'http://localhost:5146/api/stock'; // Justér hvis din endpoint er anderledes
+  private baseUrl = 'http://localhost:5146/api/stock';
 
   constructor(private http: HttpClient) {}
 

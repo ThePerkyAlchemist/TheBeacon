@@ -37,13 +37,13 @@ export class LoginComponent {
   }
 
   login() {
-    //console.log('Login submitted:', this.username, this.password);
+  
     if (this.username && this.password) {
       this.auth.authenticate(this.username, this.password).subscribe({
         next: (response) => {
-         // console.log(' Login successful:', response);
+         // Stores the header in localStorage and navigates to /recipes:
           localStorage.setItem('headerValue', response.headerValue);
-          this.router.navigate(['/recipes']); 
+          this.router.navigate(['/recipes']);
         },
         error: () => {
           this.authenticated = false;

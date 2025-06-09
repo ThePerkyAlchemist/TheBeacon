@@ -2,6 +2,8 @@ namespace TheBeaconCocktails.API.Middleware;
 
 public class AuthenticationHelper
 {
+    //Basic authentication
+    //Method for encryption/encoding
     public static string Encrypt(string username, string password)
     {
         string credentials = $"{username}:{password}";
@@ -10,6 +12,7 @@ public class AuthenticationHelper
         return $"Basic {encryptedCredentials}";
     }
 
+    //Method decryption/decoding
     public static void Decrypt(string encryptedHeader, out string username, out string password)
     {
         var auth = encryptedHeader.Split(' ')[1];

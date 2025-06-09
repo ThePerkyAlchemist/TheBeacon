@@ -43,8 +43,8 @@ export class DisplayStockListComponent implements OnInit, AfterViewInit {
   // Table data source and displayed columns
   dataSource = new MatTableDataSource<Stock>();
   displayedColumns: string[] = [
-    'name', 'category', 'subcategory', 'volumePerUnit', 'numberOfUnits',
-    'status', 'barcodeString', 'dateOfExpiry', 'actions'
+    'name', 'category', 'subCategory', 'volumePerUnit', 'numberOfUnits',
+    'status', 'barCodeString', 'dateOfExpiry', 'actions'
   ];
 
   // Table sorting and pagination
@@ -85,11 +85,11 @@ export class DisplayStockListComponent implements OnInit, AfterViewInit {
     this.stockForm = this.fb.group({
       name: ['', Validators.required],
       category: ['', Validators.required],
-      subcategory: ['', Validators.required],
+      subCategory: ['', Validators.required],
       volumePerUnit: [0, Validators.min(1)],
       numberOfUnits: [0, Validators.min(1)],
       status: ['', Validators.required],
-      barcodeString: [''],
+      barCodeString: [''],
       dateOfExpiry: ['']
     });
   }

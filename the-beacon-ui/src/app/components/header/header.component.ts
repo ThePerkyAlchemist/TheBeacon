@@ -10,11 +10,13 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
 export class HeaderComponent {
   constructor(private router: Router) {}
 
   logout(): void {
-    localStorage.removeItem('headerValue');
-    this.router.navigate(['/login']);
+    //removing the headervalue and navigates to login page:
+    localStorage.removeItem('headerValue'); //clears the session
+    this.router.navigate(['/login']); //routes the user to login screen
   }
 }

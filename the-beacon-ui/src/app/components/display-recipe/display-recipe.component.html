@@ -16,7 +16,7 @@
   </div>
 </div>
 
-<!-- Form Section: Create or Edit Recipe -->
+<!-- CREATE / EDIT FORM (shows only when showForm=true) -->
 <div *ngIf="showForm" class="form-container">
   <h3>{{ editingRecipe ? 'Edit Recipe' : 'New Recipe' }}</h3>
 
@@ -53,7 +53,7 @@
   {{ successMessage }}
 </div>
 
-<!-- Drink Profile Viewer -->
+<!-- DRINK-PROFILE TABLE (shown after “View Drink Profile”) -->
 <div *ngIf="selectedDrinkProfiles.length > 0" class="drink-profile-preview">
   <h3>Associated Drink Profile(s)</h3>
 
@@ -120,18 +120,25 @@
       'lightness', 'timestamp'
     ]"></mat-row>
   </table>
-
+ <!-- Collapse viewer -->
   <button mat-stroked-button color="primary" (click)="selectedDrinkProfiles = []" style="margin-top: 1rem;">
     Hide Drink Profile(s)
   </button>
 </div>
-<!-- Grouped Recipes Card Layout -->
 
+<!-- Grouped Recipes Card Layout -->
 <div class="recipe-card-list">
+  <!-- One card per *group* (recipe name) -->
   <mat-card *ngFor="let recipe of paginatedRecipes" class="recipe-card">
-    <mat-card-title>{{ recipe.name }}</mat-card-title>
+
+<mat-card-title>
+  {{ recipe.name }}
+  <span style="font-size: 0.8em; opacity: .7;">(Recipe id: {{ recipe.recipeId }})</span>
+</mat-card-title>
+
     <mat-card-content>
       <ul>
+        <!-- One <li> per ingredient in the group -->
         <li *ngFor="let ing of recipe.ingredients" class="ingredient-row">
           <span>{{ ing.ingredientName }} – {{ ing.volumeMl }} ml</span>
           <span class="ingredient-actions">
@@ -141,10 +148,11 @@
             <button mat-icon-button color="warn" (click)="deleteRecipe(ing.id)">
               <mat-icon>delete</mat-icon>
             </button>
-          </span>
+          </span> 
         </li>
       </ul>
     </mat-card-content>
+    <!-- “View Drink Profile” button -->
     <mat-card-actions>
       <button mat-button color="primary" (click)="viewDrinkProfile(recipe.recipeId)">View Drink Profile</button>
     </mat-card-actions>
@@ -160,76 +168,3 @@
   showFirstLastButtons
   aria-label="Select page">
 </mat-paginator>
-
-<!-- Drink Profile Viewer -->
-<div *ngIf="selectedDrinkProfiles.length > 0" class="drink-profile-preview">
-  <h3>Associated Drink Profile(s)</h3>
-
-  <table mat-table [dataSource]="selectedDrinkProfiles" class="mat-elevation-z2 full-width">
-    <ng-container matColumnDef="id">
-      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
-      <mat-cell *matCellDef="let profile">{{ profile.id }}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="recipeId">
-      <mat-header-cell *matHeaderCellDef>Recipe ID</mat-header-cell>
-      <mat-cell *matCellDef="let profile">{{ profile.recipeId }}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="description">
-      <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
-      <mat-cell *matCellDef="let profile">{{ profile.description }}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="sweetnessOrFruitiness">
-      <mat-header-cell *matHeaderCellDef>Sweetness</mat-header-cell>
-      <mat-cell *matCellDef="let profile">{{ profile.sweetnessOrFruitiness }}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="richness">
-      <mat-header-cell *matHeaderCellDef>Richness</mat-header-cell>
-      <mat-cell *matCellDef="let profile">{{ profile.richness }}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="booziness">
-      <mat-header-cell *matHeaderCellDef>Booziness</mat-header-cell>
-      <mat-cell *matCellDef="let profile">{{ profile.booziness }}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="sourness">
-      <mat-header-cell *matHeaderCellDef>Sourness</mat-header-cell>
-      <mat-cell *matCellDef="let profile">{{ profile.sourness }}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="freshness">
-      <mat-header-cell *matHeaderCellDef>Freshness</mat-header-cell>
-      <mat-cell *matCellDef="let profile">{{ profile.freshness }}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="lightness">
-      <mat-header-cell *matHeaderCellDef>Lightness</mat-header-cell>
-      <mat-cell *matCellDef="let profile">{{ profile.lightness }}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="timestamp">
-      <mat-header-cell *matHeaderCellDef>Timestamp</mat-header-cell>
-      <mat-cell *matCellDef="let profile">{{ profile.timestamp }}</mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="[
-      'id', 'recipeId', 'description', 'sweetnessOrFruitiness',
-      'richness', 'booziness', 'sourness', 'freshness',
-      'lightness', 'timestamp'
-    ]"></mat-header-row>
-
-    <mat-row *matRowDef="let row; columns: [
-      'id', 'recipeId', 'description', 'sweetnessOrFruitiness',
-      'richness', 'booziness', 'sourness', 'freshness',
-      'lightness', 'timestamp'
-    ]"></mat-row>
-  </table>
-
-  <button mat-stroked-button color="primary" (click)="selectedDrinkProfiles = []" style="margin-top: 1rem;">
-    Hide Drink Profile(s)
-  </button>
-</div>

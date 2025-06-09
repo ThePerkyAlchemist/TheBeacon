@@ -68,11 +68,18 @@
 </div>
 
 <!-- Ingredient table displaying the list with sorting enabled -->
-<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 ingredient-table">
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 ingredient-table"> <!--Binds table to data and enables mat sort header-->
+  
   <!-- Name column with sorting -->
-  <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
-    <mat-cell *matCellDef="let item">{{ item.name }}</mat-cell>
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.id }}</mat-cell> <!--declares var. item representing each row + display item-->
+  </ng-container>
+
+  <!-- Name column with sorting -->
+  <ng-container matColumnDef="name"> <!--decalres value "name" matching value in displayColumns-->
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell> <!--templte for header row content + sortable function + text shown to user-->
+    <mat-cell *matCellDef="let item">{{ item.name }}</mat-cell> <!--declares var. item representing each row + display item-->
   </ng-container>
 
   <!-- Category column with sorting -->
@@ -103,6 +110,7 @@
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
     <mat-cell *matCellDef="let item">
+      
       <!-- Edit button -->
       <button mat-icon-button color="accent" (click)="startEditing(item)">
         <mat-icon>edit</mat-icon>
@@ -115,9 +123,9 @@
     </mat-cell>
   </ng-container>
 
-  <!-- Render header and data rows -->
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  <!-- Render header and data rows - the structure of the table -->
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row> <!--Creates one row at the top of table with labels for each column-->
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> <!--creates a row for each item (ingredient) + bind an item for each row-->
 </table>
 
 <!-- Pagination control below the table -->

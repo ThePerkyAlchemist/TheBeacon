@@ -7,7 +7,7 @@ import { Ingredient } from '../model/ingredient';
   providedIn: 'root'
 })
 export class IngredientService {
-  private apiUrl = 'http://localhost:5146/api/ingredient'; // TODO: move to environment.ts
+  private apiUrl = 'http://localhost:5146/api/ingredient'; //cant be authenticated without postman
 
   constructor(private http: HttpClient) {}
 

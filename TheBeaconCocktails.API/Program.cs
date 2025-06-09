@@ -16,8 +16,7 @@ builder.Services.AddCors(options =>
               .AllowAnyMethod()
               .AllowAnyHeader());
 });
-
-// <--- Registrér LiquidIngredientRepository i DI-containeren
+//registering the repositories in the Dependency injection -container
 builder.Services.AddScoped<IngredientRepository>();
 builder.Services.AddScoped<RecipeRepository>();
 builder.Services.AddScoped<StockRepository>();

@@ -2,7 +2,7 @@
 <h2>Drink Profiles</h2>
 
 <!-- Toolbar with Create and Search -->
-<div class="table-toolbar" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+<div class="table-toolbar">
   <!-- Left-aligned create button -->
   <button mat-raised-button color="primary" (click)="startCreating()">
     Create New Drink Profile
@@ -139,9 +139,6 @@
 </div>
 
 <!-- Table Section -->
-<div style="margin-top: 30px;">
-  <h3>Drink Profile List</h3>
-
   <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
     <!-- Define columns -->
@@ -210,5 +207,4 @@
     showFirstLastButtons
     aria-label="Select page">
   </mat-paginator>
-</div>
 

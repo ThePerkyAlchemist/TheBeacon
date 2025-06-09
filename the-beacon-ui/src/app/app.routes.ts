@@ -7,15 +7,15 @@ import { DisplayStockListComponent } from './components/display-stock-list/displ
 import { DisplayDrinkProfileComponent } from './components/display-drinkprofile/display-drinkprofile.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' }, //redirects to /login if user enters base URL (completely empty)
   { path: 'login', component: LoginComponent },
 
   // Protected views
-  { path: 'recipes', component: DisplayRecipeComponent, canActivate: [canActivateGuard] },
+  { path: 'recipes', component: DisplayRecipeComponent, canActivate: [canActivateGuard] }, //secured by canActivateGuard
   { path: 'ingredients', component: DisplayIngredientComponent, canActivate: [canActivateGuard] },
   { path: 'stock', component: DisplayStockListComponent, canActivate: [canActivateGuard] },
   { path: 'drinkprofiles', component: DisplayDrinkProfileComponent, canActivate: [canActivateGuard] },
 
-  // Catch-all
-  { path: '**', redirectTo: 'login' }
+  // wildcard: Catch-all
+  { path: '**', redirectTo: 'login' } //redirects to /login if user enters anything but the above
 ];

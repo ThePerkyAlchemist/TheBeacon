@@ -22,12 +22,12 @@ import { IngredientService } from '../../services/ingredient.service';
 import { Ingredient } from '../../model/ingredient';
 
 @Component({
-  selector: 'app-display-ingredient',
-  templateUrl: './display-ingredient.component.html',
-  styleUrls: ['./display-ingredient.component.css'],
+  selector: 'app-display-ingredient', //custom html name-tag to be used anywhere in the app
+  templateUrl: './display-ingredient.component.html', //where to find the components html
+  styleUrls: ['./display-ingredient.component.css'], //where to find the components css
 
   // Declare the component as standalone and import all necessary modules
-  standalone: true,
+  standalone: true, //manages own dependencies and doensnt rely on parent
   imports: [
     CommonModule,            // For Angular structural directives (*ngIf, etc.)
     ReactiveFormsModule,     // For form handling
@@ -40,13 +40,14 @@ import { Ingredient } from '../../model/ingredient';
     MatButtonModule          // For <button mat-raised-button>
   ]
 })
+//defining the component class:
 export class DisplayIngredientComponent implements OnInit, AfterViewInit {
 
-  // Column names for the material table
-  displayedColumns: string[] = ['name', 'category', 'subCategory', 'barCodeString', 'alcPercentage', 'actions'];
+  // Column names for the material table + the order it is shown
+  displayedColumns: string[] = ['id','name', 'category', 'subCategory', 'barCodeString', 'alcPercentage', 'actions'];
 
   // Data source for the table
-  dataSource = new MatTableDataSource<Ingredient>();
+  dataSource = new MatTableDataSource<Ingredient>(); //holds the ingredient data
 
   // Paginator reference for Angular Material table
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -59,17 +60,17 @@ export class DisplayIngredientComponent implements OnInit, AfterViewInit {
   showForm = false;
 
   // Holds the ingredient being edited (null if creating a new one)
-  editingIngredient: Ingredient | null = null;
+  editingIngredient: Ingredient | null = null; //stores the ingredient being edited
 
   constructor(
-    private ingredientService: IngredientService, // Service for backend interaction
+    private ingredientService: IngredientService, // Service for backend interaction - talks to the backend through service
     private fb: FormBuilder                       // Used to build the form structure
   ) {}
 
   // Lifecycle hook: initialize form and load data
   ngOnInit(): void {
-    this.initForm();
-    this.loadIngredients();
+    this.initForm();          //build the form
+    this.loadIngredients();   //get data from backend
   }
 
   // Lifecycle hook: set up table paginator after view loads + assign sort
@@ -78,7 +79,7 @@ export class DisplayIngredientComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort; // <-- Assign sort
   }
 
-  // Initializes the reactive form with controls and validation rules
+  // Initializes the reactive form with controls and validation rules eg. alc percentage
   initForm(): void {
     this.ingredientForm = this.fb.group({
       name: ['', Validators.required],
@@ -89,34 +90,35 @@ export class DisplayIngredientComponent implements OnInit, AfterViewInit {
     });
   }
 
-  // Getter shortcuts to access form controls in the template
+  // Getter shortcuts (e.g. instead of writing ingredientForm.get(name) we can write nameControl):
+  get idControl() { return this.ingredientForm.get('id'); }
   get nameControl() { return this.ingredientForm.get('name'); }
   get categoryControl() { return this.ingredientForm.get('category'); }
   get subCategoryControl() { return this.ingredientForm.get('subCategory'); }
   get barCodeStringControl() { return this.ingredientForm.get('barCodeString'); }
   get alcPercentageControl() { return this.ingredientForm.get('alcPercentage'); }
 
-  // Loads the list of ingredients from the backend
+  // Loads the list of ingredients from the backend via services
   loadIngredients(): void {
     this.ingredientService.getIngredients().subscribe({
-      next: (data) => this.dataSource.data = data,
+      next: (data) => this.dataSource.data = data,  //if succesfull data is inserted into the datasource
       error: (err) => console.error('Error loading ingredients', err)
     });
   }
 
   // Filters the ingredient table based on search input
   applyFilter(filterValue: string): void {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.dataSource.filter = filterValue.trim().toLowerCase(); //trim removing spaces and toLowerCase makes searching case-insentitive
   }
 
   // Prepares the form for creating a new ingredient
   startCreating(): void {
-    this.ingredientForm.reset();
-    this.editingIngredient = null;
-    this.showForm = true;
+    this.ingredientForm.reset(); //reset - clean empty form
+    this.editingIngredient = null; //not editing, thus creating
+    this.showForm = true; //show the form on the screen
   }
 
-  // Pre-fills the form with data from the selected ingredient to edit
+  // Showing the form and pre-fills it with data from the selected ingredient to edit
   startEditing(ingredient: Ingredient): void {
     this.editingIngredient = ingredient;
     this.ingredientForm.patchValue(ingredient);
@@ -125,21 +127,21 @@ export class DisplayIngredientComponent implements OnInit, AfterViewInit {
 
   // Cancels the form and resets the state
   cancelForm(): void {
-    this.showForm = false;
-    this.editingIngredient = null;
-    this.ingredientForm.reset();
+    this.showForm = false; //closing the form
+    this.editingIngredient = null; //not editing
+    this.ingredientForm.reset(); //resetting the form for next time
   }
 
   // Saves the form: determines if this is an edit or create operation
   saveIngredient(): void {
-    if (this.ingredientForm.invalid) return;
+    if (this.ingredientForm.invalid) return; //does nothing if form is not valid
 
     const formValue = this.ingredientForm.value;
 
     if (this.editingIngredient) {
       // Update existing ingredient
       const updated: Ingredient = { ...formValue, id: this.editingIngredient.id };
-      this.ingredientService.updateIngredient(updated).subscribe({
+      this.ingredientService.updateIngredient(updated).subscribe({ //calls backend to update the ingredient
         next: () => {
           this.loadIngredients();
           this.cancelForm();
@@ -147,7 +149,7 @@ export class DisplayIngredientComponent implements OnInit, AfterViewInit {
         error: (err) => console.error('Update failed', err)
       });
     } else {
-      // Create new ingredient
+      // Create new ingredient - load updated ingredient list - and cancel form
       this.ingredientService.createIngredient(formValue).subscribe({
         next: () => {
           this.loadIngredients();
@@ -162,7 +164,7 @@ export class DisplayIngredientComponent implements OnInit, AfterViewInit {
   deleteIngredient(id: number): void {
     if (!confirm('Are you sure you want to delete this ingredient?')) return;
 
-    this.ingredientService.deleteIngredient(id).subscribe({
+    this.ingredientService.deleteIngredient(id).subscribe({ //if confirmed by user, call backend and delete ingredient via services
       next: () => this.loadIngredients(),
       error: (err) => console.error('Delete failed', err)
     });

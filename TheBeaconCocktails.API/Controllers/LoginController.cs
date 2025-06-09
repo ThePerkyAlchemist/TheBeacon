@@ -1,5 +1,5 @@
 using TheBeaconCocktails.API.Model;
-using TheBeaconCocktails.API.Middleware; //  add this
+using TheBeaconCocktails.API.Middleware; 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
